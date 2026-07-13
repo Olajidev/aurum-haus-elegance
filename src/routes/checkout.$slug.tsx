@@ -1,8 +1,10 @@
 import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getProduct } from "@/lib/products";
+import { createReservation } from "@/lib/reservations.functions";
 
 export const Route = createFileRoute("/checkout/$slug")({
   loader: ({ params }) => {
@@ -37,21 +39,44 @@ export const Route = createFileRoute("/checkout/$slug")({
 function CheckoutPage() {
   const { product } = Route.useLoaderData();
   const navigate = useNavigate();
+  const reserve = useServerFn(createReservation);
   const [processing, setProcessing] = useState<null | "apple" | "paypal">(null);
   const [confirmed, setConfirmed] = useState(false);
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   const shipping = 0;
   const tax = Math.round(product.priceValue * 0.1);
   const total = product.priceValue + shipping + tax;
 
-  const handlePay = (method: "apple" | "paypal") => {
+  const handlePay = async (method: "apple" | "paypal") => {
+    setError(null);
+    if (!fullName.trim() || !email.trim()) {
+      setError("Please enter your name and email to reserve your piece.");
+      return;
+    }
     setProcessing(method);
-    // Dummy payment flow — real Apple Pay / PayPal API to be wired in later.
-    setTimeout(() => {
-      setProcessing(null);
+    try {
+      await reserve({
+        data: {
+          productSlug: product.slug,
+          productName: product.name,
+          fullName: fullName.trim(),
+          email: email.trim(),
+          pricePaid: total,
+        },
+      });
       setConfirmed(true);
-    }, 1400);
+    } catch (e) {
+      setError(
+        e instanceof Error ? e.message : "Something went wrong. Please try again."
+      );
+    } finally {
+      setProcessing(null);
+    }
   };
+
 
   if (confirmed) {
     return (
@@ -98,7 +123,39 @@ function CheckoutPage() {
             <p className="eyebrow text-accent mb-4">Checkout</p>
             <h1 className="font-display text-4xl md:text-5xl mb-10">Secure payment</h1>
 
+            <div className="space-y-4 mb-8">
+              <div>
+                <label htmlFor="fullName" className="eyebrow text-muted-foreground block mb-2">Full name</label>
+                <input
+                  id="fullName"
+                  type="text"
+                  autoComplete="name"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  placeholder="Your name"
+                  className="w-full bg-transparent border border-border px-4 py-3 font-light focus:outline-none focus:border-foreground transition-colors"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="eyebrow text-muted-foreground block mb-2">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@example.com"
+                  className="w-full bg-transparent border border-border px-4 py-3 font-light focus:outline-none focus:border-foreground transition-colors"
+                />
+              </div>
+            </div>
+
+            {error && (
+              <p className="mb-4 text-sm text-destructive" role="alert">{error}</p>
+            )}
+
             <div className="space-y-4">
+
               <button
                 disabled={processing !== null}
                 onClick={() => handlePay("apple")}
