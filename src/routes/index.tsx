@@ -11,7 +11,7 @@ import promenadeTrio from "@/assets/promenade-trio.jpeg.asset.json";
 import heirloomWarm from "@/assets/heirloom-warm.png.asset.json";
 import packagingImg from "@/assets/aurum-packaging.jpg.asset.json";
 import heroCafe from "@/assets/hero-cafe.png.asset.json";
-import himCafe from "@/assets/him-cafe.jpeg.asset.json";
+import himCafe from "@/assets/him-cafe-new.png.asset.json";
 import cafeLifestyle from "@/assets/cafe-lifestyle.png.asset.json";
 
 
