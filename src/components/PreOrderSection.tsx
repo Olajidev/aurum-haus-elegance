@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
+import preorderProduct from "@/assets/preorder-product.jpeg.asset.json";
+
 
 // Launch target: second week of August 2026 (Friday, Aug 14, 2026 at 09:00 UTC)
 export const LAUNCH_DATE = new Date("2026-08-14T09:00:00Z");
@@ -36,25 +38,38 @@ export function PreOrderSection({ variant = "light" }: { variant?: "light" | "da
 
   return (
     <section className={bg}>
-      <div className="mx-auto max-w-[1500px] px-6 lg:px-12 py-16 lg:py-20 text-center">
-        <p className="eyebrow text-accent mb-4">Pre-Order · Before Launch</p>
-        <h2 className="font-display text-3xl md:text-4xl leading-tight max-w-2xl mx-auto">
-          Ships the second week of <em className="italic font-light">August.</em>
-        </h2>
+      <div className="mx-auto max-w-[1500px] px-6 lg:px-12 py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        {/* Left — pre-order contents */}
+        <div>
+          <p className="eyebrow text-accent mb-4">Pre-Order · Before Launch</p>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-tight max-w-xl">
+            Ships the second week of <em className="italic font-light">August.</em>
+          </h2>
 
-        <div className="mt-10 flex justify-center gap-3 md:gap-6" aria-live="polite">
-          <Unit value={ready ? days : 0} label="Days" />
-          <Unit value={ready ? hours : 0} label="Hours" />
-          <Unit value={ready ? minutes : 0} label="Minutes" />
-          <Unit value={ready ? seconds : 0} label="Seconds" />
+          <div className="mt-10 flex gap-3 md:gap-6" aria-live="polite">
+            <Unit value={ready ? days : 0} label="Days" />
+            <Unit value={ready ? hours : 0} label="Hours" />
+            <Unit value={ready ? minutes : 0} label="Minutes" />
+            <Unit value={ready ? seconds : 0} label="Seconds" />
+          </div>
+
+          <div className="mt-10">
+            <Link to="/pre-order" className="inline-block px-8 py-4 bg-foreground text-background hover:bg-accent hover:text-foreground transition-colors eyebrow">
+              Reserve Your Collection
+            </Link>
+          </div>
         </div>
 
-        <div className="mt-10">
-          <Link to="/pre-order" className="inline-block px-8 py-4 bg-foreground text-background hover:bg-accent hover:text-foreground transition-colors eyebrow">
-            Reserve Your Collection
-          </Link>
+        {/* Right — product image */}
+        <div className="relative aspect-[4/5] lg:aspect-[4/5] overflow-hidden order-first lg:order-last">
+          <img
+            src={preorderProduct.url}
+            alt="Aurum Haus bag holder in use — hand-finished antique gold"
+            className="w-full h-full object-cover"
+          />
         </div>
       </div>
     </section>
   );
 }
+
