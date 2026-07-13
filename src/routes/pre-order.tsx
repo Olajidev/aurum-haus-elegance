@@ -32,7 +32,7 @@ function PreOrderPage() {
         </p>
       </section>
 
-      <PreOrderSection variant="dark" />
+      <PreOrderSection />
 
       <section className="mx-auto max-w-[1500px] px-6 lg:px-12 py-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
