@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import preorderProduct from "@/assets/preorder-product.jpeg.asset.json";
 
-
 // Launch target: second week of August 2026 (Friday, Aug 14, 2026 at 09:00 UTC)
 export const LAUNCH_DATE = new Date("2026-08-14T09:00:00Z");
 
@@ -32,19 +31,25 @@ function Unit({ value, label }: { value: number; label: string }) {
   );
 }
 
-export function PreOrderSection({ variant = "light" }: { variant?: "light" | "dark" }) {
+export function PreOrderSection() {
   const { days, hours, minutes, seconds, ready } = useCountdown(LAUNCH_DATE);
-  const bg = variant === "dark" ? "bg-primary text-primary-foreground" : "bg-secondary text-foreground";
 
   return (
-    <section className={bg}>
-      <div className="mx-auto max-w-[1500px] px-6 lg:px-12 py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        {/* Left — pre-order contents */}
-        <div>
-          <p className="eyebrow text-accent mb-4">Pre-Order · Before Launch</p>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-tight max-w-xl">
-            Ships the second week of <em className="italic font-light">August.</em>
+    <section className="bg-accent text-accent-foreground">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
+        {/* Left — pre-order details */}
+        <div className="order-last lg:order-first flex flex-col justify-center px-6 sm:px-10 lg:px-16 xl:px-24 py-16 lg:py-24">
+          <p className="eyebrow mb-6 opacity-70">Pre-Order · Before Launch</p>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] max-w-xl">
+            A quieter piece,
+            <br />
+            <em className="italic font-light">reserved for you.</em>
           </h2>
+
+          <p className="mt-8 max-w-md text-base md:text-lg leading-relaxed opacity-80">
+            The same 113g of hand-finished brass, ready to ship the second week of
+            August. Secure yours before the launch and skip the queue.
+          </p>
 
           <div className="mt-10 flex gap-3 md:gap-6" aria-live="polite">
             <Unit value={ready ? days : 0} label="Days" />
@@ -53,23 +58,26 @@ export function PreOrderSection({ variant = "light" }: { variant?: "light" | "da
             <Unit value={ready ? seconds : 0} label="Seconds" />
           </div>
 
-          <div className="mt-10">
-            <Link to="/pre-order" className="inline-block px-8 py-4 bg-foreground text-background hover:bg-accent hover:text-foreground transition-colors eyebrow">
+          <div className="mt-12">
+            <Link
+              to="/pre-order"
+              className="eyebrow inline-flex items-center gap-3 border-b border-current pb-2 hover:opacity-70 transition-opacity"
+            >
               Reserve Your Collection
+              <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
 
         {/* Right — product image */}
-        <div className="relative aspect-[4/5] lg:aspect-[4/5] overflow-hidden order-first lg:order-last">
+        <div className="order-first lg:order-last relative min-h-[60vh] lg:min-h-[80vh] overflow-hidden">
           <img
             src={preorderProduct.url}
             alt="Aurum Haus bag holder in use — hand-finished antique gold"
-            className="w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
       </div>
     </section>
   );
 }
-
