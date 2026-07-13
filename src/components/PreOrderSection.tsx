@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
+import preorderProduct from "@/assets/preorder-product.jpeg.asset.json";
+
 
 // Launch target: second week of August 2026 (Friday, Aug 14, 2026 at 09:00 UTC)
 export const LAUNCH_DATE = new Date("2026-08-14T09:00:00Z");
