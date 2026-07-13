@@ -1,8 +1,10 @@
 import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getProduct } from "@/lib/products";
+import { createReservation } from "@/lib/reservations.functions";
 
 export const Route = createFileRoute("/checkout/$slug")({
   loader: ({ params }) => {
@@ -37,21 +39,44 @@ export const Route = createFileRoute("/checkout/$slug")({
 function CheckoutPage() {
   const { product } = Route.useLoaderData();
   const navigate = useNavigate();
+  const reserve = useServerFn(createReservation);
   const [processing, setProcessing] = useState<null | "apple" | "paypal">(null);
   const [confirmed, setConfirmed] = useState(false);
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   const shipping = 0;
   const tax = Math.round(product.priceValue * 0.1);
   const total = product.priceValue + shipping + tax;
 
-  const handlePay = (method: "apple" | "paypal") => {
+  const handlePay = async (method: "apple" | "paypal") => {
+    setError(null);
+    if (!fullName.trim() || !email.trim()) {
+      setError("Please enter your name and email to reserve your piece.");
+      return;
+    }
     setProcessing(method);
-    // Dummy payment flow — real Apple Pay / PayPal API to be wired in later.
-    setTimeout(() => {
-      setProcessing(null);
+    try {
+      await reserve({
+        data: {
+          productSlug: product.slug,
+          productName: product.name,
+          fullName: fullName.trim(),
+          email: email.trim(),
+          pricePaid: total,
+        },
+      });
       setConfirmed(true);
-    }, 1400);
+    } catch (e) {
+      setError(
+        e instanceof Error ? e.message : "Something went wrong. Please try again."
+      );
+    } finally {
+      setProcessing(null);
+    }
   };
+
 
   if (confirmed) {
     return (
