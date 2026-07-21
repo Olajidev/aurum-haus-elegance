@@ -23,6 +23,7 @@ import { Route as ClientCareRouteImport } from './routes/client-care'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 import { Route as CheckoutSlugRouteImport } from './routes/checkout.$slug'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
 
 const StoryRoute = StoryRouteImport.update({
   id: '/story',
@@ -94,6 +95,11 @@ const CheckoutSlugRoute = CheckoutSlugRouteImport.update({
   path: '/checkout/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -108,6 +114,7 @@ export interface FileRoutesByFullPath {
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/story': typeof StoryRoute
+  '/api/chat': typeof ApiChatRoute
   '/checkout/$slug': typeof CheckoutSlugRoute
   '/product/$slug': typeof ProductSlugRoute
 }
@@ -124,6 +131,7 @@ export interface FileRoutesByTo {
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/story': typeof StoryRoute
+  '/api/chat': typeof ApiChatRoute
   '/checkout/$slug': typeof CheckoutSlugRoute
   '/product/$slug': typeof ProductSlugRoute
 }
@@ -141,6 +149,7 @@ export interface FileRoutesById {
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/story': typeof StoryRoute
+  '/api/chat': typeof ApiChatRoute
   '/checkout/$slug': typeof CheckoutSlugRoute
   '/product/$slug': typeof ProductSlugRoute
 }
@@ -159,6 +168,7 @@ export interface FileRouteTypes {
     | '/shop'
     | '/sitemap.xml'
     | '/story'
+    | '/api/chat'
     | '/checkout/$slug'
     | '/product/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -175,6 +185,7 @@ export interface FileRouteTypes {
     | '/shop'
     | '/sitemap.xml'
     | '/story'
+    | '/api/chat'
     | '/checkout/$slug'
     | '/product/$slug'
   id:
@@ -191,6 +202,7 @@ export interface FileRouteTypes {
     | '/shop'
     | '/sitemap.xml'
     | '/story'
+    | '/api/chat'
     | '/checkout/$slug'
     | '/product/$slug'
   fileRoutesById: FileRoutesById
@@ -208,6 +220,7 @@ export interface RootRouteChildren {
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StoryRoute: typeof StoryRoute
+  ApiChatRoute: typeof ApiChatRoute
   CheckoutSlugRoute: typeof CheckoutSlugRoute
   ProductSlugRoute: typeof ProductSlugRoute
 }
@@ -312,6 +325,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CheckoutSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -328,6 +348,7 @@ const rootRouteChildren: RootRouteChildren = {
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   StoryRoute: StoryRoute,
+  ApiChatRoute: ApiChatRoute,
   CheckoutSlugRoute: CheckoutSlugRoute,
   ProductSlugRoute: ProductSlugRoute,
 }
