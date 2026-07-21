@@ -6,6 +6,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { PreOrderSection } from "@/components/PreOrderSection";
 import { FAQSection } from "@/components/FAQSection";
 import { ConciergeChat } from "@/components/ConciergeChat";
+import { HeroSlideshow } from "@/components/HeroSlideshow";
 
 import pieceSaintLaurent from "@/assets/piece-saintlaurent.jpg.asset.json";
 import promenadeChrome from "@/assets/promenade-black.jpeg.asset.json";
@@ -15,6 +16,8 @@ import packagingImg from "@/assets/aurum-packaging.jpg.asset.json";
 import heroCafe from "@/assets/hero-cafe.png.asset.json";
 import himCafe from "@/assets/him-cafe-new.png.asset.json";
 import cafeLifestyle from "@/assets/cafe-lifestyle.png.asset.json";
+import slideBagRestaurant from "@/assets/slideshow-bag-restaurant.png.asset.json";
+import slideHimOutdoor from "@/assets/slideshow-him-outdoor.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
