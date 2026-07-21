@@ -4,6 +4,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Marquee } from "@/components/Marquee";
 import { ProductCard } from "@/components/ProductCard";
 import { PreOrderSection } from "@/components/PreOrderSection";
+import { FAQSection } from "@/components/FAQSection";
+import { ConciergeChat } from "@/components/ConciergeChat";
 
 import pieceSaintLaurent from "@/assets/piece-saintlaurent.jpg.asset.json";
 import promenadeChrome from "@/assets/promenade-black.jpeg.asset.json";
@@ -208,8 +210,11 @@ function Home() {
         </div>
       </section>
 
+      <FAQSection />
+
       <SiteFooter />
 
+      <ConciergeChat />
     </div>
   );
 }
