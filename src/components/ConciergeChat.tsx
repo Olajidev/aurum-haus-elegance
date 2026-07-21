@@ -96,7 +96,7 @@ export function ConciergeChat() {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label={open ? "Close concierge" : "Open concierge"}
-        className="fixed bottom-6 right-6 z-[60] h-14 w-14 rounded-full bg-primary text-primary-foreground shadow-2xl flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
+        className="fixed bottom-6 right-6 z-[60] h-14 w-14 rounded-full bg-accent text-accent-foreground shadow-2xl flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
       >
         {open ? <X className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
       </button>
@@ -110,9 +110,9 @@ export function ConciergeChat() {
         aria-label="Aurum Haus concierge"
       >
         {/* Header */}
-        <div className="px-5 py-4 bg-primary text-primary-foreground">
-          <p className="eyebrow text-accent">Aurum Haus</p>
-          <p className="font-display text-lg leading-tight">The Concierge <span className="italic font-light text-primary-foreground/70 text-sm">· 24/7</span></p>
+        <div className="px-5 py-4 bg-accent text-accent-foreground">
+          <p className="eyebrow text-primary/70">Aurum Haus</p>
+          <p className="font-display text-lg leading-tight">The Concierge <span className="italic font-light text-accent-foreground/70 text-sm">· 24/7</span></p>
         </div>
 
         {/* Messages */}
@@ -131,7 +131,7 @@ export function ConciergeChat() {
                   )}
                 </p>
               ) : (
-                <p className="text-sm bg-primary text-primary-foreground px-4 py-2 rounded-sm max-w-[85%] font-light leading-relaxed whitespace-pre-wrap">
+                <p className="text-sm bg-accent text-accent-foreground px-4 py-2 rounded-sm max-w-[85%] font-light leading-relaxed whitespace-pre-wrap">
                   {m.content}
                 </p>
               )}
@@ -181,7 +181,7 @@ export function ConciergeChat() {
             type="submit"
             disabled={loading || !input.trim()}
             aria-label="Send"
-            className="h-9 w-9 flex-shrink-0 flex items-center justify-center bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground transition-colors disabled:opacity-40"
+            className="h-9 w-9 flex-shrink-0 flex items-center justify-center bg-accent text-accent-foreground hover:bg-primary hover:text-primary-foreground transition-colors disabled:opacity-40"
           >
             <Send className="h-4 w-4" />
           </button>
