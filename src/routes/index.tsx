@@ -6,7 +6,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { PreOrderSection } from "@/components/PreOrderSection";
 import { FAQSection } from "@/components/FAQSection";
 import { ConciergeChat } from "@/components/ConciergeChat";
-import { HeroSlideshow } from "@/components/HeroSlideshow";
+import { HeroDissolve } from "@/components/HeroDissolve";
 
 import pieceSaintLaurent from "@/assets/piece-saintlaurent.jpg.asset.json";
 import promenadeChrome from "@/assets/promenade-black.jpeg.asset.json";
@@ -39,29 +39,56 @@ function Home() {
       <SiteHeader />
       <Marquee />
 
-      {/* HERO */}
-      <section className="relative h-[88vh] min-h-[640px] overflow-hidden">
-        <img src={heroCafe.url} alt="Quiet luxury lifestyle — Aurum Haus" className="absolute inset-0 w-full h-full object-cover" />
-
-        <div className="absolute inset-0 bg-gradient-to-t from-obsidian/55 via-obsidian/10 to-transparent pointer-events-none" />
-        <div className="relative h-full mx-auto max-w-[1500px] px-6 lg:px-12 flex flex-col justify-end pb-20 text-alabaster">
-          <p className="eyebrow text-accent mb-4">The Signature Collection</p>
-          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] max-w-3xl">
-            Quiet luxury,<br /><em className="italic font-light">held effortlessly.</em>
-          </h1>
-          <p className="mt-6 max-w-md text-alabaster/85 font-light">
-            A jewel for the table. The Aurum Haus bag holder transforms a daily ritual into a refined gesture.
-          </p>
-          <div className="mt-10 flex gap-3 eyebrow">
-            <Link to="/shop" className="px-8 py-4 bg-alabaster text-forest hover:bg-accent transition-colors">
-              Discover the collection
-            </Link>
-            <Link to="/story" className="px-8 py-4 border border-alabaster/50 text-alabaster hover:bg-alabaster/10 transition-colors">
-              Our story
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* HERO — dissolving slideshow */}
+      <HeroDissolve
+        slides={[
+          {
+            image: heroCafe.url,
+            alt: "Quiet luxury lifestyle — Aurum Haus",
+            eyebrow: "The Signature Collection",
+            title: (
+              <>
+                Quiet luxury,
+                <br />
+                <em className="italic font-light">held effortlessly.</em>
+              </>
+            ),
+            body: "A jewel for the table. The Aurum Haus bag holder transforms a daily ritual into a refined gesture.",
+            primary: { to: "/shop", label: "Discover the collection" },
+            secondary: { to: "/story", label: "Our story" },
+          },
+          {
+            image: slideBagRestaurant.url,
+            alt: "Aurum Haus bag holder in a Japanese restaurant, suspending a monogram bag",
+            eyebrow: "A seat at the table",
+            title: (
+              <>
+                Never on the floor.
+                <br />
+                <em className="italic font-light">Always within reach.</em>
+              </>
+            ),
+            body: "From long lunches in Tokyo to late suppers in Paris — a small brass gesture that keeps what you carry close.",
+            primary: { to: "/shop", label: "Shop the ritual" },
+            secondary: { to: "/story", label: "The atelier" },
+          },
+          {
+            image: slideHimOutdoor.url,
+            alt: "A man at an outdoor café — the men's edition of Aurum Haus",
+            eyebrow: "For Him · Coming with launch",
+            title: (
+              <>
+                A quieter piece,
+                <br />
+                <em className="italic font-light">tailored for him.</em>
+              </>
+            ),
+            body: "Matte gunmetal and oxidised bronze. Weighted, discreet, and pocketable — for the briefcase, the sleeve, the weekender.",
+            primary: { to: "/pre-order", label: "Reserve the men's edition" },
+            secondary: { to: "/shop", label: "See the collection" },
+          },
+        ]}
+      />
 
       {/* COLLECTION GRID */}
       <section className="mx-auto max-w-[1500px] px-6 lg:px-12 py-24 lg:py-32">
