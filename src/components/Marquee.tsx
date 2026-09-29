@@ -7,7 +7,7 @@ export function Marquee() {
   ];
   return (
     <div className="bg-primary text-primary-foreground py-3 overflow-hidden">
-      <div className="flex gap-16 animate-[marquee_22s_linear_infinite] whitespace-nowrap eyebrow">
+      <div className="flex gap-16 animate-[marquee_14s_linear_infinite] whitespace-nowrap eyebrow">
         {[...items, ...items, ...items].map((t, i) => (
           <span key={i} className="flex items-center gap-16">
             {t} <span className="text-accent">✦</span>
