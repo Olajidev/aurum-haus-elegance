@@ -13,7 +13,7 @@ import promenadeChrome from "@/assets/promenade-black.jpeg.asset.json";
 import promenadeTrio from "@/assets/promenade-trio.jpeg.asset.json";
 import heirloomWarm from "@/assets/heirloom-warm.png.asset.json";
 import packagingImg from "@/assets/aurum-packaging.jpg.asset.json";
-import heroCafe from "@/assets/hero-cafe.png.asset.json";
+import heroCafe from "@/assets/hero-wine-shop.png.asset.json";
 import cafeLifestyle from "@/assets/cafe-lifestyle.png.asset.json";
 import slideBagRestaurant from "@/assets/slideshow-bag-restaurant.png.asset.json";
 import slideHimOutdoor from "@/assets/slideshow-him-outdoor.png.asset.json";
