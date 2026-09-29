@@ -43,7 +43,7 @@ function Home() {
         slides={[
           {
             image: heroCafe.url,
-            alt: "Quiet luxury lifestyle — Aurum Haus",
+            alt: "Aurum Haus bag holder holding a handbag beneath a café table",
             eyebrow: "The Signature Collection",
             title: (
               <>
