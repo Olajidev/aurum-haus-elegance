@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getProduct, products } from "@/lib/products";
+import { ProductGallery } from "@/components/ProductGallery";
 
 export const Route = createFileRoute("/product/$slug")({
   loader: ({ params }) => {
@@ -16,7 +17,6 @@ export const Route = createFileRoute("/product/$slug")({
           { name: "description", content: loaderData.product.description },
           { property: "og:title", content: `${loaderData.product.name} — Aurum Haus` },
           { property: "og:description", content: loaderData.product.description },
-          { property: "og:image", content: loaderData.product.image },
         ]
       : [],
   }),
@@ -51,9 +51,7 @@ function ProductPage() {
       <SiteHeader />
 
       <section className="mx-auto max-w-[1500px] px-6 lg:px-12 pt-12 pb-24 grid lg:grid-cols-2 gap-12 lg:gap-20">
-        <div className="bg-secondary aspect-[3/4] overflow-hidden">
-          <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
-        </div>
+        <ProductGallery key={product.slug} images={product.gallery} name={product.name} />
 
         <div className="flex flex-col justify-center max-w-md">
           <p className="eyebrow text-accent mb-4">Maison Aurum</p>
