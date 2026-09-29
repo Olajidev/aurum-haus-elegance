@@ -14,7 +14,6 @@ import promenadeTrio from "@/assets/promenade-trio.jpeg.asset.json";
 import heirloomWarm from "@/assets/heirloom-warm.png.asset.json";
 import packagingImg from "@/assets/aurum-packaging.jpg.asset.json";
 import heroCafe from "@/assets/hero-cafe.png.asset.json";
-import himCafe from "@/assets/him-cafe-new.png.asset.json";
 import cafeLifestyle from "@/assets/cafe-lifestyle.png.asset.json";
 import slideBagRestaurant from "@/assets/slideshow-bag-restaurant.png.asset.json";
 import slideHimOutdoor from "@/assets/slideshow-him-outdoor.png.asset.json";
@@ -214,31 +213,6 @@ function Home() {
 
       {/* PRE-ORDER COUNTDOWN */}
       <PreOrderSection />
-
-      {/* FOR MEN */}
-      <section className="bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-[1500px] grid lg:grid-cols-2">
-          <div className="relative aspect-[4/5] lg:aspect-auto lg:min-h-[640px]">
-            <img src={himCafe.url} alt="Aurum Haus for men — tailored, weighted, discreet" className="absolute inset-0 w-full h-full object-cover" />
-          </div>
-          <div className="px-8 lg:px-20 py-20 lg:py-28 flex flex-col justify-center">
-            <p className="eyebrow text-accent mb-6">For Him · Coming with launch</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-8">
-              A quieter piece,<br />
-              <em className="italic font-light">tailored for him.</em>
-            </h2>
-            <p className="text-primary-foreground/80 font-light leading-relaxed mb-4 max-w-lg">
-              The same 113g of hand-finished brass, reworked in matte gunmetal and oxidised bronze — designed to sit beside a briefcase, a laptop sleeve, or a weekender at the bar.
-            </p>
-            <p className="text-primary-foreground/80 font-light leading-relaxed max-w-lg">
-              Discreet enough to disappear into a jacket pocket. Weighted enough to hold everything that matters.
-            </p>
-            <Link to="/pre-order" className="mt-10 eyebrow text-accent hover:text-alabaster border-b border-accent/40 pb-1 self-start">
-              Reserve the men's edition →
-            </Link>
-          </div>
-        </div>
-      </section>
 
       <FAQSection />
 
