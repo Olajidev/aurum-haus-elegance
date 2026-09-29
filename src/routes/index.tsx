@@ -13,10 +13,8 @@ import promenadeChrome from "@/assets/promenade-black.jpeg.asset.json";
 import promenadeTrio from "@/assets/promenade-trio.jpeg.asset.json";
 import heirloomWarm from "@/assets/heirloom-warm.png.asset.json";
 import packagingImg from "@/assets/aurum-packaging.jpg.asset.json";
-import heroCafe from "@/assets/hero-wine-shop.png.asset.json";
 import cafeLifestyle from "@/assets/cafe-lifestyle.png.asset.json";
 import slideBagRestaurant from "@/assets/slideshow-bag-restaurant.png.asset.json";
-import slideHimOutdoor from "@/assets/slideshow-him-outdoor.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
@@ -42,21 +40,6 @@ function Home() {
       <HeroDissolve
         slides={[
           {
-            image: heroCafe.url,
-            alt: "Aurum Haus bag holder holding a handbag beneath a café table",
-            eyebrow: "The Signature Collection",
-            title: (
-              <>
-                Quiet luxury,
-                <br />
-                <em className="italic font-light">held effortlessly.</em>
-              </>
-            ),
-            body: "A jewel for the table. The Aurum Haus bag holder transforms a daily ritual into a refined gesture.",
-            primary: { to: "/shop", label: "Discover the collection" },
-            secondary: { to: "/story", label: "Our story" },
-          },
-          {
             image: slideBagRestaurant.url,
             alt: "Aurum Haus bag holder in a Japanese restaurant, suspending a monogram bag",
             eyebrow: "A seat at the table",
@@ -70,21 +53,6 @@ function Home() {
             body: "From long lunches in Tokyo to late suppers in Paris — a small brass gesture that keeps what you carry close.",
             primary: { to: "/shop", label: "Shop the ritual" },
             secondary: { to: "/story", label: "The atelier" },
-          },
-          {
-            image: slideHimOutdoor.url,
-            alt: "A man at an outdoor café — the men's edition of Aurum Haus",
-            eyebrow: "For Him · Coming with launch",
-            title: (
-              <>
-                A quieter piece,
-                <br />
-                <em className="italic font-light">tailored for him.</em>
-              </>
-            ),
-            body: "Matte gunmetal and oxidised bronze. Weighted, discreet, and pocketable — for the briefcase, the sleeve, the weekender.",
-            primary: { to: "/pre-order", label: "Reserve the men's edition" },
-            secondary: { to: "/shop", label: "See the collection" },
           },
         ]}
       />

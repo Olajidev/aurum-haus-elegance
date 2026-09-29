@@ -88,26 +88,28 @@ export function HeroDissolve({ slides, interval = 6500 }: HeroDissolveProps) {
       </div>
 
       {/* Slide indicators — hairlines */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-3">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setActive(i)}
-            aria-label={`Slide ${i + 1}`}
-            className="h-px w-10 bg-alabaster/30 relative overflow-hidden"
-          >
-            <span
-              className="absolute inset-0 bg-alabaster origin-left"
-              style={{
-                transform:
-                  i === active ? "scaleX(1)" : i < active ? "scaleX(1)" : "scaleX(0)",
-                transition:
-                  i === active ? `transform ${6500}ms linear` : "transform 600ms ease",
-              }}
-            />
-          </button>
-        ))}
-      </div>
+      {slides.length > 1 && (
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-3">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              aria-label={`Slide ${i + 1}`}
+              className="h-px w-10 bg-alabaster/30 relative overflow-hidden"
+            >
+              <span
+                className="absolute inset-0 bg-alabaster origin-left"
+                style={{
+                  transform:
+                    i === active ? "scaleX(1)" : i < active ? "scaleX(1)" : "scaleX(0)",
+                  transition:
+                    i === active ? `transform ${6500}ms linear` : "transform 600ms ease",
+                }}
+              />
+            </button>
+          ))}
+        </div>
+      )}
     </section>
   );
 }
