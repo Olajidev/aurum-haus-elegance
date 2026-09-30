@@ -24,22 +24,26 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
     setOrigin(`${((e.clientX - r.left) / r.width) * 100}% ${((e.clientY - r.top) / r.height) * 100}%`);
   };
 
+  const multi = images.length > 1;
+
   return (
-    <div className="flex flex-col-reverse md:flex-row gap-4">
-      <div className="flex md:flex-col gap-3 overflow-x-auto md:w-20 shrink-0">
-        {images.map((src, i) => (
-          <button
-            key={src + i}
-            onClick={() => setActive(i)}
-            aria-label={`View image ${i + 1}`}
-            className={`aspect-square w-20 shrink-0 overflow-hidden bg-secondary border transition-all ${
-              i === active ? "border-foreground opacity-100" : "border-transparent opacity-60 hover:opacity-100"
-            }`}
-          >
-            <img src={src} alt="" className="w-full h-full object-cover" />
-          </button>
-        ))}
-      </div>
+    <div className="flex flex-col gap-4">
+      {multi && (
+        <div className="flex gap-3 overflow-x-auto md:w-20 shrink-0">
+          {images.map((src, i) => (
+            <button
+              key={src + i}
+              onClick={() => setActive(i)}
+              aria-label={`View image ${i + 1}`}
+              className={`aspect-square w-20 shrink-0 overflow-hidden bg-secondary border transition-all ${
+                i === active ? "border-foreground opacity-100" : "border-transparent opacity-60 hover:opacity-100"
+              }`}
+            >
+              <img src={src} alt="" className="w-full h-full object-cover" />
+            </button>
+          ))}
+        </div>
+      )}
 
       <div
         className="relative flex-1 bg-secondary aspect-[3/4] overflow-hidden cursor-zoom-in group"
@@ -59,18 +63,22 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
             } ${i === active && zoom ? "scale-[1.8]" : "scale-100"}`}
           />
         ))}
-        <button
-          onClick={(e) => { e.stopPropagation(); go(-1); }}
-          aria-label="Previous image"
-          className="absolute left-3 top-1/2 -translate-y-1/2 h-10 w-10 bg-background/90 text-foreground opacity-0 group-hover:opacity-100 transition-opacity"
-        >←</button>
-        <button
-          onClick={(e) => { e.stopPropagation(); go(1); }}
-          aria-label="Next image"
-          className="absolute right-3 top-1/2 -translate-y-1/2 h-10 w-10 bg-background/90 text-foreground opacity-0 group-hover:opacity-100 transition-opacity"
-        >→</button>
+        {multi && (
+          <button
+            onClick={(e) => { e.stopPropagation(); go(-1); }}
+            aria-label="Previous image"
+            className="absolute left-3 top-1/2 -translate-y-1/2 h-10 w-10 bg-background/90 text-foreground opacity-0 group-hover:opacity-100 transition-opacity"
+          >←</button>
+        )}
+        {multi && (
+          <button
+            onClick={(e) => { e.stopPropagation(); go(1); }}
+            aria-label="Next image"
+            className="absolute right-3 top-1/2 -translate-y-1/2 h-10 w-10 bg-background/90 text-foreground opacity-0 group-hover:opacity-100 transition-opacity"
+          >→</button>
+        )}
         <span className="absolute bottom-3 left-3 eyebrow bg-background/90 text-foreground px-3 py-1.5">
-          {active + 1} / {images.length} · Hover to zoom
+          {multi ? `${active + 1} / ${images.length} · ` : ""}Hover to zoom
         </span>
       </div>
 

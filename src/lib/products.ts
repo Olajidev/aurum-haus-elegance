@@ -1,11 +1,6 @@
-import trio from "@/assets/trio.jpg";
-import goldDetail from "@/assets/gold-detail.jpg";
-import whiteOverhead from "@/assets/white-overhead.jpg";
 import promenadeChrome from "@/assets/promenade-black.jpeg.asset.json";
 import promenadeTrio from "@/assets/promenade-trio.jpeg.asset.json";
 import aurumChrome from "@/assets/aurum-chrome-piece.jpg.asset.json";
-import heirloomWarm from "@/assets/heirloom-warm.png.asset.json";
-import packagingImg from "@/assets/aurum-packaging.jpg.asset.json";
 
 export type Product = {
   slug: string;
@@ -23,7 +18,7 @@ export const products: Product[] = [
   {
     slug: "ivora",
     image: promenadeChrome.url,
-    gallery: [promenadeChrome.url, whiteOverhead, heirloomWarm.url, packagingImg.url],
+    gallery: [promenadeChrome.url],
     name: "Ivora",
     finish: "Polished chrome · ivory inlay",
     price: "£70",
@@ -35,7 +30,7 @@ export const products: Product[] = [
   {
     slug: "noir",
     image: promenadeTrio.url,
-    gallery: [promenadeTrio.url, trio, heirloomWarm.url, packagingImg.url],
+    gallery: [promenadeTrio.url],
     name: "Noir",
     finish: "Black lacquer · onyx leather",
     price: "£70",
@@ -47,7 +42,7 @@ export const products: Product[] = [
   {
     slug: "aurum",
     image: aurumChrome.url,
-    gallery: [aurumChrome.url, goldDetail, heirloomWarm.url, packagingImg.url],
+    gallery: [aurumChrome.url],
     name: "Aurum",
     finish: "24k vermeil · antique gold",
     price: "£70",
