@@ -16,10 +16,8 @@ import { Route as ShippingReturnsRouteImport } from './routes/shipping-returns'
 import { Route as PressRouteImport } from './routes/press'
 import { Route as PreOrderRouteImport } from './routes/pre-order'
 import { Route as JournalRouteImport } from './routes/journal'
-import { Route as EngravingRouteImport } from './routes/engraving'
 import { Route as CraftsmanshipRouteImport } from './routes/craftsmanship'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as ClientCareRouteImport } from './routes/client-care'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 import { Route as CheckoutSlugRouteImport } from './routes/checkout.$slug'
@@ -60,11 +58,6 @@ const JournalRoute = JournalRouteImport.update({
   path: '/journal',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EngravingRoute = EngravingRouteImport.update({
-  id: '/engraving',
-  path: '/engraving',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const CraftsmanshipRoute = CraftsmanshipRouteImport.update({
   id: '/craftsmanship',
   path: '/craftsmanship',
@@ -73,11 +66,6 @@ const CraftsmanshipRoute = CraftsmanshipRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ClientCareRoute = ClientCareRouteImport.update({
-  id: '/client-care',
-  path: '/client-care',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -103,10 +91,8 @@ const ApiChatRoute = ApiChatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/client-care': typeof ClientCareRoute
   '/contact': typeof ContactRoute
   '/craftsmanship': typeof CraftsmanshipRoute
-  '/engraving': typeof EngravingRoute
   '/journal': typeof JournalRoute
   '/pre-order': typeof PreOrderRoute
   '/press': typeof PressRoute
@@ -120,10 +106,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/client-care': typeof ClientCareRoute
   '/contact': typeof ContactRoute
   '/craftsmanship': typeof CraftsmanshipRoute
-  '/engraving': typeof EngravingRoute
   '/journal': typeof JournalRoute
   '/pre-order': typeof PreOrderRoute
   '/press': typeof PressRoute
@@ -138,10 +122,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/client-care': typeof ClientCareRoute
   '/contact': typeof ContactRoute
   '/craftsmanship': typeof CraftsmanshipRoute
-  '/engraving': typeof EngravingRoute
   '/journal': typeof JournalRoute
   '/pre-order': typeof PreOrderRoute
   '/press': typeof PressRoute
@@ -157,10 +139,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/client-care'
     | '/contact'
     | '/craftsmanship'
-    | '/engraving'
     | '/journal'
     | '/pre-order'
     | '/press'
@@ -174,10 +154,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/client-care'
     | '/contact'
     | '/craftsmanship'
-    | '/engraving'
     | '/journal'
     | '/pre-order'
     | '/press'
@@ -191,10 +169,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/client-care'
     | '/contact'
     | '/craftsmanship'
-    | '/engraving'
     | '/journal'
     | '/pre-order'
     | '/press'
@@ -209,10 +185,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ClientCareRoute: typeof ClientCareRoute
   ContactRoute: typeof ContactRoute
   CraftsmanshipRoute: typeof CraftsmanshipRoute
-  EngravingRoute: typeof EngravingRoute
   JournalRoute: typeof JournalRoute
   PreOrderRoute: typeof PreOrderRoute
   PressRoute: typeof PressRoute
@@ -276,13 +250,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JournalRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/engraving': {
-      id: '/engraving'
-      path: '/engraving'
-      fullPath: '/engraving'
-      preLoaderRoute: typeof EngravingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/craftsmanship': {
       id: '/craftsmanship'
       path: '/craftsmanship'
@@ -295,13 +262,6 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/client-care': {
-      id: '/client-care'
-      path: '/client-care'
-      fullPath: '/client-care'
-      preLoaderRoute: typeof ClientCareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -337,10 +297,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ClientCareRoute: ClientCareRoute,
   ContactRoute: ContactRoute,
   CraftsmanshipRoute: CraftsmanshipRoute,
-  EngravingRoute: EngravingRoute,
   JournalRoute: JournalRoute,
   PreOrderRoute: PreOrderRoute,
   PressRoute: PressRoute,
