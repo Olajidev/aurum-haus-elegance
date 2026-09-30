@@ -24,22 +24,26 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
     setOrigin(`${((e.clientX - r.left) / r.width) * 100}% ${((e.clientY - r.top) / r.height) * 100}%`);
   };
 
+  const multi = images.length > 1;
+
   return (
-    <div className="flex flex-col-reverse md:flex-row gap-4">
-      <div className="flex md:flex-col gap-3 overflow-x-auto md:w-20 shrink-0">
-        {images.map((src, i) => (
-          <button
-            key={src + i}
-            onClick={() => setActive(i)}
-            aria-label={`View image ${i + 1}`}
-            className={`aspect-square w-20 shrink-0 overflow-hidden bg-secondary border transition-all ${
-              i === active ? "border-foreground opacity-100" : "border-transparent opacity-60 hover:opacity-100"
-            }`}
-          >
-            <img src={src} alt="" className="w-full h-full object-cover" />
-          </button>
-        ))}
-      </div>
+    <div className="flex flex-col gap-4">
+      {multi && (
+        <div className="flex gap-3 overflow-x-auto md:w-20 shrink-0">
+          {images.map((src, i) => (
+            <button
+              key={src + i}
+              onClick={() => setActive(i)}
+              aria-label={`View image ${i + 1}`}
+              className={`aspect-square w-20 shrink-0 overflow-hidden bg-secondary border transition-all ${
+                i === active ? "border-foreground opacity-100" : "border-transparent opacity-60 hover:opacity-100"
+              }`}
+            >
+              <img src={src} alt="" className="w-full h-full object-cover" />
+            </button>
+          ))}
+        </div>
+      )}
 
       <div
         className="relative flex-1 bg-secondary aspect-[3/4] overflow-hidden cursor-zoom-in group"

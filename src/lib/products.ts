@@ -1,11 +1,6 @@
-import trio from "@/assets/trio.jpg";
-import goldDetail from "@/assets/gold-detail.jpg";
-import whiteOverhead from "@/assets/white-overhead.jpg";
 import promenadeChrome from "@/assets/promenade-black.jpeg.asset.json";
 import promenadeTrio from "@/assets/promenade-trio.jpeg.asset.json";
 import aurumChrome from "@/assets/aurum-chrome-piece.jpg.asset.json";
-import heirloomWarm from "@/assets/heirloom-warm.png.asset.json";
-import packagingImg from "@/assets/aurum-packaging.jpg.asset.json";
 
 export type Product = {
   slug: string;
