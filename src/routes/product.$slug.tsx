@@ -75,7 +75,6 @@ function ProductPage() {
 
           <div className="mt-10 pt-8 border-t border-border space-y-3 text-sm text-muted-foreground font-light">
             <p>Complimentary worldwide shipping</p>
-            <p>Lifetime re-polishing service</p>
             <p>Presented in a hand-stitched linen case</p>
           </div>
         </div>

@@ -22,10 +22,6 @@ const faqs = [
     q: "What is your return policy?",
     a: "Unengraved pieces may be returned within 30 days for a full refund, in their original presentation box. Engraved commissions are final sale.",
   },
-  {
-    q: "Do you offer lifetime care?",
-    a: "Every Aurum Haus piece is covered by complimentary re-polishing and re-plating, for as long as you carry it. Simply write to the atelier to arrange collection.",
-  },
 ];
 
 export function FAQSection() {

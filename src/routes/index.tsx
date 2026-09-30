@@ -111,7 +111,7 @@ function Home() {
         {[
           { k: "I", t: "Hand-finished", d: "Each piece polished by a single artisan from start to closure." },
           { k: "II", t: "Solid brass core", d: "113g of weighted brass, electroplated in your chosen finish." },
-          { k: "III", t: "Lifetime care", d: "Complimentary re-polishing and re-plating, for as long as you carry it." },
+          { k: "III", t: "Complimentary shipping", d: "Express worldwide delivery, duties prepaid to most destinations." },
         ].map((p) => (
           <div key={p.k}>
             <span className="font-display italic text-accent text-2xl">{p.k}</span>
