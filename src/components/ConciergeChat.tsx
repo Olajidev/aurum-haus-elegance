@@ -6,7 +6,7 @@ type Msg = { role: "user" | "assistant"; content: string };
 const GREETING: Msg = {
   role: "assistant",
   content:
-    "Welcome to Aurum Haus. I'm the maison concierge — here around the clock. Ask me about the collection, pre-orders, engraving, or shipping.",
+    "Welcome to Aurum Haus. I'm the maison concierge — here around the clock. Ask me about the collection, pre-orders, or shipping.",
 };
 
 const SUGGESTIONS = [
