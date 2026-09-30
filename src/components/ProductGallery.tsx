@@ -63,18 +63,22 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
             } ${i === active && zoom ? "scale-[1.8]" : "scale-100"}`}
           />
         ))}
-        <button
-          onClick={(e) => { e.stopPropagation(); go(-1); }}
-          aria-label="Previous image"
-          className="absolute left-3 top-1/2 -translate-y-1/2 h-10 w-10 bg-background/90 text-foreground opacity-0 group-hover:opacity-100 transition-opacity"
-        >←</button>
-        <button
-          onClick={(e) => { e.stopPropagation(); go(1); }}
-          aria-label="Next image"
-          className="absolute right-3 top-1/2 -translate-y-1/2 h-10 w-10 bg-background/90 text-foreground opacity-0 group-hover:opacity-100 transition-opacity"
-        >→</button>
+        {multi && (
+          <button
+            onClick={(e) => { e.stopPropagation(); go(-1); }}
+            aria-label="Previous image"
+            className="absolute left-3 top-1/2 -translate-y-1/2 h-10 w-10 bg-background/90 text-foreground opacity-0 group-hover:opacity-100 transition-opacity"
+          >←</button>
+        )}
+        {multi && (
+          <button
+            onClick={(e) => { e.stopPropagation(); go(1); }}
+            aria-label="Next image"
+            className="absolute right-3 top-1/2 -translate-y-1/2 h-10 w-10 bg-background/90 text-foreground opacity-0 group-hover:opacity-100 transition-opacity"
+          >→</button>
+        )}
         <span className="absolute bottom-3 left-3 eyebrow bg-background/90 text-foreground px-3 py-1.5">
-          {active + 1} / {images.length} · Hover to zoom
+          {multi ? `${active + 1} / ${images.length} · ` : ""}Hover to zoom
         </span>
       </div>
 
