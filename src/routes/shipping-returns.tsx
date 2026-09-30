@@ -42,7 +42,7 @@ function ShippingReturns() {
         </div>
         <div>
           <p className="eyebrow text-accent mb-3">Engraved and made-to-order</p>
-          <p>Engraved pieces and made-to-order finishes are final sale, but always covered by our lifetime aftercare guarantee.</p>
+          <p>Engraved pieces and made-to-order finishes are final sale.</p>
         </div>
         <div>
           <p className="eyebrow text-accent mb-3">Duties & taxes</p>

@@ -53,7 +53,7 @@ function Story() {
         <div>
           <p className="eyebrow text-accent mb-4">III · Philosophy</p>
           <p>
-            We believe true luxury transcends trends. We make a single object, exceptionally well, and offer it the lifetime of care it deserves. It is not about what you use — but how you live.
+            We believe true luxury transcends trends. We make a single object, exceptionally well. It is not about what you use — but how you live.
           </p>
         </div>
       </section>
