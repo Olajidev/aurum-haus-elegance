@@ -79,8 +79,8 @@ function PreOrderPage() {
             </div>
             <div>
               <span className="font-display italic text-accent text-xl">III</span>
-              <h3 className="font-display text-lg mt-3 mb-2">Ships August</h3>
-              <p className="text-sm text-muted-foreground font-light">Orders ship the second week of August, in the order they were reserved.</p>
+              <h3 className="font-display text-lg mt-3 mb-2">Ships December</h3>
+              <p className="text-sm text-muted-foreground font-light">Orders ship the first week of December, in the order they were reserved.</p>
             </div>
           </div>
         </div>
