@@ -8,9 +8,9 @@ export const Route = createFileRoute("/pre-order")({
   head: () => ({
     meta: [
       { title: "Pre-Order — Aurum Haus" },
-      { name: "description", content: "Reserve your Aurum Haus piece at £70 before the collection launches at £75 in the second week of August." },
+      { name: "description", content: "Reserve your Aurum Haus piece at £70 before the collection launches at full price on 4 December 2026." },
       { property: "og:title", content: "Pre-Order — Aurum Haus" },
-      { property: "og:description", content: "Reserve your piece at the pre-launch price of £70. Ships August." },
+      { property: "og:description", content: "Reserve your piece at the pre-launch price of £70. Ships December." },
       { property: "og:type", content: "website" },
     ],
   }),
@@ -28,7 +28,7 @@ function PreOrderPage() {
           Pre-Order<em className="italic font-light text-accent">.</em>
         </h1>
         <p className="mt-6 max-w-xl text-muted-foreground font-light">
-          Three finishes. One quiet obsession. Reserve your piece at <span className="text-foreground">£70</span> before the collection opens publicly at £75.
+          Three finishes. One quiet obsession. Reserve your piece at <span className="text-foreground">£70</span> before the collection opens publicly on 4 December.
         </p>
       </section>
 
@@ -56,7 +56,7 @@ function PreOrderPage() {
                 params={{ slug: p.slug }}
                 className="mt-6 block text-center px-6 py-3 bg-foreground text-background eyebrow hover:bg-accent hover:text-foreground transition-colors"
               >
-                Reserve at £70
+                Reserve at {p.price}
               </Link>
             </div>
           ))}
@@ -70,7 +70,7 @@ function PreOrderPage() {
             <div>
               <span className="font-display italic text-accent text-xl">I</span>
               <h3 className="font-display text-lg mt-3 mb-2">Reserve today</h3>
-              <p className="text-sm text-muted-foreground font-light">Secure your piece at £70 — the launch price will be £75.</p>
+              <p className="text-sm text-muted-foreground font-light">Secure your piece at £70 — before the collection opens at full price.</p>
             </div>
             <div>
               <span className="font-display italic text-accent text-xl">II</span>
@@ -79,8 +79,8 @@ function PreOrderPage() {
             </div>
             <div>
               <span className="font-display italic text-accent text-xl">III</span>
-              <h3 className="font-display text-lg mt-3 mb-2">Ships August</h3>
-              <p className="text-sm text-muted-foreground font-light">Orders ship the second week of August, in the order they were reserved.</p>
+              <h3 className="font-display text-lg mt-3 mb-2">Ships December</h3>
+              <p className="text-sm text-muted-foreground font-light">Orders ship the first week of December, in the order they were reserved.</p>
             </div>
           </div>
         </div>

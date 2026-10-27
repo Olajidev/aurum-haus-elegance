@@ -73,7 +73,7 @@ function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
           <ProductCard slug="ivora" image={promenadeChrome.url} name="Ivora" finish="Polished chrome · ivory inlay" price="£70" />
-          <ProductCard slug="noir" image={promenadeTrio.url} name="Noir" finish="Black lacquer · onyx leather" price="£70" />
+          <ProductCard slug="noir" image={promenadeTrio.url} name="The Trio" finish="Polished chrome · ivory inlay" price="£200" />
           <ProductCard slug="aurum" image={pieceSaintLaurent.url} name="Aurum" finish="24k vermeil · antique gold" price="£70" />
 
 

@@ -31,13 +31,12 @@ export const products: Product[] = [
     slug: "noir",
     image: promenadeTrio.url,
     gallery: [promenadeTrio.url],
-    name: "Noir",
-    finish: "Black lacquer · onyx leather",
-    price: "£70",
-    priceValue: 70,
-    launchPrice: "£75",
+    name: "The Trio",
+    finish: "Polished chrome · ivory inlay",
+    price: "£200",
+    priceValue: 200,
     description:
-      "Seven coats of hand-applied black lacquer, finished with a wrap of vegetable-tanned onyx leather. A piece that absorbs light rather than reflecting it.",
+      "The collector's set. Three hand-finished pieces in polished chrome with ivory inlay, presented together — the full ritual in one quiet gesture.",
   },
   {
     slug: "aurum",
