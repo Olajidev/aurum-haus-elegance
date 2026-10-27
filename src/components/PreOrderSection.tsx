@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import preorderProduct from "@/assets/preorder-product.jpeg.asset.json";
 
-// Launch target: second week of August 2026 (Friday, Aug 14, 2026 at 09:00 UTC)
-export const LAUNCH_DATE = new Date("2026-08-14T09:00:00Z");
+// Launch target: 4 December 2026 at 09:00 UTC
+export const LAUNCH_DATE = new Date("2026-12-04T09:00:00Z");
 
 function useCountdown(target: Date) {
   const [now, setNow] = useState<number | null>(null);
@@ -47,8 +47,8 @@ export function PreOrderSection() {
           </h2>
 
           <p className="mt-8 max-w-md text-base md:text-lg leading-relaxed opacity-80">
-            The same 113g of hand-finished brass, ready to ship the second week of
-            August. Secure yours before the launch and skip the queue.
+            The same 113g of hand-finished brass, ready to ship the first week of
+            December. Secure yours before the launch and skip the queue.
           </p>
 
           <div className="mt-10 flex gap-3 md:gap-6" aria-live="polite">
