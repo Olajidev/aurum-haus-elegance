@@ -40,8 +40,8 @@ export const products: Product[] = [
   },
   {
     slug: "aurum",
-    image: aurumChrome.url,
-    gallery: [aurumChrome.url],
+    image: aurumGold.url,
+    gallery: [aurumGold.url],
     name: "Aurum",
     finish: "24k vermeil · antique gold",
     price: "£70",
