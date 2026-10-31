@@ -1,6 +1,7 @@
 import promenadeChrome from "@/assets/promenade-black.jpeg.asset.json";
 import promenadeTrio from "@/assets/promenade-trio.jpeg.asset.json";
 import aurumGold from "@/assets/aurum-gold-hook.png.asset.json";
+import aurumSilver from "@/assets/aurum-silver-chrome.png.asset.json";
 
 export type Product = {
   slug: string;
@@ -40,9 +41,21 @@ export const products: Product[] = [
   },
   {
     slug: "aurum",
+    image: aurumSilver.url,
+    gallery: [aurumSilver.url],
+    name: "Aurum",
+    finish: "Polished chrome · ivory crest",
+    price: "£70",
+    priceValue: 70,
+    launchPrice: "£75",
+    description:
+      "The house signature in its lightest form. Mirror-polished chrome crowned with the hand-set ivory AH crest — quietly unmistakable at the table.",
+  },
+  {
+    slug: "aurum-gold",
     image: aurumGold.url,
     gallery: [aurumGold.url],
-    name: "Aurum",
+    name: "Aurum Gold",
     finish: "24k vermeil · antique gold",
     price: "£70",
     priceValue: 70,
