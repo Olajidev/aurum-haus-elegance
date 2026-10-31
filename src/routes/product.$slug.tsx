@@ -35,7 +35,7 @@ export const Route = createFileRoute("/product/$slug")({
   ),
   errorComponent: ({ error, reset }) => (
     <div className="p-12">
-      <p>{error.message}</p>
+      <p>{error instanceof Error ? error.message : String(error)}</p>
       <button onClick={reset} className="underline">Try again</button>
     </div>
   ),
