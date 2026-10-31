@@ -1,6 +1,6 @@
 import promenadeChrome from "@/assets/promenade-black.jpeg.asset.json";
 import promenadeTrio from "@/assets/promenade-trio.jpeg.asset.json";
-import aurumChrome from "@/assets/aurum-chrome-piece.jpg.asset.json";
+import aurumGold from "@/assets/aurum-gold-hook.png.asset.json";
 
 export type Product = {
   slug: string;
