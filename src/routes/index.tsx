@@ -8,7 +8,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { ConciergeChat } from "@/components/ConciergeChat";
 import { HeroDissolve } from "@/components/HeroDissolve";
 
-import pieceSaintLaurent from "@/assets/aurum-chrome-piece.jpg.asset.json";
+import pieceSaintLaurent from "@/assets/aurum-gold-hook.png.asset.json";
 import promenadeChrome from "@/assets/promenade-black.jpeg.asset.json";
 import promenadeTrio from "@/assets/promenade-trio.jpeg.asset.json";
 import heirloomWarm from "@/assets/heirloom-warm.png.asset.json";

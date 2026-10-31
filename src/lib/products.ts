@@ -1,6 +1,6 @@
 import promenadeChrome from "@/assets/promenade-black.jpeg.asset.json";
 import promenadeTrio from "@/assets/promenade-trio.jpeg.asset.json";
-import aurumChrome from "@/assets/aurum-chrome-piece.jpg.asset.json";
+import aurumGold from "@/assets/aurum-gold-hook.png.asset.json";
 
 export type Product = {
   slug: string;
@@ -40,8 +40,8 @@ export const products: Product[] = [
   },
   {
     slug: "aurum",
-    image: aurumChrome.url,
-    gallery: [aurumChrome.url],
+    image: aurumGold.url,
+    gallery: [aurumGold.url],
     name: "Aurum",
     finish: "24k vermeil · antique gold",
     price: "£70",

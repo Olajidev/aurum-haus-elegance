@@ -10,7 +10,7 @@ const reservationSchema = z.object({
 });
 
 export const createReservation = createServerFn({ method: "POST" })
-  .inputValidator((data: unknown) => reservationSchema.parse(data))
+  .validator((data: unknown) => reservationSchema.parse(data))
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import(
       "@/integrations/supabase/client.server"
