@@ -8,7 +8,8 @@ import { FAQSection } from "@/components/FAQSection";
 import { ConciergeChat } from "@/components/ConciergeChat";
 import { HeroDissolve } from "@/components/HeroDissolve";
 
-import pieceSaintLaurent from "@/assets/aurum-gold-hook.png.asset.json";
+import aurumSilver from "@/assets/aurum-silver-chrome.png.asset.json";
+import aurumGold from "@/assets/aurum-gold-hook.png.asset.json";
 import promenadeChrome from "@/assets/promenade-black.jpeg.asset.json";
 import promenadeTrio from "@/assets/promenade-trio.jpeg.asset.json";
 import heirloomWarm from "@/assets/heirloom-warm.png.asset.json";
@@ -63,7 +64,7 @@ function Home() {
           <div>
             <p className="eyebrow text-accent mb-3">Maison Aurum · Edit n°1</p>
             <h2 className="font-display text-4xl md:text-5xl max-w-xl leading-tight">
-              Three finishes. <em className="italic font-light">One quiet obsession.</em>
+              Four pieces. <em className="italic font-light">One quiet obsession.</em>
             </h2>
           </div>
           <Link to="/shop" className="eyebrow text-foreground/70 hover:text-foreground border-b border-foreground/30 pb-1">
@@ -71,10 +72,11 @@ function Home() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           <ProductCard slug="ivora" image={promenadeChrome.url} name="Ivora" finish="Polished chrome · ivory inlay" price="£70" />
           <ProductCard slug="noir" image={promenadeTrio.url} name="The Trio" finish="Polished chrome · ivory inlay" price="£200" />
-          <ProductCard slug="aurum" image={pieceSaintLaurent.url} name="Aurum" finish="24k vermeil · antique gold" price="£70" />
+          <ProductCard slug="aurum" image={aurumSilver.url} name="Aurum" finish="Polished chrome · ivory crest" price="£70" />
+          <ProductCard slug="aurum-gold" image={aurumGold.url} name="Aurum Gold" finish="24k vermeil · antique gold" price="£70" />
 
 
 
