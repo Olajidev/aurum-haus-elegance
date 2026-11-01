@@ -68,7 +68,7 @@ function Story() {
       </section>
 
       <section className="relative h-[60vh] min-h-[420px]">
-        <img src={trioAlt} alt="The three finishes" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={trioAlt} alt="The four finishes" className="absolute inset-0 w-full h-full object-cover" />
       </section>
 
       <SiteFooter />
