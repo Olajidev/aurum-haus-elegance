@@ -29,7 +29,7 @@ function Shop() {
           The Collection<em className="italic font-light text-accent">.</em>
         </h1>
         <p className="mt-6 max-w-xl text-muted-foreground font-light">
-          A considered edit of three pieces — each a study in proportion, weight and finish. Free worldwide shipping on every order.
+          A considered edit of four pieces — each a study in proportion, weight and finish. Free worldwide shipping on every order.
         </p>
       </section>
 

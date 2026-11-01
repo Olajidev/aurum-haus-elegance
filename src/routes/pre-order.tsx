@@ -28,7 +28,7 @@ function PreOrderPage() {
           Pre-Order<em className="italic font-light text-accent">.</em>
         </h1>
         <p className="mt-6 max-w-xl text-muted-foreground font-light">
-          Three finishes. One quiet obsession. Reserve your piece at <span className="text-foreground">£70</span> before the collection opens publicly on 4 December.
+          Four finishes. One quiet obsession. Reserve your piece at <span className="text-foreground">£70</span> before the collection opens publicly on 4 December.
         </p>
       </section>
 
