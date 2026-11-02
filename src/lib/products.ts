@@ -2,6 +2,7 @@ import promenadeChrome from "@/assets/promenade-black.jpeg.asset.json";
 import promenadeTrio from "@/assets/promenade-trio.jpeg.asset.json";
 import aurumGold from "@/assets/aurum-gold-hook.png.asset.json";
 import aurumSilver from "@/assets/aurum-silver-chrome.png.asset.json";
+import aurumOnyx from "@/assets/aurum-gold-onyx.png.asset.json";
 
 export type Product = {
   slug: string;
@@ -62,6 +63,18 @@ export const products: Product[] = [
     launchPrice: "£75",
     description:
       "The house signature. Solid brass plated in 24k vermeil and rubbed to an antique patina — warm, weighted, and quietly unmistakable.",
+  },
+  {
+    slug: "aurum-noir",
+    image: aurumOnyx.url,
+    gallery: [aurumOnyx.url],
+    name: "Aurum Noir",
+    finish: "24k vermeil · black onyx",
+    price: "£70",
+    priceValue: 70,
+    launchPrice: "£75",
+    description:
+      "The evening edition. Solid brass plated in 24k vermeil, set with a hand-polished black onyx crest — the house signature after dark.",
   },
 ];
 
