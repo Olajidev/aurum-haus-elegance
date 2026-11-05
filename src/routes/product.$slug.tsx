@@ -135,11 +135,7 @@ function ProductPage() {
 
                 <div className="flex flex-wrap gap-4 items-center pt-1">
                   {hookColors.map((color) => {
-                    const isCurrent =
-                      product.slug === color.slug ||
-                      (color.label === "Black" && product.slug === "aurum-noir") ||
-                      (color.label === "White" && (product.slug === "aurum" || product.slug === "ivora")) ||
-                      (color.label === "Gold" && product.slug === "aurum-gold");
+                    const isCurrent = product.slug === color.slug;
 
                     return (
                       <Link
@@ -167,7 +163,7 @@ function ProductPage() {
                   })}
                 </div>
                 <p className="text-xs text-muted-foreground/80 font-light pt-1">
-                  Choose between 24k Vermeil Gold, Black Onyx, and Ivory White.
+                  Choose between Sol (Yellow), Aura (White), Noir (Black), and Onyx (Black & Gold).
                 </p>
               </div>
             )}
@@ -241,7 +237,7 @@ function ProductPage() {
                   Atelier Specifications
                 </h3>
                 <ul className="space-y-2.5 text-sm">
-                  {product.specs.map((spec, i) => (
+                  {product.specs.map((spec: string, i: number) => (
                     <li key={i} className="flex items-start gap-2.5 text-foreground/85">
                       <span className="text-accent mt-0.5 text-sm leading-none">•</span>
                       <span>{spec}</span>

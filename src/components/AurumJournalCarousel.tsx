@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { ArrowLeft, ArrowRight, Maximize2 } from "lucide-react";
 
-import heroOutdoor from "@/assets/hero-outdoor.jpg.asset.json";
+import aurumBadgeMarble from "@/assets/aurum-badge-marble.png";
 import aurumProductHero from "@/assets/aurum-product-hero.jpg.asset.json";
 import himCafeNew from "@/assets/him-cafe-new.png.asset.json";
 import heirloomWarm from "@/assets/heirloom-warm.png.asset.json";
@@ -10,8 +10,8 @@ import slideBagRestaurant from "@/assets/slideshow-bag-restaurant.png.asset.json
 
 const slides = [
   {
-    image: heroOutdoor.url,
-    alt: "Aurum Haus bag holder in an outdoor setting",
+    image: aurumBadgeMarble,
+    alt: "Aurum Haus Badge on Marble",
     title: "Out in the world",
     num: "01",
   },

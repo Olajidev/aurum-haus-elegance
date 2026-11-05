@@ -19,6 +19,7 @@ import ah1Hero from "@/assets/AH1.jpeg";
 import rooftopToast from "@/assets/rooftop-toast.png";
 import aurumHoldersMarble from "@/assets/aurum-holders-marble.png";
 import elegantCafeDrinks from "@/assets/elegant-cafe-drinks.png";
+import luxuryMarbleTabletop from "@/assets/luxury-marble-tabletop.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,12 +48,19 @@ function Home() {
       <SiteHeader />
       <Marquee />
 
-      {/* 1. HERO — DISSOLVING SLIDESHOW (FEATURING AH1.JPEG) */}
+      {/* 1. HERO — DISSOLVING SLIDESHOW (AH1 & LUXURY MARBLE TABLETOP) */}
       <HeroDissolve
         slides={[
           {
             image: ah1Hero,
-            alt: "Aurum Haus luxury bag holder in an elegant atelier setting",
+            alt: "Aurum Haus luxury bag holder in an atelier setting",
+            eyebrow: "Never on the Floor",
+            primary: { to: "/shop", label: "Shop the ritual" },
+            secondary: { to: "/story", label: "The atelier" },
+          },
+          {
+            image: luxuryMarbleTabletop,
+            alt: "Luxury Marble Tabletop with Handbag Hook",
             eyebrow: "Never on the Floor",
             primary: { to: "/shop", label: "Shop the ritual" },
             secondary: { to: "/story", label: "The atelier" },
@@ -85,28 +93,32 @@ function Home() {
           <ProductCard
             slug="aurum-gold"
             image={aurumGold.url}
-            name="Aurum Haus® in Yellow Gold"
+            name="Aurum Haus Sol"
+            finish="Yellow"
             price="£70"
             compareAtPrice="£95"
           />
           <ProductCard
             slug="aurum"
             image={aurumSilver.url}
-            name="Aurum Haus® in Silver Chrome"
+            name="Aurum Haus Aura"
+            finish="White"
             price="£70"
             compareAtPrice="£95"
           />
           <ProductCard
             slug="aurum-noir"
-            image={aurumOnyx.url}
-            name="Aurum Haus® in Black Onyx"
+            image={promenadeChrome.url}
+            name="Aurum Haus Noir"
+            finish="Black"
             price="£70"
             compareAtPrice="£95"
           />
           <ProductCard
             slug="ivora"
-            image={promenadeChrome.url}
-            name="Aurum Haus® in Ivora White"
+            image={aurumOnyx.url}
+            name="Aurum Haus Onyx"
+            finish="Black & Gold"
             price="£70"
             compareAtPrice="£95"
           />
