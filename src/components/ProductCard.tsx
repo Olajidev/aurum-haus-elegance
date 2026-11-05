@@ -4,31 +4,55 @@ type Props = {
   slug?: string;
   image: string;
   name: string;
-  finish: string;
+  finish?: string;
   price: string;
+  compareAtPrice?: string;
 };
 
-export function ProductCard({ slug, image, name, finish, price }: Props) {
+export function ProductCard({
+  slug,
+  image,
+  name,
+  finish: _finish,
+  price,
+  compareAtPrice,
+}: Props) {
   const to = slug ? `/product/${slug}` : "#";
+
   return (
     <Link to={to} className="group block cursor-pointer">
-      <article>
-        <div className="relative overflow-hidden bg-secondary aspect-[3/4] mb-5">
+      <article className="space-y-4">
+        {/* BIG HIGH-IMPACT IMAGE WRAPPER (CLEAN — NO BADGES) */}
+        <div className="relative overflow-hidden bg-[#FBFBFA] border border-border/40 aspect-[3/4]">
           <img
             src={image}
             alt={name}
-            className="w-full h-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
-          <span className="absolute bottom-4 left-4 right-4 bg-background/95 text-foreground py-3 eyebrow text-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-            View piece
-          </span>
-        </div>
-        <div className="flex items-baseline justify-between gap-4">
-          <div>
-            <h3 className="font-display text-xl leading-tight">{name}</h3>
-            <p className="text-sm text-muted-foreground mt-1 font-light">{finish}</p>
+
+          {/* HOVER QUICK VIEW STRIP */}
+          <div className="absolute inset-x-3 bottom-3 bg-foreground/90 backdrop-blur-sm text-background py-3 text-center text-xs tracking-widest uppercase font-medium opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+            View Piece & Colors →
           </div>
-          <span className="font-display text-lg">{price}</span>
+        </div>
+
+        {/* TYPOGRAPHY UNDERNEATH (CLEAN QUIET LUXURY — NO STARS OR REVIEW COUNTS) */}
+        <div className="text-center space-y-1.5 pt-0.5">
+          <h3 className="font-display text-sm tracking-widest uppercase text-foreground group-hover:text-accent transition-colors font-medium">
+            {name.toUpperCase()}
+          </h3>
+
+          {/* PRICE BLOCK */}
+          <div className="flex items-center justify-center gap-2">
+            <span className="font-medium text-sm text-foreground">
+              {price}
+            </span>
+            {compareAtPrice && (
+              <span className="text-xs text-muted-foreground line-through font-light">
+                {compareAtPrice}
+              </span>
+            )}
+          </div>
         </div>
       </article>
     </Link>

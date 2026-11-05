@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import goldDetail from "@/assets/gold-detail.jpg";
+import ah1Hero from "@/assets/AH1.jpeg";
 import trioAlt from "@/assets/trio-alt.jpg";
 
 export const Route = createFileRoute("/story")({
@@ -34,7 +34,7 @@ function Story() {
       </section>
 
       <section className="relative h-[70vh] min-h-[500px]">
-        <img src={goldDetail} alt="Antique gold finish detail" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={ah1Hero} alt="Aurum Haus luxury craftsmanship in an atelier setting" className="absolute inset-0 w-full h-full object-cover" />
       </section>
 
       <section className="mx-auto max-w-3xl px-6 lg:px-12 py-28 space-y-12 font-light text-lg leading-relaxed">

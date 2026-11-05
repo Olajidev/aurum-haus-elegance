@@ -2,24 +2,71 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PreOrderSection } from "@/components/PreOrderSection";
-import { products } from "@/lib/products";
+import { products, type Product } from "@/lib/products";
 
 export const Route = createFileRoute("/pre-order")({
   head: () => ({
     meta: [
       { title: "Pre-Order — Aurum Haus" },
-      { name: "description", content: "Reserve your Aurum Haus piece at £70 before the collection launches at full price on 4 December 2026." },
+      {
+        name: "description",
+        content:
+          "Reserve your Aurum Haus piece at £70 before the collection launches at full price on 4 December 2026.",
+      },
       { property: "og:title", content: "Pre-Order — Aurum Haus" },
-      { property: "og:description", content: "Reserve your piece at the pre-launch price of £70. Ships December." },
+      {
+        property: "og:description",
+        content: "Reserve your piece at the pre-launch price of £70. Ships December.",
+      },
       { property: "og:type", content: "website" },
     ],
   }),
   component: PreOrderPage,
 });
 
-function PreOrderPage() {
+function PreOrderCard({ product: p }: { product: Product }) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="group">
+      <Link
+        to="/product/$slug"
+        params={{ slug: p.slug }}
+        className="block aspect-[3/4] overflow-hidden bg-secondary mb-5 border border-border/40"
+      >
+        <img
+          src={p.image}
+          alt={p.name}
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        />
+      </Link>
+      <div className="flex items-baseline justify-between">
+        <h3 className="font-display text-2xl">{p.name}</h3>
+        <p className="font-display">
+          <span className="text-foreground">{p.price}</span>
+          {p.launchPrice && (
+            <span className="ml-2 text-muted-foreground line-through text-sm">
+              {p.launchPrice}
+            </span>
+          )}
+        </p>
+      </div>
+      <p className="text-sm text-muted-foreground font-light mt-1">{p.finish}</p>
+      <Link
+        to="/checkout/$slug"
+        params={{ slug: p.slug }}
+        className="mt-6 block text-center px-6 py-3.5 bg-foreground text-background eyebrow hover:bg-accent hover:text-foreground transition-colors font-medium text-xs tracking-widest uppercase"
+      >
+        Reserve at {p.price}
+      </Link>
+    </div>
+  );
+}
+
+function PreOrderPage() {
+  // Exactly 5 pieces: 2 up, 3 down (excluding rose-gold)
+  const preOrderProducts = products.filter((p) => p.slug !== "rose-gold");
+
+  return (
+    <div className="min-h-screen flex flex-col bg-background text-foreground">
       <SiteHeader />
 
       <section className="mx-auto max-w-[1500px] px-6 lg:px-12 pt-20 pb-8">
@@ -28,59 +75,53 @@ function PreOrderPage() {
           Pre-Order<em className="italic font-light text-accent">.</em>
         </h1>
         <p className="mt-6 max-w-xl text-muted-foreground font-light">
-          Five finishes. One quiet obsession. Reserve your piece at <span className="text-foreground">£70</span> before the collection opens publicly on 4 December.
+          Five finishes. One quiet obsession. Reserve your piece at <span className="text-foreground font-medium">£70</span> before the collection opens publicly on 4 December.
         </p>
       </section>
 
       <PreOrderSection />
 
-      <section className="mx-auto max-w-[1500px] px-6 lg:px-12 py-20">
+      {/* 5 PRODUCTS: 2 UP, 3 DOWN */}
+      <section className="mx-auto max-w-[1500px] px-6 lg:px-12 py-24 space-y-14">
+        {/* TOP ROW: 2 UP */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-14 max-w-4xl mx-auto">
+          {preOrderProducts.slice(0, 2).map((p) => (
+            <PreOrderCard key={p.slug} product={p} />
+          ))}
+        </div>
+
+        {/* BOTTOM ROW: 3 DOWN */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-          {products.map((p) => (
-            <div key={p.slug} className="group">
-              <Link to="/product/$slug" params={{ slug: p.slug }} className="block aspect-[3/4] overflow-hidden bg-secondary mb-5">
-                <img src={p.image} alt={p.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              </Link>
-              <div className="flex items-baseline justify-between">
-                <h3 className="font-display text-2xl">{p.name}</h3>
-                <p className="font-display">
-                  <span className="text-foreground">{p.price}</span>
-                  {p.launchPrice && (
-                    <span className="ml-2 text-muted-foreground line-through text-sm">{p.launchPrice}</span>
-                  )}
-                </p>
-              </div>
-              <p className="text-sm text-muted-foreground font-light mt-1">{p.finish}</p>
-              <Link
-                to="/checkout/$slug"
-                params={{ slug: p.slug }}
-                className="mt-6 block text-center px-6 py-3 bg-foreground text-background eyebrow hover:bg-accent hover:text-foreground transition-colors"
-              >
-                Reserve at {p.price}
-              </Link>
-            </div>
+          {preOrderProducts.slice(2, 5).map((p) => (
+            <PreOrderCard key={p.slug} product={p} />
           ))}
         </div>
       </section>
 
-      <section className="bg-secondary py-16">
+      <section className="bg-secondary/60 border-t border-border/40 py-20">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <p className="eyebrow text-accent mb-4">How pre-order works</p>
           <div className="grid md:grid-cols-3 gap-8 mt-8 text-left">
             <div>
               <span className="font-display italic text-accent text-xl">I</span>
               <h3 className="font-display text-lg mt-3 mb-2">Reserve today</h3>
-              <p className="text-sm text-muted-foreground font-light">Secure your piece at £70 — before the collection opens at full price.</p>
+              <p className="text-sm text-muted-foreground font-light leading-relaxed">
+                Secure your piece at £70 — before the collection opens at full price.
+              </p>
             </div>
             <div>
               <span className="font-display italic text-accent text-xl">II</span>
               <h3 className="font-display text-lg mt-3 mb-2">Hand-finished</h3>
-              <p className="text-sm text-muted-foreground font-light">Each 113g piece is polished by a single artisan in the atelier.</p>
+              <p className="text-sm text-muted-foreground font-light leading-relaxed">
+                Each 113g piece is polished by a single artisan in the atelier.
+              </p>
             </div>
             <div>
               <span className="font-display italic text-accent text-xl">III</span>
               <h3 className="font-display text-lg mt-3 mb-2">Ships December</h3>
-              <p className="text-sm text-muted-foreground font-light">Orders ship the first week of December, in the order they were reserved.</p>
+              <p className="text-sm text-muted-foreground font-light leading-relaxed">
+                Orders ship the first week of December, in the order they were reserved.
+              </p>
             </div>
           </div>
         </div>

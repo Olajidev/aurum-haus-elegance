@@ -7,25 +7,34 @@ import { PreOrderSection } from "@/components/PreOrderSection";
 import { FAQSection } from "@/components/FAQSection";
 import { ConciergeChat } from "@/components/ConciergeChat";
 import { HeroDissolve } from "@/components/HeroDissolve";
+import { AurumJournalCarousel } from "@/components/AurumJournalCarousel";
 
 import aurumSilver from "@/assets/aurum-silver-chrome.png.asset.json";
 import aurumGold from "@/assets/aurum-gold-hook.png.asset.json";
 import aurumOnyx from "@/assets/aurum-gold-onyx.png.asset.json";
 import promenadeChrome from "@/assets/promenade-black.jpeg.asset.json";
-import promenadeTrio from "@/assets/promenade-trio.jpeg.asset.json";
-import heirloomWarm from "@/assets/heirloom-warm.png.asset.json";
 import packagingImg from "@/assets/aurum-packaging.jpg.asset.json";
-import cafeLifestyle from "@/assets/cafe-lifestyle.png.asset.json";
 import slideBagRestaurant from "@/assets/slideshow-bag-restaurant.png.asset.json";
-
+import ah1Hero from "@/assets/AH1.jpeg";
+import rooftopToast from "@/assets/rooftop-toast.png";
+import aurumHoldersMarble from "@/assets/aurum-holders-marble.png";
+import elegantCafeDrinks from "@/assets/elegant-cafe-drinks.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Aurum Haus — Elevated Tools for Modern Living" },
-      { name: "description", content: "Quiet luxury, redefined. Discover the Aurum Haus signature bag holder — hand-finished in alabaster, obsidian and antique gold." },
+      {
+        name: "description",
+        content:
+          "Quiet luxury, redefined. Discover the Aurum Haus signature bag holder — hand-finished in alabaster, obsidian and antique gold.",
+      },
       { property: "og:title", content: "Aurum Haus — Elevated Tools for Modern Living" },
-      { property: "og:description", content: "Quiet luxury, redefined. Discover the Aurum Haus signature bag holder — hand-finished in alabaster, obsidian and antique gold." },
+      {
+        property: "og:description",
+        content:
+          "Quiet luxury, redefined. Discover the Aurum Haus signature bag holder — hand-finished in alabaster, obsidian and antique gold.",
+      },
       { property: "og:type", content: "website" },
     ],
   }),
@@ -34,16 +43,16 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background text-foreground">
       <SiteHeader />
       <Marquee />
 
-      {/* HERO — dissolving slideshow */}
+      {/* 1. HERO — DISSOLVING SLIDESHOW (FEATURING AH1.JPEG) */}
       <HeroDissolve
         slides={[
           {
-            image: slideBagRestaurant.url,
-            alt: "Aurum Haus bag holder in a Japanese restaurant, suspending a monogram bag",
+            image: ah1Hero,
+            alt: "Aurum Haus luxury bag holder in an elegant atelier setting",
             eyebrow: "A seat at the table",
             title: (
               <>
@@ -59,58 +68,89 @@ function Home() {
         ]}
       />
 
-      {/* COLLECTION GRID */}
-      <section className="mx-auto max-w-[1500px] px-6 lg:px-12 py-24 lg:py-32">
-        <div className="flex items-end justify-between mb-14 gap-6 flex-wrap">
+      {/* 2. THE COLLECTION GRID — FOUR PIECES: 2 UP, 2 DOWN (NO STARS, NO REVIEWS, NO BADGES) */}
+      <section className="mx-auto max-w-[1500px] px-6 lg:px-12 py-20 lg:py-28">
+        <div className="flex items-end justify-between mb-12 gap-6 flex-wrap">
           <div>
             <p className="eyebrow text-accent mb-3">Maison Aurum · Edit n°1</p>
             <h2 className="font-display text-4xl md:text-5xl max-w-xl leading-tight">
-              Five pieces. <em className="italic font-light">One quiet obsession.</em>
+              Four pieces. <em className="italic font-light">One quiet obsession.</em>
             </h2>
+            <p className="text-sm text-muted-foreground font-light mt-2 max-w-md">
+              Tested to support 10kg on marble, glass, and wood. Weighted solid brass with nano-grip protection.
+            </p>
           </div>
-          <Link to="/shop" className="eyebrow text-foreground/70 hover:text-foreground border-b border-foreground/30 pb-1">
-            View all pieces →
+          <Link
+            to="/shop"
+            className="eyebrow text-foreground/75 hover:text-foreground border-b border-foreground/30 pb-1 text-xs"
+          >
+            View all finishes →
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-          <ProductCard slug="ivora" image={promenadeChrome.url} name="Ivora" finish="Polished chrome · ivory inlay" price="£70" />
-          <ProductCard slug="noir" image={promenadeTrio.url} name="The Trio" finish="Polished chrome · ivory inlay" price="£200" />
-          <ProductCard slug="aurum" image={aurumSilver.url} name="Aurum" finish="Polished chrome · ivory crest" price="£70" />
-          <ProductCard slug="aurum-gold" image={aurumGold.url} name="Aurum Gold" finish="24k vermeil · antique gold" price="£70" />
-          <ProductCard slug="aurum-noir" image={aurumOnyx.url} name="Aurum Noir" finish="24k vermeil · black onyx" price="£70" />
-
-
-
+        {/* 4 BIG CARDS GRID: 2 UP, 2 DOWN */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-14 max-w-5xl mx-auto">
+          <ProductCard
+            slug="aurum-gold"
+            image={aurumGold.url}
+            name="Aurum Haus® in Yellow Gold"
+            price="£70"
+            compareAtPrice="£95"
+          />
+          <ProductCard
+            slug="aurum"
+            image={aurumSilver.url}
+            name="Aurum Haus® in Silver Chrome"
+            price="£70"
+            compareAtPrice="£95"
+          />
+          <ProductCard
+            slug="aurum-noir"
+            image={aurumOnyx.url}
+            name="Aurum Haus® in Black Onyx"
+            price="£70"
+            compareAtPrice="£95"
+          />
+          <ProductCard
+            slug="ivora"
+            image={promenadeChrome.url}
+            name="Aurum Haus® in Ivora White"
+            price="£70"
+            compareAtPrice="£95"
+          />
         </div>
       </section>
 
-      {/* EDITORIAL SPLIT */}
-      <section className="bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-[1500px] grid lg:grid-cols-2">
-          <div className="relative aspect-[4/5] lg:aspect-auto lg:min-h-[700px]">
-            <img src={heirloomWarm.url} alt="Aurum Haus bag holder at golden hour" className="absolute inset-0 w-full h-full object-cover" />
+      {/* 3. CLEAN 3-IMAGE ATELIER GALLERY (CARRIE ATELIER STYLE — PURE VISUAL, NO TEXT HEADINGS/PARAGRAPHS) */}
+      <section className="mx-auto max-w-[1500px] px-6 lg:px-12 py-12 lg:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="relative aspect-[4/5] overflow-hidden bg-secondary border border-border/40 group">
+            <img
+              src={aurumHoldersMarble}
+              alt="Aurum Haus Holders on Marble"
+              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
           </div>
-          <div className="px-8 lg:px-20 py-20 lg:py-32 flex flex-col justify-center">
-            <p className="eyebrow text-accent mb-6">A modern heirloom</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-8">
-              Designed to disappear<br />
-              <em className="italic font-light">into the everyday.</em>
-            </h2>
-            <p className="text-primary-foreground/80 font-light leading-relaxed mb-4 max-w-lg">
-              Crafted from solid brass and hand-polished to a mirror finish, each Aurum Haus piece weighs precisely 113 grams — heavy enough to hold a fully appointed bag, light enough to slip into the lining of a clutch.
-            </p>
-            <p className="text-primary-foreground/80 font-light leading-relaxed max-w-lg">
-              We make a single object, exceptionally well.
-            </p>
-            <Link to="/story" className="mt-10 eyebrow text-accent hover:text-alabaster border-b border-accent/40 pb-1 self-start">
-              The atelier →
-            </Link>
+
+          <div className="relative aspect-[4/5] overflow-hidden bg-secondary border border-border/40 group">
+            <img
+              src={slideBagRestaurant.url}
+              alt="Aurum Haus suspending luxury bag at dining table"
+              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+          </div>
+
+          <div className="relative aspect-[4/5] overflow-hidden bg-secondary border border-border/40 group">
+            <img
+              src={elegantCafeDrinks}
+              alt="Elegant Café Table with Drinks"
+              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
           </div>
         </div>
       </section>
 
-      {/* PILLARS */}
+      {/* 4. THREE PILLARS (EXACT FROM LOVABLE DEPLOYMENT: I, II, III) */}
       <section className="mx-auto max-w-[1500px] px-6 lg:px-12 py-24 lg:py-32 grid md:grid-cols-3 gap-12 text-center">
         {[
           { k: "I", t: "Hand-finished", d: "Each piece polished by a single artisan from start to closure." },
@@ -125,7 +165,7 @@ function Home() {
         ))}
       </section>
 
-      {/* PACKAGING */}
+      {/* 5. THE UNBOXING (COMPACT LOVABLE VERSION ON GREEN BG-PRIMARY BACKGROUND) */}
       <section className="bg-primary text-primary-foreground">
         <div className="mx-auto max-w-[1500px] grid lg:grid-cols-2">
           <div className="px-8 lg:px-20 py-20 lg:py-32 flex flex-col justify-center order-2 lg:order-1">
@@ -140,56 +180,54 @@ function Home() {
             <p className="text-primary-foreground/80 font-light leading-relaxed max-w-lg">
               The packaging is designed to be kept. A small luxury, from the moment it reaches your hands.
             </p>
-            <Link to="/shop" className="mt-10 eyebrow text-accent hover:text-alabaster border-b border-accent/40 pb-1 self-start">
+            <Link
+              to="/shop"
+              className="mt-10 eyebrow text-accent hover:text-alabaster border-b border-accent/40 pb-1 self-start"
+            >
               Explore the collection →
             </Link>
           </div>
           <div className="relative aspect-[4/5] lg:aspect-auto lg:min-h-[700px] order-1 lg:order-2">
-            <img src={packagingImg.url} alt="Aurum Haus luxury packaging — hand-finished rigid box with gold-foil crest" className="absolute inset-0 w-full h-full object-cover" />
+            <img
+              src={packagingImg.url}
+              alt="Aurum Haus luxury packaging — hand-finished rigid box with gold-foil crest"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
           </div>
         </div>
       </section>
 
-      {/* LIFESTYLE — LUNCH RITUAL */}
+      {/* 6. LIFESTYLE SECTION WITH NEW "ROOFTOP TOAST" IMAGE */}
       <section className="relative">
         <div className="relative h-[70vh] min-h-[520px] overflow-hidden">
-          <img src={cafeLifestyle.url} alt="Two women dining al fresco — bag held by Aurum Haus" className="absolute inset-0 w-full h-full object-cover" />
+          <img
+            src={rooftopToast}
+            alt="Rooftop Toast with Designer Bag Hook — bag held by Aurum Haus"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-obsidian/70 via-obsidian/30 to-transparent" />
-          <div className="relative h-full mx-auto max-w-[1500px] px-6 lg:px-12 flex flex-col justify-center text-alabaster">
-            <div className="max-w-xl">
-              <p className="eyebrow text-accent mb-4">A seat at the table</p>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-6">
-                For the long lunches<br />
-                <em className="italic font-light">and the bags worth keeping close.</em>
-              </h2>
-              <p className="text-alabaster/85 font-light leading-relaxed max-w-md">
-                No more chairs draped in leather. No more floors that aren't quite clean. Slip the Aurum Haus beneath the marble — your bag is suspended in confidence, within reach, off the ground.
-              </p>
-              <Link to="/shop" className="mt-10 inline-block eyebrow text-accent hover:text-alabaster border-b border-accent/40 pb-1">
-                Shop the ritual →
+          <div className="relative h-full mx-auto max-w-[1500px] px-6 lg:px-12 flex flex-col justify-end pb-12 sm:pb-16 text-alabaster">
+            <div>
+              <Link
+                to="/shop"
+                className="inline-block eyebrow text-accent hover:text-alabaster border-b border-accent/40 pb-1 text-xs tracking-widest uppercase transition-colors"
+              >
+                Shop the collection →
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* QUOTE */}
-      <section className="bg-secondary py-28">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="font-display text-3xl md:text-4xl italic leading-snug text-foreground">
-            "It's the kind of small object that quietly reorganises a room. You don't notice it — until you can't imagine the table without it."
-          </p>
-          <p className="eyebrow text-muted-foreground mt-8">Vogue · The Quiet Luxury Issue</p>
-        </div>
-      </section>
+      {/* 7. THE AURUM JOURNAL SLIDESHOW CAROUSEL (EXACT FROM LOVABLE DEPLOYMENT) */}
+      <AurumJournalCarousel />
 
-      {/* PRE-ORDER COUNTDOWN */}
+      {/* 8. PRE-ORDER COUNTDOWN */}
       <PreOrderSection />
 
+      {/* 9. FAQ & FOOTER */}
       <FAQSection />
-
       <SiteFooter />
-
       <ConciergeChat />
     </div>
   );

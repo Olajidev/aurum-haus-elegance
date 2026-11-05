@@ -30,3 +30,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Loose root asset uploads
+/AH1.jpeg
+/Elegant Cafe*.png
+/Rooftop Toast*.png
+/scripts/
