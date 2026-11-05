@@ -4,11 +4,11 @@ import { Link } from "@tanstack/react-router";
 export type HeroSlide = {
   image: string;
   alt: string;
-  eyebrow: string;
-  title: React.ReactNode;
-  body: string;
-  primary: { to: string; label: string };
-  secondary: { to: string; label: string };
+  eyebrow?: string;
+  title?: React.ReactNode;
+  body?: string;
+  primary?: { to: string; label: string };
+  secondary?: { to: string; label: string };
 };
 
 interface HeroDissolveProps {
@@ -51,11 +51,11 @@ export function HeroDissolve({ slides, interval = 6500 }: HeroDissolveProps) {
 
       {/* Copy layers — cross-fade with slight lift */}
       <div className="relative h-full mx-auto max-w-[1500px] px-6 lg:px-12 flex flex-col justify-end pb-20 text-alabaster">
-        <div className="relative min-h-[340px] md:min-h-[380px]">
+        <div className="relative min-h-[140px] sm:min-h-[160px]">
           {slides.map((s, i) => (
             <div
               key={i}
-              className="absolute inset-0 transition-all duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+              className="absolute inset-x-0 bottom-0 transition-all duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
               style={{
                 opacity: i === active ? 1 : 0,
                 transform: i === active ? "translateY(0)" : "translateY(14px)",
@@ -63,25 +63,33 @@ export function HeroDissolve({ slides, interval = 6500 }: HeroDissolveProps) {
               }}
               aria-hidden={i !== active}
             >
-              <p className="eyebrow text-accent mb-4">{s.eyebrow}</p>
-              <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] max-w-3xl">
-                {s.title}
-              </h1>
-              <p className="mt-6 max-w-md text-alabaster/85 font-light">{s.body}</p>
-              <div className="mt-10 flex gap-3 eyebrow">
-                <Link
-                  to={s.primary.to}
-                  className="px-8 py-4 bg-alabaster text-forest hover:bg-accent transition-colors"
-                >
-                  {s.primary.label}
-                </Link>
-                <Link
-                  to={s.secondary.to}
-                  className="px-8 py-4 border border-alabaster/50 text-alabaster hover:bg-alabaster/10 transition-colors"
-                >
-                  {s.secondary.label}
-                </Link>
-              </div>
+              {s.eyebrow && <p className="eyebrow text-accent mb-4">{s.eyebrow}</p>}
+              {s.title && (
+                <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] max-w-3xl">
+                  {s.title}
+                </h1>
+              )}
+              {s.body && <p className="mt-6 max-w-md text-alabaster/85 font-light">{s.body}</p>}
+              {(s.primary || s.secondary) && (
+                <div className="mt-6 sm:mt-8 flex flex-wrap gap-3 eyebrow">
+                  {s.primary && (
+                    <Link
+                      to={s.primary.to}
+                      className="px-8 py-4 bg-alabaster text-forest hover:bg-accent transition-colors"
+                    >
+                      {s.primary.label}
+                    </Link>
+                  )}
+                  {s.secondary && (
+                    <Link
+                      to={s.secondary.to}
+                      className="px-8 py-4 border border-alabaster/50 text-alabaster hover:bg-alabaster/10 transition-colors"
+                    >
+                      {s.secondary.label}
+                    </Link>
+                  )}
+                </div>
+              )}
             </div>
           ))}
         </div>

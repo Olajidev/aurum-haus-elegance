@@ -53,15 +53,7 @@ function Home() {
           {
             image: ah1Hero,
             alt: "Aurum Haus luxury bag holder in an elegant atelier setting",
-            eyebrow: "A seat at the table",
-            title: (
-              <>
-                Never on the floor.
-                <br />
-                <em className="italic font-light">Always within reach.</em>
-              </>
-            ),
-            body: "From long lunches in Tokyo to late suppers in Paris — a small brass gesture that keeps what you carry close.",
+            eyebrow: "Never on the Floor",
             primary: { to: "/shop", label: "Shop the ritual" },
             secondary: { to: "/story", label: "The atelier" },
           },
