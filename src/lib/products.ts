@@ -95,8 +95,6 @@ export const products: Product[] = [
     gallery: [
       solPrimary,
       goldDetail,
-      heirloomWarm.url,
-      aurumProductHero.url,
       slideBagRestaurant.url,
       aurumPackaging.url,
     ],
@@ -137,9 +135,6 @@ export const products: Product[] = [
     gallery: [
       auraPrimary,
       auraWalnut,
-      silverOutdoor,
-      promenadeChromeReal.url,
-      aurumProductHero.url,
       aurumPackaging.url,
     ],
     name: "Aurum Haus Aura",
@@ -178,9 +173,7 @@ export const products: Product[] = [
     gallery: [
       noirPrimary,
       noirWalnut,
-      pieceObsidian.url,
       aurumPackaging.url,
-      heirloomWarm.url,
     ],
     name: "Aurum Haus Noir",
     finish: "Black · satin obsidian finish",
@@ -218,9 +211,7 @@ export const products: Product[] = [
     gallery: [
       onyxPrimary,
       goldDetail,
-      pieceObsidian.url,
       aurumPackaging.url,
-      cafeLifestyle.url,
     ],
     name: "Aurum Haus Onyx",
     finish: "Black & Gold · 24k vermeil with monogram crest",

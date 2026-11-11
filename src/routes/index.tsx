@@ -11,6 +11,7 @@ import { AurumJournalCarousel } from "@/components/AurumJournalCarousel";
 import { solPrimary, auraPrimary, noirPrimary, onyxPrimary } from "@/lib/products";
 
 import heroSunlitCafe from "@/assets/hero-sunlit-cafe.png";
+import new45Image from "@/assets/new-45.jpg";
 import packagingImg from "@/assets/aurum-packaging.jpg.asset.json";
 import slideBagRestaurant from "@/assets/slideshow-bag-restaurant.png.asset.json";
 import ah1Hero from "@/assets/AH1.jpeg";
@@ -139,34 +140,7 @@ function Home() {
         </div>
       </section>
 
-      {/* 3. CLEAN 3-IMAGE ATELIER GALLERY (CARRIE ATELIER STYLE — PURE VISUAL, NO TEXT HEADINGS/PARAGRAPHS) */}
-      <section className="mx-auto max-w-[1500px] px-6 lg:px-12 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          <div className="relative aspect-[4/5] overflow-hidden bg-secondary border border-border/40 group">
-            <img
-              src={aurumHoldersMarble}
-              alt="Aurum Haus Holders on Marble"
-              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-          </div>
-
-          <div className="relative aspect-[4/5] overflow-hidden bg-secondary border border-border/40 group">
-            <img
-              src={slideBagRestaurant.url}
-              alt="Aurum Haus suspending luxury bag at dining table"
-              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-          </div>
-
-          <div className="relative aspect-[4/5] overflow-hidden bg-secondary border border-border/40 group">
-            <img
-              src={elegantCafeDrinks}
-              alt="Elegant Café Table with Drinks"
-              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-          </div>
-        </div>
-      </section>
+      {/* 3. CLEAN 3-IMAGE ATELIER GALLERY (HIDDEN AS REQUESTED) */}
 
       {/* 4. THREE PILLARS (EXACT FROM LOVABLE DEPLOYMENT: I, II, III) */}
       <section className="mx-auto max-w-[1500px] px-6 lg:px-12 py-24 lg:py-32 grid md:grid-cols-3 gap-12 text-center">
@@ -215,12 +189,12 @@ function Home() {
         </div>
       </section>
 
-      {/* 6. LIFESTYLE SECTION WITH NEW "ROOFTOP TOAST" IMAGE */}
+      {/* 6. LIFESTYLE SECTION WITH NEW "NEW 45" IMAGE */}
       <section className="relative">
         <div className="relative h-[70vh] min-h-[520px] overflow-hidden">
           <img
-            src={rooftopToast}
-            alt="Rooftop Toast with Designer Bag Hook — bag held by Aurum Haus"
+            src={new45Image}
+            alt="Aurum Haus Signature Luxury Bag Hook in lifestyle dining setting"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-obsidian/70 via-obsidian/30 to-transparent" />

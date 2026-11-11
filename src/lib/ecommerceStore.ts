@@ -52,8 +52,8 @@ export type EmailLog = {
 
 // STORAGE KEYS
 const STORAGE_KEYS = {
-  PRODUCTS: "ah_ecommerce_products_v2",
-  INVENTORY: "ah_ecommerce_inventory_v2",
+  PRODUCTS: "ah_ecommerce_products_v3",
+  INVENTORY: "ah_ecommerce_inventory_v3",
   ORDERS: "ah_ecommerce_orders_v2",
   EMAILS: "ah_ecommerce_email_logs_v2",
   AUTH: "ah_ecommerce_admin_auth_v2",
