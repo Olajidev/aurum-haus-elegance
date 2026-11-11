@@ -12,7 +12,7 @@ import { solPrimary, auraPrimary, noirPrimary, onyxPrimary } from "@/lib/product
 
 import heroSunlitCafe from "@/assets/hero-sunlit-cafe.png";
 import new45Image from "@/assets/new-45.jpg";
-import packagingImg from "@/assets/aurum-packaging.jpg.asset.json";
+import aurumCollectionMedallions from "@/assets/aurum-collection-medallions.jpg";
 import slideBagRestaurant from "@/assets/slideshow-bag-restaurant.png.asset.json";
 import ah1Hero from "@/assets/AH1.jpeg";
 import rooftopToast from "@/assets/rooftop-toast.png";
@@ -181,8 +181,8 @@ function Home() {
           </div>
           <div className="relative aspect-[4/5] lg:aspect-auto lg:min-h-[700px] order-1 lg:order-2">
             <img
-              src={packagingImg.url}
-              alt="Aurum Haus luxury packaging — hand-finished rigid box with gold-foil crest"
+              src={aurumCollectionMedallions}
+              alt="Aurum Haus luxury collection of signature medallions"
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>

@@ -5,7 +5,7 @@ import aurumBadgeMarble from "@/assets/aurum-badge-marble.png";
 import aurumProductHero from "@/assets/aurum-product-hero.jpg.asset.json";
 import himCafeNew from "@/assets/him-cafe-new.png.asset.json";
 import heirloomWarm from "@/assets/heirloom-warm.png.asset.json";
-import packagingImg from "@/assets/aurum-packaging.jpg.asset.json";
+import aurumCollectionMedallions from "@/assets/aurum-collection-medallions.jpg";
 import slideBagRestaurant from "@/assets/slideshow-bag-restaurant.png.asset.json";
 
 const slides = [
@@ -34,9 +34,9 @@ const slides = [
     num: "04",
   },
   {
-    image: packagingImg.url,
-    alt: "Aurum Haus signature gift packaging",
-    title: "Beautifully presented",
+    image: aurumCollectionMedallions,
+    alt: "Aurum Haus signature medallions suite",
+    title: "Signature finishes",
     num: "05",
   },
   {

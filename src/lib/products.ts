@@ -25,6 +25,7 @@ import noirPrimary from "@/assets/products/noir-primary.jpg";
 import noirWalnut from "@/assets/products/noir-walnut.jpg";
 import onyxPrimary from "@/assets/products/onyx-primary.jpg";
 import medallionsFlatlay from "@/assets/products/medallions-flatlay.jpg";
+import aurumCollectionMedallions from "@/assets/aurum-collection-medallions.jpg";
 
 export {
   solPrimary,
@@ -34,6 +35,7 @@ export {
   noirWalnut,
   onyxPrimary,
   medallionsFlatlay,
+  aurumCollectionMedallions,
 };
 
 export type Product = {
@@ -96,7 +98,7 @@ export const products: Product[] = [
       solPrimary,
       goldDetail,
       slideBagRestaurant.url,
-      aurumPackaging.url,
+      aurumCollectionMedallions,
     ],
     name: "Aurum Haus Sol",
     finish: "Yellow · 24k vermeil gold",
@@ -135,7 +137,7 @@ export const products: Product[] = [
     gallery: [
       auraPrimary,
       auraWalnut,
-      aurumPackaging.url,
+      aurumCollectionMedallions,
     ],
     name: "Aurum Haus Aura",
     finish: "White · polished chrome & ivory",
@@ -173,7 +175,7 @@ export const products: Product[] = [
     gallery: [
       noirPrimary,
       noirWalnut,
-      aurumPackaging.url,
+      aurumCollectionMedallions,
     ],
     name: "Aurum Haus Noir",
     finish: "Black · satin obsidian finish",
@@ -211,7 +213,7 @@ export const products: Product[] = [
     gallery: [
       onyxPrimary,
       goldDetail,
-      aurumPackaging.url,
+      aurumCollectionMedallions,
     ],
     name: "Aurum Haus Onyx",
     finish: "Black & Gold · 24k vermeil with monogram crest",
@@ -251,7 +253,7 @@ export const products: Product[] = [
       auraPrimary,
       noirPrimary,
       onyxPrimary,
-      aurumPackaging.url,
+      aurumCollectionMedallions,
     ],
     name: "The Trio Suite",
     finish: "Collector's set · 3 signature pieces",
