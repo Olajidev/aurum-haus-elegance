@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ProductCard } from "@/components/ProductCard";
-import { products } from "@/lib/products";
+import { products as staticProducts } from "@/lib/products";
+import { useEcommerceStore } from "@/lib/ecommerceStore";
 
 import aurumHoldersMarble from "@/assets/aurum-holders-marble.png";
 import slideBagRestaurant from "@/assets/slideshow-bag-restaurant.png.asset.json";
@@ -26,8 +27,9 @@ export const Route = createFileRoute("/shop")({
 });
 
 function Shop() {
-  // Exactly 5 pieces: 3 up, 2 down (excluding rose-gold)
-  const shopProducts = products.filter((p) => p.slug !== "rose-gold");
+  const { products } = useEcommerceStore();
+  const activeProducts = products && products.length > 0 ? products : staticProducts;
+  const shopProducts = activeProducts.filter((p) => p.slug !== "rose-gold");
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">

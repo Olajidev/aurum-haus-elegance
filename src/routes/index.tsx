@@ -8,11 +8,9 @@ import { FAQSection } from "@/components/FAQSection";
 import { ConciergeChat } from "@/components/ConciergeChat";
 import { HeroDissolve } from "@/components/HeroDissolve";
 import { AurumJournalCarousel } from "@/components/AurumJournalCarousel";
+import { solPrimary, auraPrimary, noirPrimary, onyxPrimary } from "@/lib/products";
 
-import aurumSilver from "@/assets/aurum-silver-chrome.png.asset.json";
-import aurumGold from "@/assets/aurum-gold-hook.png.asset.json";
-import aurumOnyx from "@/assets/aurum-gold-onyx.png.asset.json";
-import promenadeChrome from "@/assets/promenade-black.jpeg.asset.json";
+import heroSunlitCafe from "@/assets/hero-sunlit-cafe.png";
 import packagingImg from "@/assets/aurum-packaging.jpg.asset.json";
 import slideBagRestaurant from "@/assets/slideshow-bag-restaurant.png.asset.json";
 import ah1Hero from "@/assets/AH1.jpeg";
@@ -48,22 +46,38 @@ function Home() {
       <SiteHeader />
       <Marquee />
 
-      {/* 1. HERO — DISSOLVING SLIDESHOW (AH1 & LUXURY MARBLE TABLETOP) */}
+      {/* 1. HERO — SUNLIT CAFE LUXURY HERO (WITH SMOOTH DISSOLVE TO MARBLE TABLETOP) */}
       <HeroDissolve
         slides={[
           {
-            image: ah1Hero,
-            alt: "Aurum Haus luxury bag holder in an atelier setting",
-            eyebrow: "Never on the Floor",
-            primary: { to: "/shop", label: "Shop the ritual" },
-            secondary: { to: "/story", label: "The atelier" },
+            image: heroSunlitCafe,
+            alt: "Quiet luxury held effortlessly — Aurum Haus signature bag holder",
+            eyebrow: "SIGNATURE COLLECTION",
+            title: (
+              <>
+                Quiet luxury,
+                <br />
+                <em className="italic font-light">held effortlessly.</em>
+              </>
+            ),
+            body: "A jewel for the table. The Aurum Haus bag holder transforms a daily ritual into a refined gesture.",
+            primary: { to: "/shop", label: "DISCOVER THE COLLECTION" },
+            secondary: { to: "/story", label: "OUR STORY" },
           },
           {
             image: luxuryMarbleTabletop,
             alt: "Luxury Marble Tabletop with Handbag Hook",
-            eyebrow: "Never on the Floor",
-            primary: { to: "/shop", label: "Shop the ritual" },
-            secondary: { to: "/story", label: "The atelier" },
+            eyebrow: "SIGNATURE COLLECTION",
+            title: (
+              <>
+                Quiet luxury,
+                <br />
+                <em className="italic font-light">held effortlessly.</em>
+              </>
+            ),
+            body: "A jewel for the table. The Aurum Haus bag holder transforms a daily ritual into a refined gesture.",
+            primary: { to: "/shop", label: "DISCOVER THE COLLECTION" },
+            secondary: { to: "/story", label: "OUR STORY" },
           },
         ]}
       />
@@ -92,7 +106,7 @@ function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-14 max-w-5xl mx-auto">
           <ProductCard
             slug="aurum-gold"
-            image={aurumGold.url}
+            image={solPrimary}
             name="Aurum Haus Sol"
             finish="Yellow"
             price="£70"
@@ -100,7 +114,7 @@ function Home() {
           />
           <ProductCard
             slug="aurum"
-            image={aurumSilver.url}
+            image={auraPrimary}
             name="Aurum Haus Aura"
             finish="White"
             price="£70"
@@ -108,7 +122,7 @@ function Home() {
           />
           <ProductCard
             slug="aurum-noir"
-            image={promenadeChrome.url}
+            image={noirPrimary}
             name="Aurum Haus Noir"
             finish="Black"
             price="£70"
@@ -116,7 +130,7 @@ function Home() {
           />
           <ProductCard
             slug="ivora"
-            image={aurumOnyx.url}
+            image={onyxPrimary}
             name="Aurum Haus Onyx"
             finish="Black & Gold"
             price="£70"

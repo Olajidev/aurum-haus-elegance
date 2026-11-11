@@ -18,6 +18,24 @@ import trioImg from "@/assets/trio.jpg";
 import silverOutdoor from "@/assets/silver-outdoor.jpg";
 import whiteOverhead from "@/assets/white-overhead.jpg";
 
+import solPrimary from "@/assets/products/sol-primary.jpg";
+import auraPrimary from "@/assets/products/aura-primary.jpg";
+import auraWalnut from "@/assets/products/aura-walnut.jpg";
+import noirPrimary from "@/assets/products/noir-primary.jpg";
+import noirWalnut from "@/assets/products/noir-walnut.jpg";
+import onyxPrimary from "@/assets/products/onyx-primary.jpg";
+import medallionsFlatlay from "@/assets/products/medallions-flatlay.jpg";
+
+export {
+  solPrimary,
+  auraPrimary,
+  auraWalnut,
+  noirPrimary,
+  noirWalnut,
+  onyxPrimary,
+  medallionsFlatlay,
+};
+
 export type Product = {
   slug: string;
   image: string;
@@ -40,6 +58,7 @@ export type Product = {
     weight: string;
     capacity: string;
   };
+  stock?: number;
 };
 
 export const hookColors = [
@@ -72,9 +91,9 @@ export const hookColors = [
 export const products: Product[] = [
   {
     slug: "aurum-gold",
-    image: aurumGold.url,
+    image: solPrimary,
     gallery: [
-      aurumGold.url,
+      solPrimary,
       goldDetail,
       heirloomWarm.url,
       aurumProductHero.url,
@@ -89,6 +108,7 @@ export const products: Product[] = [
     priceValue: 70,
     compareAtPrice: "£95",
     launchPrice: "£75",
+    stock: 50,
     description:
       "The house signature. Solid brass plated in 24k vermeil and hand-rubbed to an antique patina — warm, weighted, and unmistakable at the table.",
     leadParagraph:
@@ -113,10 +133,10 @@ export const products: Product[] = [
   },
   {
     slug: "aurum",
-    image: aurumSilver.url,
+    image: auraPrimary,
     gallery: [
-      aurumSilver.url,
-      aurumChromePiece.url,
+      auraPrimary,
+      auraWalnut,
       silverOutdoor,
       promenadeChromeReal.url,
       aurumProductHero.url,
@@ -130,6 +150,7 @@ export const products: Product[] = [
     priceValue: 70,
     compareAtPrice: "£95",
     launchPrice: "£75",
+    stock: 45,
     description:
       "The house signature in its lightest form. Mirror-polished chrome crowned with the hand-set ivory AH crest — quietly unmistakable at the table.",
     leadParagraph:
@@ -153,9 +174,10 @@ export const products: Product[] = [
   },
   {
     slug: "aurum-noir",
-    image: promenadeChrome.url,
+    image: noirPrimary,
     gallery: [
-      promenadeChrome.url,
+      noirPrimary,
+      noirWalnut,
       pieceObsidian.url,
       aurumPackaging.url,
       heirloomWarm.url,
@@ -168,6 +190,7 @@ export const products: Product[] = [
     priceValue: 70,
     compareAtPrice: "£95",
     launchPrice: "£75",
+    stock: 35,
     description:
       "The evening edition. Solid brass plated in 24k vermeil, set with a hand-polished black onyx crest — the house signature after dark.",
     leadParagraph:
@@ -191,9 +214,9 @@ export const products: Product[] = [
   },
   {
     slug: "ivora",
-    image: aurumOnyx.url,
+    image: onyxPrimary,
     gallery: [
-      aurumOnyx.url,
+      onyxPrimary,
       goldDetail,
       pieceObsidian.url,
       aurumPackaging.url,
@@ -207,6 +230,7 @@ export const products: Product[] = [
     priceValue: 70,
     compareAtPrice: "£95",
     launchPrice: "£75",
+    stock: 25,
     description:
       "The monogram luxury edition. Solid brass plated in 24k vermeil, crowned with an artisan black and gold monogram emblem.",
     leadParagraph:
@@ -229,13 +253,14 @@ export const products: Product[] = [
   },
   {
     slug: "noir",
-    image: promenadeTrio.url,
+    image: medallionsFlatlay,
     gallery: [
-      promenadeTrio.url,
-      trioImg,
-      trioAlt,
+      medallionsFlatlay,
+      solPrimary,
+      auraPrimary,
+      noirPrimary,
+      onyxPrimary,
       aurumPackaging.url,
-      slideBagRestaurant.url,
     ],
     name: "The Trio Suite",
     finish: "Collector's set · 3 signature pieces",
@@ -244,6 +269,7 @@ export const products: Product[] = [
     price: "£200",
     priceValue: 200,
     compareAtPrice: "£240",
+    stock: 15,
     description:
       "The collector's set. Three hand-finished pieces in polished chrome, 24k vermeil gold, and black onyx — presented together in our deluxe collector's presentation case.",
     leadParagraph:

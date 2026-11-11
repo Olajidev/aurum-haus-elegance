@@ -46,12 +46,13 @@ export function HeroDissolve({ slides, interval = 6500 }: HeroDissolveProps) {
         </div>
       ))}
 
-      {/* Vignette */}
-      <div className="absolute inset-0 bg-gradient-to-t from-obsidian/60 via-obsidian/15 to-obsidian/20 pointer-events-none" />
+      {/* Vignette with subtle left gradient for text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-t from-obsidian/75 via-obsidian/25 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-obsidian/60 via-obsidian/20 to-transparent pointer-events-none" />
 
       {/* Copy layers — cross-fade with slight lift */}
-      <div className="relative h-full mx-auto max-w-[1500px] px-6 lg:px-12 flex flex-col justify-end pb-20 text-alabaster">
-        <div className="relative min-h-[140px] sm:min-h-[160px]">
+      <div className="relative h-full mx-auto max-w-[1500px] px-6 lg:px-12 flex flex-col justify-end pb-16 sm:pb-20 text-alabaster z-10">
+        <div className="relative min-h-[320px] sm:min-h-[360px] md:min-h-[400px]">
           {slides.map((s, i) => (
             <div
               key={i}
@@ -63,19 +64,27 @@ export function HeroDissolve({ slides, interval = 6500 }: HeroDissolveProps) {
               }}
               aria-hidden={i !== active}
             >
-              {s.eyebrow && <p className="eyebrow text-accent mb-4">{s.eyebrow}</p>}
-              {s.title && (
-                <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] max-w-3xl">
-                  {s.title}
-                </h1>
+              {s.eyebrow && (
+                <p className="eyebrow text-accent/90 mb-3 tracking-[0.25em] text-xs font-medium uppercase drop-shadow-sm">
+                  {s.eyebrow}
+                </p>
               )}
-              {s.body && <p className="mt-6 max-w-md text-alabaster/85 font-light">{s.body}</p>}
+              {s.title && (
+                <div className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.02] max-w-2xl font-normal drop-shadow-md">
+                  {s.title}
+                </div>
+              )}
+              {s.body && (
+                <p className="mt-4 sm:mt-5 max-w-md text-sm sm:text-base text-alabaster/90 font-light leading-relaxed drop-shadow-sm">
+                  {s.body}
+                </p>
+              )}
               {(s.primary || s.secondary) && (
-                <div className="mt-6 sm:mt-8 flex flex-wrap gap-3 eyebrow">
+                <div className="mt-8 flex flex-wrap items-center gap-3.5 sm:gap-4">
                   {s.primary && (
                     <Link
                       to={s.primary.to}
-                      className="px-8 py-4 bg-alabaster text-forest hover:bg-accent transition-colors"
+                      className="px-6 sm:px-8 py-3.5 sm:py-4 bg-[#F5F4F0] text-[#1A1A1A] hover:bg-accent hover:text-foreground text-[11px] sm:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 shadow-sm"
                     >
                       {s.primary.label}
                     </Link>
@@ -83,7 +92,7 @@ export function HeroDissolve({ slides, interval = 6500 }: HeroDissolveProps) {
                   {s.secondary && (
                     <Link
                       to={s.secondary.to}
-                      className="px-8 py-4 border border-alabaster/50 text-alabaster hover:bg-alabaster/10 transition-colors"
+                      className="px-6 sm:px-8 py-3.5 sm:py-4 border border-alabaster/70 bg-black/25 text-alabaster hover:bg-alabaster/20 text-[11px] sm:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 backdrop-blur-sm"
                     >
                       {s.secondary.label}
                     </Link>

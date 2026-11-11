@@ -3,6 +3,7 @@ import { useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getProduct, hookColors } from "@/lib/products";
+import { getProductStock, useEcommerceStore } from "@/lib/ecommerceStore";
 import { ProductGallery } from "@/components/ProductGallery";
 import { AurumJournalCarousel } from "@/components/AurumJournalCarousel";
 import { Truck, ShieldCheck, RotateCcw, Gift, Check } from "lucide-react";
@@ -46,7 +47,11 @@ export const Route = createFileRoute("/product/$slug")({
 });
 
 function ProductPage() {
-  const { product } = Route.useLoaderData();
+  const { product: initialProduct } = Route.useLoaderData();
+  const { products } = useEcommerceStore();
+  const product = products.find((p) => p.slug === initialProduct.slug) || initialProduct;
+  const stock = getProductStock(product.slug);
+
   const [quantity, setQuantity] = useState(1);
   const [openAccordion, setOpenAccordion] = useState<string | null>("specs");
 
@@ -170,6 +175,19 @@ function ProductPage() {
 
             {/* QUANTITY & PRIMARY ACTION CTA */}
             <div className="space-y-4">
+              <div className="flex items-center gap-2 text-xs tracking-wider uppercase">
+                <span className={`w-2 h-2 rounded-full ${stock > 0 ? "bg-emerald-500" : "bg-red-500"}`} />
+                {stock > 10 && (
+                  <span className="text-muted-foreground">In Stock · Ready for atelier dispatch</span>
+                )}
+                {stock > 0 && stock <= 10 && (
+                  <span className="text-amber-500 font-medium">Low Stock: Only {stock} pieces remaining in current release</span>
+                )}
+                {stock <= 0 && (
+                  <span className="text-red-500 font-medium">Sold Out · Current atelier allocation exhausted</span>
+                )}
+              </div>
+
               <div className="flex items-center gap-4">
                 <div className="flex items-center border border-border bg-secondary/40 h-12">
                   <button
@@ -183,7 +201,7 @@ function ProductPage() {
                     {quantity}
                   </span>
                   <button
-                    onClick={() => setQuantity((q) => q + 1)}
+                    onClick={() => setQuantity((q) => Math.min(Math.max(1, stock), q + 1))}
                     aria-label="Increase quantity"
                     className="px-4 text-foreground/70 hover:text-foreground text-lg transition-colors"
                   >
@@ -191,13 +209,22 @@ function ProductPage() {
                   </button>
                 </div>
 
-                <Link
-                  to="/checkout/$slug"
-                  params={{ slug: product.slug }}
-                  className="flex-1 block text-center py-3.5 px-8 bg-foreground text-background eyebrow text-xs tracking-widest hover:bg-accent hover:text-foreground transition-all duration-300 font-semibold shadow-sm"
-                >
-                  Proceed to Checkout · £{totalPrice}
-                </Link>
+                {stock > 0 ? (
+                  <Link
+                    to="/checkout/$slug"
+                    params={{ slug: product.slug }}
+                    className="flex-1 block text-center py-3.5 px-8 bg-foreground text-background eyebrow text-xs tracking-widest hover:bg-accent hover:text-foreground transition-all duration-300 font-semibold shadow-sm"
+                  >
+                    Proceed to Checkout · £{totalPrice}
+                  </Link>
+                ) : (
+                  <button
+                    disabled
+                    className="flex-1 py-3.5 px-8 bg-muted text-muted-foreground eyebrow text-xs tracking-widest cursor-not-allowed opacity-60"
+                  >
+                    Sold Out
+                  </button>
+                )}
               </div>
 
               {/* TRUST ICONS UNDER CTA */}

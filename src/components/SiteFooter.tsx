@@ -38,7 +38,10 @@ export function SiteFooter() {
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/60">
           <span>© {new Date().getFullYear()} Aurum Haus®. Elevated tools for modern living.</span>
           <div className="flex gap-6 eyebrow">
-            <a>Privacy</a><a>Terms</a><a>Cookies</a>
+            <a>Privacy</a>
+            <a>Terms</a>
+            <a>Cookies</a>
+            <Link to="/admin" className="text-accent/80 hover:text-accent font-medium">Atelier Admin</Link>
           </div>
         </div>
       </div>
