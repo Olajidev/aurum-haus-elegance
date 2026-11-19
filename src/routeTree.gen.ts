@@ -15,7 +15,6 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CraftsmanshipRouteImport } from './routes/craftsmanship'
 import { Route as JournalRouteImport } from './routes/journal'
 import { Route as PreOrderRouteImport } from './routes/pre-order'
-import { Route as PressRouteImport } from './routes/press'
 import { Route as ShippingReturnsRouteImport } from './routes/shipping-returns'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -53,11 +52,6 @@ const JournalRoute = JournalRouteImport.update({
 const PreOrderRoute = PreOrderRouteImport.update({
   id: '/pre-order',
   path: '/pre-order',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PressRoute = PressRouteImport.update({
-  id: '/press',
-  path: '/press',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShippingReturnsRoute = ShippingReturnsRouteImport.update({
@@ -108,7 +102,6 @@ export interface FileRoutesByFullPath {
   '/craftsmanship': typeof CraftsmanshipRoute
   '/journal': typeof JournalRoute
   '/pre-order': typeof PreOrderRoute
-  '/press': typeof PressRoute
   '/shipping-returns': typeof ShippingReturnsRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -125,7 +118,6 @@ export interface FileRoutesByTo {
   '/craftsmanship': typeof CraftsmanshipRoute
   '/journal': typeof JournalRoute
   '/pre-order': typeof PreOrderRoute
-  '/press': typeof PressRoute
   '/shipping-returns': typeof ShippingReturnsRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -143,7 +135,6 @@ export interface FileRoutesById {
   '/craftsmanship': typeof CraftsmanshipRoute
   '/journal': typeof JournalRoute
   '/pre-order': typeof PreOrderRoute
-  '/press': typeof PressRoute
   '/shipping-returns': typeof ShippingReturnsRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -162,7 +153,6 @@ export interface FileRouteTypes {
     | '/craftsmanship'
     | '/journal'
     | '/pre-order'
-    | '/press'
     | '/shipping-returns'
     | '/shop'
     | '/sitemap.xml'
@@ -179,7 +169,6 @@ export interface FileRouteTypes {
     | '/craftsmanship'
     | '/journal'
     | '/pre-order'
-    | '/press'
     | '/shipping-returns'
     | '/shop'
     | '/sitemap.xml'
@@ -196,7 +185,6 @@ export interface FileRouteTypes {
     | '/craftsmanship'
     | '/journal'
     | '/pre-order'
-    | '/press'
     | '/shipping-returns'
     | '/shop'
     | '/sitemap.xml'
@@ -214,7 +202,6 @@ export interface RootRouteChildren {
   CraftsmanshipRoute: typeof CraftsmanshipRoute
   JournalRoute: typeof JournalRoute
   PreOrderRoute: typeof PreOrderRoute
-  PressRoute: typeof PressRoute
   ShippingReturnsRoute: typeof ShippingReturnsRoute
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -266,13 +253,6 @@ declare module '@tanstack/react-router' {
       path: '/pre-order'
       fullPath: '/pre-order'
       preLoaderRoute: typeof PreOrderRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/press': {
-      id: '/press'
-      path: '/press'
-      fullPath: '/press'
-      preLoaderRoute: typeof PressRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/shipping-returns': {
@@ -351,7 +331,6 @@ const rootRouteChildren: RootRouteChildren = {
   CraftsmanshipRoute: CraftsmanshipRoute,
   JournalRoute: JournalRoute,
   PreOrderRoute: PreOrderRoute,
-  PressRoute: PressRoute,
   ShippingReturnsRoute: ShippingReturnsRoute,
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

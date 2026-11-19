@@ -42,16 +42,11 @@ export function ProductCard({
             {name.toUpperCase()}
           </h3>
 
-          {/* PRICE BLOCK */}
-          <div className="flex items-center justify-center gap-2">
+          {/* PRICE BLOCK (CLEAN — NO SLASHED PRICE) */}
+          <div className="flex items-center justify-center">
             <span className="font-medium text-sm text-foreground">
               {price}
             </span>
-            {compareAtPrice && (
-              <span className="text-xs text-muted-foreground line-through font-light">
-                {compareAtPrice}
-              </span>
-            )}
           </div>
         </div>
       </article>

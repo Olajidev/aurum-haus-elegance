@@ -996,7 +996,7 @@ function ProductModal({
   const [finish, setFinish] = useState(initialProduct?.finish || "");
   const [finishCategory, setFinishCategory] = useState(initialProduct?.finishCategory || "Signature");
   const [priceValue, setPriceValue] = useState<number>(initialProduct?.priceValue || 70);
-  const [compareAtPrice, setCompareAtPrice] = useState(initialProduct?.compareAtPrice || "£95");
+  const [compareAtPrice, setCompareAtPrice] = useState(initialProduct?.compareAtPrice || "");
   const [stock, setStock] = useState<number>(initialProduct?.stock || 30);
   const [imageUrl, setImageUrl] = useState(initialProduct?.image || solPrimary);
   const [description, setDescription] = useState(

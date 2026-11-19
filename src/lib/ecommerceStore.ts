@@ -52,9 +52,9 @@ export type EmailLog = {
 
 // STORAGE KEYS
 const STORAGE_KEYS = {
-  PRODUCTS: "ah_ecommerce_products_v6",
-  INVENTORY: "ah_ecommerce_inventory_v4",
-  ORDERS: "ah_ecommerce_orders_v3",
+  PRODUCTS: "ah_ecommerce_products_v7",
+  INVENTORY: "ah_ecommerce_inventory_v5",
+  ORDERS: "ah_ecommerce_orders_v4",
   EMAILS: "ah_ecommerce_email_logs_v3",
   AUTH: "ah_ecommerce_admin_auth_v2",
 };
@@ -88,11 +88,11 @@ const INITIAL_ORDERS: Order[] = [
     finish: "Satin Gold · Gold rim · Satin-gold surface · White monogram",
     productImage: solPrimary,
     quantity: 1,
-    unitPrice: 80,
-    subtotal: 80,
-    tax: 8,
+    unitPrice: 70,
+    subtotal: 70,
+    tax: 7,
     shipping: 0,
-    total: 88,
+    total: 77,
     customerName: "Lady Victoria Sterling",
     customerEmail: "victoria.sterling@kensington.co.uk",
     shippingAddress: {

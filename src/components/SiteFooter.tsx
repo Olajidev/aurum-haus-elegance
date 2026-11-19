@@ -24,7 +24,6 @@ export function SiteFooter() {
           <Link to="/story" className="block text-primary-foreground/80 hover:text-primary-foreground normal-case tracking-normal font-light">Our story</Link>
           <Link to="/shop" className="block text-primary-foreground/80 hover:text-primary-foreground normal-case tracking-normal font-light">Collection</Link>
           <Link to="/craftsmanship" className="block text-primary-foreground/80 hover:text-primary-foreground normal-case tracking-normal font-light">Craftsmanship</Link>
-          <Link to="/press" className="block text-primary-foreground/80 hover:text-primary-foreground normal-case tracking-normal font-light">Press</Link>
         </div>
 
         <div className="space-y-3 eyebrow">

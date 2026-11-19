@@ -11,7 +11,6 @@ import { AurumJournalCarousel } from "@/components/AurumJournalCarousel";
 import { solPrimary, auraPrimary, noirPrimary, onyxPrimary } from "@/lib/products";
 
 import heroSunlitCafe from "@/assets/hero-sunlit-cafe.png";
-import new45Image from "@/assets/new-45.jpg";
 import aurumCollectionMedallions from "@/assets/aurum-collection-medallions.jpg";
 import slideBagRestaurant from "@/assets/slideshow-bag-restaurant.png.asset.json";
 import ah1Hero from "@/assets/AH1.jpeg";
@@ -110,24 +109,21 @@ function Home() {
             image={solPrimary}
             name="Aurum Haus Auré"
             finish="Satin Gold"
-            price="£80"
-            compareAtPrice="£95"
+            price="£70"
           />
           <ProductCard
             slug="aurum"
             image={auraPrimary}
             name="Aurum Haus Écru"
             finish="Refined Ivory"
-            price="£80"
-            compareAtPrice="£95"
+            price="£70"
           />
           <ProductCard
             slug="aurum-noir"
             image={noirPrimary}
             name="Aurum Haus Rêve Noir"
             finish="Timeless Black"
-            price="£80"
-            compareAtPrice="£95"
+            price="£70"
           />
           <ProductCard
             slug="ivora"
@@ -135,7 +131,6 @@ function Home() {
             name="Aurum Haus Nuit Dorée"
             finish="Black & Gold"
             price="£80"
-            compareAtPrice="£95"
           />
         </div>
       </section>
@@ -189,29 +184,7 @@ function Home() {
         </div>
       </section>
 
-      {/* 6. LIFESTYLE SECTION WITH NEW "NEW 45" IMAGE */}
-      <section className="relative">
-        <div className="relative h-[70vh] min-h-[520px] overflow-hidden">
-          <img
-            src={new45Image}
-            alt="Aurum Haus Signature Luxury Bag Hook in lifestyle dining setting"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-obsidian/70 via-obsidian/30 to-transparent" />
-          <div className="relative h-full mx-auto max-w-[1500px] px-6 lg:px-12 flex flex-col justify-end pb-12 sm:pb-16 text-alabaster">
-            <div>
-              <Link
-                to="/shop"
-                className="inline-block eyebrow text-accent hover:text-alabaster border-b border-accent/40 pb-1 text-xs tracking-widest uppercase transition-colors"
-              >
-                Shop the collection →
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. THE AURUM JOURNAL SLIDESHOW CAROUSEL (EXACT FROM LOVABLE DEPLOYMENT) */}
+      {/* 6. THE AURUM JOURNAL SLIDESHOW CAROUSEL (EXACT FROM LOVABLE DEPLOYMENT) */}
       <AurumJournalCarousel />
 
       {/* 8. PRE-ORDER COUNTDOWN */}

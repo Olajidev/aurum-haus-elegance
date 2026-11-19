@@ -623,9 +623,6 @@ function CheckoutPage() {
                 <h2 className="font-display text-xl leading-tight">{product.name}</h2>
                 <p className="text-xs text-muted-foreground font-light mt-1">{product.finish}</p>
                 <p className="font-display text-lg mt-3">{product.price}</p>
-                {product.compareAtPrice && (
-                  <span className="text-xs text-muted-foreground line-through ml-1">{product.compareAtPrice}</span>
-                )}
               </div>
             </div>
 

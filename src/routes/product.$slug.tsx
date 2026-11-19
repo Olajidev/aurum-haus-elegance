@@ -115,16 +115,11 @@ function ProductPage() {
                 {product.finish}
               </p>
 
-              {/* PRICE BLOCK (CLEAN — NO BADGES) */}
+              {/* PRICE BLOCK (CLEAN — NO PRICE SLASH) */}
               <div className="flex items-baseline gap-3 pt-2">
                 <span className="font-display text-3xl text-foreground font-normal">
                   {product.price}
                 </span>
-                {product.compareAtPrice && (
-                  <span className="text-lg text-muted-foreground/70 line-through font-light">
-                    {product.compareAtPrice}
-                  </span>
-                )}
               </div>
             </div>
 
