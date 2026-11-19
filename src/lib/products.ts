@@ -96,8 +96,6 @@ export const products: Product[] = [
     image: solPrimary,
     gallery: [
       solPrimary,
-      goldDetail,
-      slideBagRestaurant.url,
       aurumCollectionMedallions,
     ],
     name: "Aurum Haus Sol",
@@ -212,7 +210,6 @@ export const products: Product[] = [
     image: onyxPrimary,
     gallery: [
       onyxPrimary,
-      goldDetail,
       aurumCollectionMedallions,
     ],
     name: "Aurum Haus Onyx",
