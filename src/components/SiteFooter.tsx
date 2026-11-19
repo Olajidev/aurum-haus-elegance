@@ -7,15 +7,15 @@ export function SiteFooter() {
         <div className="md:col-span-2">
           <h3 className="font-display text-3xl italic mb-4">Stay in the Haus.</h3>
           <p className="text-primary-foreground/70 max-w-md mb-6 font-light">
-            Private previews, atelier notes, and quiet invitations. Delivered with intention.
+            A little luxury, delivered to your inbox. Be the first to know about new edits, private releases, and stories from the Maison.
           </p>
           <form className="flex border-b border-primary-foreground/30 max-w-md">
             <input
               type="email"
-              placeholder="Your email address"
+              placeholder="Enter your email address"
               className="flex-1 bg-transparent py-3 outline-none placeholder:text-primary-foreground/40 text-sm"
             />
-            <button className="eyebrow hover:text-accent transition">Subscribe →</button>
+            <button className="eyebrow hover:text-accent transition uppercase tracking-wider text-xs">Join the Haus →</button>
           </form>
         </div>
 

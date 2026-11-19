@@ -607,7 +607,7 @@ function CheckoutPage() {
 
             <div className="flex items-center gap-3 text-xs text-muted-foreground/80 font-light pt-2">
               <ShieldCheck className="w-4 h-4 text-accent" />
-              <span>Includes 12-Month Atelier Craftsmanship Warranty and complimentary worldwide express delivery.</span>
+              <span>Includes 12-Month Warranty, 14-Day Easy Returns, and complimentary UK express delivery.</span>
             </div>
           </div>
 
@@ -635,7 +635,7 @@ function CheckoutPage() {
                 <dd>£{product.priceValue}</dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-muted-foreground">Worldwide Express Courier</dt>
+                <dt className="text-muted-foreground">Complimentary Express Delivery</dt>
                 <dd className="text-accent font-medium">Complimentary</dd>
               </div>
               <div className="flex justify-between">

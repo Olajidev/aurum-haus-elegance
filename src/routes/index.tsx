@@ -92,7 +92,7 @@ function Home() {
               Four pieces. <em className="italic font-light">One quiet obsession.</em>
             </h2>
             <p className="text-sm text-muted-foreground font-light mt-2 max-w-md">
-              Tested to support 10kg on marble, glass, and wood. Weighted solid brass with nano-grip protection.
+              Tested to support 7.5kg (16.5 lbs) on marble, glass, and wood. Weighted solid brass with nano-grip protection.
             </p>
           </div>
           <Link
@@ -108,33 +108,33 @@ function Home() {
           <ProductCard
             slug="aurum-gold"
             image={solPrimary}
-            name="Aurum Haus Sol"
-            finish="Yellow"
-            price="£70"
+            name="Aurum Haus Auré"
+            finish="Satin Gold"
+            price="£80"
             compareAtPrice="£95"
           />
           <ProductCard
             slug="aurum"
             image={auraPrimary}
-            name="Aurum Haus Aura"
-            finish="White"
-            price="£70"
+            name="Aurum Haus Écru"
+            finish="Refined Ivory"
+            price="£80"
             compareAtPrice="£95"
           />
           <ProductCard
             slug="aurum-noir"
             image={noirPrimary}
-            name="Aurum Haus Noir"
-            finish="Black"
-            price="£70"
+            name="Aurum Haus Rêve Noir"
+            finish="Timeless Black"
+            price="£80"
             compareAtPrice="£95"
           />
           <ProductCard
             slug="ivora"
             image={onyxPrimary}
-            name="Aurum Haus Onyx"
+            name="Aurum Haus Nuit Dorée"
             finish="Black & Gold"
-            price="£70"
+            price="£80"
             compareAtPrice="£95"
           />
         </div>
@@ -145,9 +145,9 @@ function Home() {
       {/* 4. THREE PILLARS (EXACT FROM LOVABLE DEPLOYMENT: I, II, III) */}
       <section className="mx-auto max-w-[1500px] px-6 lg:px-12 py-24 lg:py-32 grid md:grid-cols-3 gap-12 text-center">
         {[
-          { k: "I", t: "Hand-finished", d: "Each piece polished by a single artisan from start to closure." },
-          { k: "II", t: "Solid brass core", d: "113g of weighted brass, electroplated in your chosen finish." },
-          { k: "III", t: "Complimentary shipping", d: "Express worldwide delivery, duties prepaid to most destinations." },
+          { k: "I", t: "Hand-finished", d: "Each piece polished and inspected individually before release." },
+          { k: "II", t: "Solid weighted core", d: "Approximately 113g weighted core, engineered for balance and stability." },
+          { k: "III", t: "Complimentary shipping", d: "Complimentary UK shipping on all orders with tracked express dispatch." },
         ].map((p) => (
           <div key={p.k}>
             <span className="font-display italic text-accent text-2xl">{p.k}</span>
@@ -167,7 +167,7 @@ function Home() {
               <em className="italic font-light">to yourself.</em>
             </h2>
             <p className="text-primary-foreground/80 font-light leading-relaxed mb-4 max-w-lg">
-              Every Aurum Haus piece is presented in a hand-finished rigid box — lined in cream suede, sealed with a gold-foil crest, and wrapped in tissue bearing our signature monogram.
+              Every Aurum Haus piece is delivered in our signature presentation box, accompanied by a protective travel pouch and microfibre cleaning cloth.
             </p>
             <p className="text-primary-foreground/80 font-light leading-relaxed max-w-lg">
               The packaging is designed to be kept. A small luxury, from the moment it reaches your hands.

@@ -6,9 +6,9 @@ export const Route = createFileRoute("/shipping-returns")({
   head: () => ({
     meta: [
       { title: "Shipping & Returns — Aurum Haus" },
-      { name: "description", content: "Complimentary worldwide shipping, discreet packaging, and a 30-day return window on every Aurum Haus order." },
+      { name: "description", content: "Complimentary UK shipping, signature presentation box, and a 14-day return window on every Aurum Haus order." },
       { property: "og:title", content: "Shipping & Returns — Aurum Haus" },
-      { property: "og:description", content: "Complimentary worldwide shipping. 30-day returns." },
+      { property: "og:description", content: "Complimentary UK shipping. 14-day easy returns." },
     ],
     links: [{ rel: "canonical", href: "/shipping-returns" }],
   }),
@@ -29,24 +29,24 @@ function ShippingReturns() {
 
       <section className="mx-auto max-w-3xl w-full px-6 lg:px-12 pb-28 space-y-12 font-light text-lg leading-relaxed">
         <div>
-          <p className="eyebrow text-accent mb-3">Complimentary shipping</p>
-          <p>Every order ships free, worldwide, in our signature rigid box. European orders arrive within 2 – 4 business days; international orders within 5 – 9.</p>
+          <p className="eyebrow text-accent mb-3">Complimentary UK Shipping</p>
+          <p>Every order ships free across the United Kingdom in our signature presentation box, accompanied by a protective travel pouch and microfibre cleaning cloth. Orders are dispatched within 24–48 business hours with express tracked delivery.</p>
         </div>
         <div>
           <p className="eyebrow text-accent mb-3">Tracking</p>
-          <p>A tracking number is issued as soon as your piece leaves the atelier. Signature is required on delivery.</p>
+          <p>A tracking number is issued as soon as your piece leaves the atelier. You can follow your parcel from dispatch to your door.</p>
         </div>
         <div>
-          <p className="eyebrow text-accent mb-3">Returns</p>
-          <p>Should a piece not feel right, return it — unused, in its original packaging — within 30 days for a full refund. We arrange the collection.</p>
+          <p className="eyebrow text-accent mb-3">14-Day Easy Returns</p>
+          <p>Should a piece not feel right, you may return it unused, in its original presentation box and accessories, within 14 days of delivery for a full refund or exchange.</p>
         </div>
         <div>
-          <p className="eyebrow text-accent mb-3">Engraved and made-to-order</p>
-          <p>Made-to-order finishes are final sale.</p>
+          <p className="eyebrow text-accent mb-3">Warranty & Care</p>
+          <p>Every piece includes our 12-Month Atelier Warranty against craftsmanship defects. Simply wipe clean with the provided microfibre cloth and store in the protective pouch when not in use.</p>
         </div>
         <div>
-          <p className="eyebrow text-accent mb-3">Duties & taxes</p>
-          <p>Prices include VAT within the EU. Orders outside the EU may be subject to local duties, which are the responsibility of the recipient.</p>
+          <p className="eyebrow text-accent mb-3">International Orders</p>
+          <p>International orders are dispatched via express tracked courier. Local import duties and taxes may be applied at customs according to local regulations.</p>
         </div>
       </section>
 

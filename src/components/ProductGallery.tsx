@@ -69,7 +69,7 @@ export function ProductGallery({
         {/* Feature badge */}
         <div className="absolute top-4 left-4 z-20 flex flex-col gap-2 pointer-events-none">
           <span className="eyebrow bg-background/90 backdrop-blur-md text-foreground px-3 py-1.5 text-[10px] tracking-widest border border-border/50 uppercase">
-            Tested to 10kg / 22 lbs
+            Tested to 7.5kg / 16.5 lbs
           </span>
         </div>
 

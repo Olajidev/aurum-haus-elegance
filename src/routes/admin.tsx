@@ -1039,18 +1039,18 @@ function ProductModal({
       description: description.trim(),
       leadParagraph: leadParagraph.trim(),
       specs: initialProduct?.specs || [
-        "Certified weight tolerance tested up to 10 kg / 22 lbs",
-        "Weighted solid brass core for balanced stability",
+        "Certified weight tolerance tested up to 7.5 kg / 16.5 lbs",
+        "Weighted solid core for balanced stability",
         "Nano-grip silicone table pad safe on marble, glass, and wood",
-        "Presented in gold-embossed presentation gift box",
-        "12-Month Atelier Craftsmanship Warranty",
+        "Presented in signature presentation box with protective pouch & cleaning cloth",
+        "12-Month Warranty & 14-Day Easy Returns",
       ],
       measurements: initialProduct?.measurements || {
         width: "5.0 cm / 2.0 inches",
         height: "1.1 cm / 0.45 inches",
         hookDrop: "8.5 cm / 3.3 inches",
-        weight: "113 grams / 4.0 ounces",
-        capacity: "10 kg / 22.0 lbs",
+        weight: "Approximately 113g",
+        capacity: "7.5 kg / 16.5 lbs",
       },
     };
 
@@ -1138,7 +1138,7 @@ function ProductModal({
                 type="text"
                 value={finishCategory}
                 onChange={(e) => setFinishCategory(e.target.value)}
-                placeholder="Sol / Aura / Noir / Onyx"
+                placeholder="Auré / Écru / Rêve Noir / Nuit Dorée"
                 className="w-full bg-[#121214] border border-[#2C2C2E] px-3 py-2 text-white focus:outline-none focus:border-[#D4AF37]"
               />
             </div>
@@ -1148,7 +1148,7 @@ function ProductModal({
                 type="text"
                 value={finish}
                 onChange={(e) => setFinish(e.target.value)}
-                placeholder="Yellow · 24k vermeil gold"
+                placeholder="Satin Gold · Gold rim · Satin-gold surface · White monogram"
                 className="w-full bg-[#121214] border border-[#2C2C2E] px-3 py-2 text-white focus:outline-none focus:border-[#D4AF37]"
               />
             </div>
@@ -1167,12 +1167,12 @@ function ProductModal({
             <p className="text-[11px] text-[#8E8E93] mb-2">Or select from photoshoot presets:</p>
             <div className="flex gap-2 overflow-x-auto pb-1">
               {[
-                { label: "Sol (Yellow)", img: solPrimary },
-                { label: "Aura (White)", img: auraPrimary },
-                { label: "Aura Walnut", img: auraWalnut },
-                { label: "Noir (Black)", img: noirPrimary },
-                { label: "Noir Walnut", img: noirWalnut },
-                { label: "Onyx (B&G)", img: onyxPrimary },
+                { label: "Auré (Satin Gold)", img: solPrimary },
+                { label: "Écru (Refined Ivory)", img: auraPrimary },
+                { label: "Écru Walnut", img: auraWalnut },
+                { label: "Rêve Noir (Timeless Black)", img: noirPrimary },
+                { label: "Rêve Noir Walnut", img: noirWalnut },
+                { label: "Nuit Dorée (B&G)", img: onyxPrimary },
                 { label: "Trio Flatlay", img: medallionsFlatlay },
               ].map((preset) => (
                 <button

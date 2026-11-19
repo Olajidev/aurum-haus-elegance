@@ -64,7 +64,7 @@ function ProductPage() {
 
       {/* TOP ANNOUNCEMENT / BREADCRUMB */}
       <div className="border-b border-border/40 py-2.5 px-6 lg:px-12 text-center text-xs tracking-wider text-muted-foreground uppercase bg-secondary/30">
-        Complimentary express delivery & duties prepaid worldwide
+        Complimentary UK Shipping
       </div>
 
       <main className="mx-auto max-w-[1500px] px-6 lg:px-12 pt-8 lg:pt-12 pb-24 flex-1">
@@ -92,10 +92,10 @@ function ProductPage() {
             {/* Atelier trust reassurance footer under gallery */}
             <div className="hidden sm:grid grid-cols-3 gap-3 pt-3 text-center border-t border-border/50 text-[11px] text-muted-foreground tracking-wider uppercase">
               <div className="py-2 px-3 bg-secondary/40 border border-border/40">
-                Solid Weighted Brass
+                Solid Weighted Core (113g)
               </div>
               <div className="py-2 px-3 bg-secondary/40 border border-border/40">
-                10kg Load Certified
+                7.5kg Load Tested
               </div>
               <div className="py-2 px-3 bg-secondary/40 border border-border/40">
                 Surface-Safe Grip
@@ -128,7 +128,7 @@ function ProductPage() {
               </div>
             </div>
 
-            {/* 3 COLOURS ONLY: GOLD, BLACK, WHITE (OR NONE IF TRIO SUITE) */}
+            {/* 4 COLOURS: AURÉ, ÉCRU, RÊVE NOIR, NUIT DORÉE (OR NONE IF TRIO SUITE) */}
             {!isTrio && (
               <div className="pt-4 pb-6 border-y border-border/50 space-y-3">
                 <div className="flex items-center justify-between text-xs tracking-wider uppercase">
@@ -168,7 +168,7 @@ function ProductPage() {
                   })}
                 </div>
                 <p className="text-xs text-muted-foreground/80 font-light pt-1">
-                  Choose between Sol (Yellow), Aura (White), Noir (Black), and Onyx (Black & Gold).
+                  Choose between Auré (Satin Gold), Écru (Refined Ivory), Rêve Noir (Timeless Black), and Nuit Dorée (Black & Gold).
                 </p>
               </div>
             )}
@@ -231,19 +231,19 @@ function ProductPage() {
               <div className="grid grid-cols-2 gap-3.5 pt-3 text-xs text-muted-foreground font-light">
                 <div className="flex items-center gap-2.5">
                   <Truck className="h-4 w-4 text-accent stroke-[1.5] shrink-0" />
-                  <span>Complimentary express delivery</span>
+                  <span>Complimentary UK delivery</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <ShieldCheck className="h-4 w-4 text-accent stroke-[1.5] shrink-0" />
-                  <span>12-Month Atelier Warranty</span>
+                  <span>12-Month Warranty</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <RotateCcw className="h-4 w-4 text-accent stroke-[1.5] shrink-0" />
-                  <span>60-Day Easy Returns</span>
+                  <span>14-Day Easy Returns</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Gift className="h-4 w-4 text-accent stroke-[1.5] shrink-0" />
-                  <span>Gold-foil gift box included</span>
+                  <span>Protective pouch & cleaning cloth</span>
                 </div>
               </div>
             </div>
@@ -254,8 +254,8 @@ function ProductPage() {
                 {product.leadParagraph}
               </p>
 
-              <p className="text-sm text-foreground/80 leading-relaxed">
-                With Aurum Haus, you can take your most treasured handbag out with confidence, knowing it stays pristine, off the floor, and within reach — wherever you dine.
+              <p className="text-sm text-foreground/80 leading-relaxed italic">
+                “Designed to keep your most treasured bags safe, elevated, and off restaurant floors. With Aurum Haus, you can take your most treasured handbag out with confidence, knowing it stays pristine, off the floor, and within reach — wherever you dine.”
               </p>
 
               {/* SPECIFICATIONS LIST */}
@@ -314,13 +314,42 @@ function ProductPage() {
                   <span className="font-mono text-base">{openAccordion === "how" ? "−" : "+"}</span>
                 </button>
                 {openAccordion === "how" && (
-                  <div className="pt-3 text-sm text-foreground/80 font-light leading-relaxed space-y-2">
+                  <div className="pt-3 text-sm text-foreground/80 font-light leading-relaxed space-y-3">
                     <p>
-                      Simply unfold the curved brass arm and rest the circular weighted crest flat on the table edge. The weight of your handbag naturally locks the nano-grip stabilizer firmly against the surface without adhesives or clips.
+                      The Aurum Haus bag holder is designed for seamless, intuitive everyday use:
                     </p>
+                    <ol className="list-decimal pl-5 space-y-1.5 text-xs text-muted-foreground">
+                      <li><strong className="text-foreground">Place:</strong> Rest the circular base flat against any table or counter edge.</li>
+                      <li><strong className="text-foreground">Hang:</strong> Unfold the curved hook arm downward to suspend your handbag.</li>
+                      <li><strong className="text-foreground">Table Placement:</strong> Ensure the base sits completely flat on the surface before hanging your bag. The natural cantilever physics securely locks the grip without clamps or glue.</li>
+                      <li><strong className="text-foreground">Weight Limit:</strong> Tested to hold up to 7.5kg (16.5 lbs) — suitable for structured handbags and everyday essentials.</li>
+                    </ol>
+                    <p className="text-xs text-muted-foreground/90 italic pt-1 border-t border-border/30">
+                      Safe for use on wood, marble, glass, quartz, and polished dining surfaces. Not recommended for uneven, sloping, or fragile edge surfaces.
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              <div className="py-4">
+                <button
+                  onClick={() => setOpenAccordion(openAccordion === "care" ? null : "care")}
+                  className="w-full flex items-center justify-between text-left font-display text-lg tracking-wide hover:text-accent transition-colors"
+                >
+                  <span>Product Specifications & Care Instructions</span>
+                  <span className="font-mono text-base">{openAccordion === "care" ? "−" : "+"}</span>
+                </button>
+                {openAccordion === "care" && (
+                  <div className="pt-3 text-sm text-foreground/80 font-light leading-relaxed space-y-3">
                     <p>
-                      Engineered for table depths up to 7 cm (2.8 in) across dining tables, cocktail bars, outdoor terraces, marble counters, treated wood, and glass surfaces without leaving any residue or pressure marks.
+                      Each piece is crafted with meticulous attention to detail. Follow these simple guidelines to preserve its brilliance:
                     </p>
+                    <ul className="space-y-1.5 text-xs text-muted-foreground">
+                      <li>• Wipe gently with the provided Aurum Haus microfibre cleaning cloth after use.</li>
+                      <li>• Avoid contact with harsh chemicals, perfumes, oils, and excessive moisture.</li>
+                      <li>• Store in the signature protective travel pouch when not in use to prevent surface scratches.</li>
+                      <li>• Avoid applying excessive force or forcing the hinge mechanism beyond its intended range of motion.</li>
+                    </ul>
                   </div>
                 )}
               </div>
@@ -330,33 +359,19 @@ function ProductPage() {
                   onClick={() => setOpenAccordion(openAccordion === "shipping" ? null : "shipping")}
                   className="w-full flex items-center justify-between text-left font-display text-lg tracking-wide hover:text-accent transition-colors"
                 >
-                  <span>Complimentary Shipping & 60-Day Returns</span>
+                  <span>Complimentary Shipping & 14-Day Returns</span>
                   <span className="font-mono text-base">{openAccordion === "shipping" ? "−" : "+"}</span>
                 </button>
                 {openAccordion === "shipping" && (
-                  <div className="pt-3 text-sm text-foreground/80 font-light leading-relaxed space-y-2">
+                  <div className="pt-3 text-sm text-foreground/80 font-light leading-relaxed space-y-2 text-xs text-muted-foreground">
                     <p>
-                      All orders are dispatched via express tracked courier within 24 hours. Duties and customs are prepaid for the UK, European Union, United States, and major international hubs.
+                      <strong className="text-foreground">Complimentary UK Shipping:</strong> All orders enjoy free express delivery within the United Kingdom.
                     </p>
                     <p>
-                      Enjoy a 60-day trial period. If you or your gift recipient are not completely enchanted, complimentary return shipping is provided upon request.
+                      <strong className="text-foreground">Dispatch:</strong> Orders are prepared and dispatched from our atelier within 24–48 business hours with tracked delivery.
                     </p>
-                  </div>
-                )}
-              </div>
-
-              <div className="py-4">
-                <button
-                  onClick={() => setOpenAccordion(openAccordion === "warranty" ? null : "warranty")}
-                  className="w-full flex items-center justify-between text-left font-display text-lg tracking-wide hover:text-accent transition-colors"
-                >
-                  <span>12-Month Atelier Craftsmanship Guarantee</span>
-                  <span className="font-mono text-base">{openAccordion === "warranty" ? "−" : "+"}</span>
-                </button>
-                {openAccordion === "warranty" && (
-                  <div className="pt-3 text-sm text-foreground/80 font-light leading-relaxed space-y-2">
                     <p>
-                      Every Aurum Haus piece is crafted from solid weighted brass and individually inspected before unboxing. We guarantee each piece against plating defects, mechanical hinge wear, or craftsmanship faults for a full 12 months.
+                      <strong className="text-foreground">14-Day Easy Returns:</strong> If you are not completely satisfied, you may return the item in its original condition, packaging, and unboxing accessories within 14 days of delivery.
                     </p>
                   </div>
                 )}

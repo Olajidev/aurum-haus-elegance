@@ -4,23 +4,23 @@ import { Plus, Minus } from "lucide-react";
 const faqs = [
   {
     q: "When will my Aurum Haus piece ship?",
-    a: "Pre-orders from the current window ship within 4–6 weeks of the collection close date. Each piece is hand-finished to order, and you will receive tracking the moment it leaves our London atelier.",
+    a: "Orders are prepared and dispatched within 24–48 business hours. Each piece is inspected before release, and you will receive tracking the moment it leaves our atelier.",
   },
   {
     q: "What is the piece made of?",
-    a: "A solid brass core, weighing precisely 113 grams, electroplated in your chosen finish — polished chrome, black lacquer, or 24k vermeil. The interior grip is lined in Italian nappa.",
+    a: "A weighted core (approximately 113 grams), finished in your chosen signature finish — Auré (Satin Gold), Écru (Refined Ivory), Rêve Noir (Timeless Black), or Nuit Dorée (Black & Gold), with a surface-safe table grip.",
   },
   {
     q: "How much weight can it hold?",
-    a: "The Aurum Haus bag holder is engineered to suspend up to 12 kg — well beyond a fully appointed handbag, tote, or weekender.",
+    a: "The Aurum Haus bag holder is load tested to 7.5kg (16.5 lbs) — engineered for everyday structured handbags, totes, and designer clutches.",
   },
   {
-    q: "Do you ship internationally?",
-    a: "Yes. Complimentary express shipping is included worldwide, with duties prepaid to most destinations. Delivery is 2–4 business days once dispatched.",
+    q: "Do you offer complimentary shipping?",
+    a: "Yes. Complimentary UK shipping is included on all orders. International shipping is also available with express tracked couriers.",
   },
   {
     q: "What is your return policy?",
-    a: "Unengraved pieces may be returned within 30 days for a full refund, in their original presentation box. Engraved commissions are final sale.",
+    a: "Pieces in their original unused condition and packaging may be returned within 14 days of delivery for an easy refund or exchange.",
   },
 ];
 

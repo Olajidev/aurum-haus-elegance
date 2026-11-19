@@ -11,12 +11,12 @@ export const Route = createFileRoute("/pre-order")({
       {
         name: "description",
         content:
-          "Reserve your Aurum Haus piece at £70 before the collection launches at full price on 4 December 2026.",
+          "Reserve your Aurum Haus piece at £80 before the collection launches at full price on 4 December 2026.",
       },
       { property: "og:title", content: "Pre-Order — Aurum Haus" },
       {
         property: "og:description",
-        content: "Reserve your piece at the pre-launch price of £70. Ships December.",
+        content: "Reserve your piece at the pre-launch price of £80. Ships December.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -75,7 +75,7 @@ function PreOrderPage() {
           Pre-Order<em className="italic font-light text-accent">.</em>
         </h1>
         <p className="mt-6 max-w-xl text-muted-foreground font-light">
-          Five finishes. One quiet obsession. Reserve your piece at <span className="text-foreground font-medium">£70</span> before the collection opens publicly on 4 December.
+          Four finishes and the collector's suite. Reserve your piece at <span className="text-foreground font-medium">£80</span> before the collection opens publicly on 4 December.
         </p>
       </section>
 
@@ -106,7 +106,7 @@ function PreOrderPage() {
               <span className="font-display italic text-accent text-xl">I</span>
               <h3 className="font-display text-lg mt-3 mb-2">Reserve today</h3>
               <p className="text-sm text-muted-foreground font-light leading-relaxed">
-                Secure your piece at £70 — before the collection opens at full price.
+                Secure your piece at £80 — before the collection allocation sells out.
               </p>
             </div>
             <div>

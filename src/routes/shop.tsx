@@ -42,7 +42,7 @@ function Shop() {
           The Collection<em className="italic font-light text-accent">.</em>
         </h1>
         <p className="mt-6 max-w-xl text-muted-foreground font-light">
-          A considered edit of five pieces — each a study in proportion, weight and finish. Free worldwide shipping on every order.
+          A considered edit of four pieces and the collector's suite — each a study in proportion, weight and finish. Complimentary UK shipping on every order.
         </p>
       </section>
 
@@ -65,9 +65,9 @@ function Shop() {
       {/* SECTION 1: PILLARS FIRST (I, II, III) */}
       <section className="mx-auto max-w-[1500px] px-6 lg:px-12 py-20 lg:py-24 grid md:grid-cols-3 gap-12 text-center border-t border-border/40">
         {[
-          { k: "I", t: "Hand-finished", d: "Each piece polished by a single artisan from start to closure." },
-          { k: "II", t: "Solid brass core", d: "113g of weighted brass, electroplated in your chosen finish." },
-          { k: "III", t: "Complimentary shipping", d: "Express worldwide delivery, duties prepaid to most destinations." },
+          { k: "I", t: "Hand-finished", d: "Each piece polished and inspected individually before release." },
+          { k: "II", t: "Solid weighted core", d: "Approximately 113g weighted core, engineered for balance and stability." },
+          { k: "III", t: "Complimentary shipping", d: "Complimentary UK shipping on all orders with tracked express dispatch." },
         ].map((p) => (
           <div key={p.k}>
             <span className="font-display italic text-accent text-2xl">{p.k}</span>

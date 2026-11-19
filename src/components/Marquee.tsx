@@ -1,9 +1,9 @@
 export function Marquee() {
   const items = [
-    "Pre-order now · £70 before launch",
-    "Beautifully handcrafted by the finest artisans",
-    "Join our Newsletter",
-    "Stay Connected",
+    "Complimentary UK Shipping",
+    "Elevated tools for modern living",
+    "Hand-finished in solid brass · 7.5kg tested",
+    "Stay in the Haus · Edit n°1",
   ];
   return (
     <div className="bg-primary text-primary-foreground py-3 overflow-hidden">
