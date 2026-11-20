@@ -1,9 +1,9 @@
 # AURUM HAUS — Digital Flagship Transformation Report
 
-**Document Reference:** AH-TR-2026-11 (Rev. 2)  
-**Date:** 19 November 2026  
+**Document Reference:** AH-TR-2026-11 (Rev. 3)  
+**Date:** 20 November 2026  
 **Subject:** Digital Storefront Realignment & Brand Specification Implementation  
-**Status:** Successfully Implemented, Verified & Committed Locally  
+**Status:** Successfully Implemented, Verified & Committed  
 
 ---
 
@@ -23,10 +23,10 @@ The table below contrasts the site state prior to today's updates with the newly
 | :--- | :--- | :--- |
 | **Brand Identity** | Aurum Haus · Est. MMXXV | **Aurum Haus · Est. MMXXVI** |
 | **Brand Tagline** | "Quiet luxury, held effortlessly." | **"Elevated tools for modern living."** |
-| **Product 1 (Gold)** | *Aurum Haus Sol* (£70, slashed from £95) | **Aurum Haus Auré** — **£70** *(No price slash)*<br>Finish: *Gold rim · Satin-gold surface · White monogram* |
-| **Product 2 (Silver)** | *Aurum Haus Aura* (£70, slashed from £95) | **Aurum Haus Écru** — **£70** *(No price slash)*<br>Finish: *Silver rim · Ivory leather-look surface · Black monogram* |
-| **Product 3 (Black)** | *Aurum Haus Noir* (£70, slashed from £95) | **Aurum Haus Rêve Noir** — **£70** *(No price slash)*<br>Finish: *Black rim · Black leather-look surface · White monogram* |
-| **Product 4 (Black & Gold)** | *Aurum Haus Onyx / Ivora* (£70, slashed from £95) | **Aurum Haus Nuit Dorée** — **£80** *(No price slash)*<br>Finish: *Gold rim · Black leather-look surface · Dotted-gold monogram* |
+| **Product 1 (Gold)** | *Aurum Haus Sol* (£70, slashed from £95) | **Aurum Haus Auré** — **£80** *(No price slash)*<br>Finish: *Gold rim · Satin-gold surface · White monogram* |
+| **Product 2 (Silver)** | *Aurum Haus Aura* (£70, slashed from £95) | **Aurum Haus Écru** — **£80** *(No price slash)*<br>Finish: *Silver rim · Ivory leather-look surface · Black monogram* |
+| **Product 3 (Black)** | *Aurum Haus Noir* (£70, slashed from £95) | **Aurum Haus Rêve Noir** — **£80** *(No price slash)*<br>Finish: *Black rim · Black leather-look surface · White monogram* |
+| **Product 4 (Black & Gold)** | *Aurum Haus Onyx / Ivora* (£70, slashed from £95) | **Aurum Haus Nuit Dorée** — **£90** *(No price slash)*<br>Finish: *Gold rim · Black leather-look surface · Dotted-gold monogram* |
 | **Suite Offering** | The Trio Suite (£200, slashed from £240) | **The Trio Suite** — **£220** *(No price slash)*<br>Collector's set · 3 signature finishes |
 | **Price Presentation** | Strikethrough compare-at discounts (£95 / £240) | **Zero Price Slashes** — Clean, understated quiet luxury |
 | **Tested Load Capacity** | 10 kg / 12 kg (Discrepant across pages) | **7.5 kg (16.5 lbs)** — Consistently certified |
@@ -45,24 +45,24 @@ The table below contrasts the site state prior to today's updates with the newly
 
 ### 3.1. Pricing Realignment & Elimination of Price Slashes
 Per client instruction, the 4 single products are now structured into their distinct price tiers:
-- **Aurum Haus Auré (Gold):** **£70**
-- **Aurum Haus Écru (Silver):** **£70**
-- **Aurum Haus Rêve Noir (Black):** **£70**
-- **Aurum Haus Nuit Dorée (Black & Gold):** **£80**
+- **Aurum Haus Auré (Gold):** **£80**
+- **Aurum Haus Écru (Silver):** **£80**
+- **Aurum Haus Rêve Noir (Black):** **£80**
+- **Aurum Haus Nuit Dorée (Black & Gold — Circled):** **£90**
 - **The Trio Suite:** **£220**
 
 **Elimination of Price Slashes:** All strikethrough discount tags (`£95`, `£240`, `compareAtPrice`) have been removed across all Product Cards, Product Display Pages, Pre-Order Cards, Checkout Summaries, and Admin Presets. Prices are presented with quiet confidence and elegance.
 
 ### 3.2. Curated Homepage Layout (`/`)
 - **Removal of Lifestyle Dining Photo:** The section containing the cafe lifestyle photo (`new-45.jpg` showing two women with handbags and sunglasses) has been removed, creating a streamlined, distraction-free flow from the unboxing narrative into the Aurum Journal carousel.
-- **Collection Showcase (Edit n°1):** Displays the 4 official finishes with accurate tier pricing (£70 / £80) and 7.5kg certified load rating.
+- **Collection Showcase (Edit n°1):** Displays the 4 official finishes with accurate tier pricing (£80 / £90) and 7.5kg certified load rating.
 
 ### 3.3. Decommissioning of the Press Page
 - The `/press` page route has been removed from the repository.
 - The `Press` link in the `SiteFooter` under `MAISON` has been cleanly excised.
 
 ### 3.4. Product Display Pages (`/product/$slug`)
-- Dynamic price header displays the exact tier price (£70 or £80) without compare-at strikethroughs.
+- Dynamic price header displays the exact tier price (£80 or £90) without compare-at strikethroughs.
 - Standardized breadcrumb: `Home / Edit n°1 / [Product Name]`.
 - Three official brand accordions implemented verbatim:
   1. *How It Works & Table Compatibility*
@@ -79,7 +79,7 @@ Per client instruction, the 4 single products are now structured into their dist
   - Community: *"Stay in the Haus."*
 
 ### 3.6. Multi-Payment Checkout & Automated Store Engine
-- Real-time subtotal dynamically calculated (£70 or £80), tax (£7 / £8), and complimentary delivery (£0).
+- Real-time subtotal dynamically calculated (£80 or £90), tax (£8 / £9), and complimentary delivery (£0).
 - Four payment gateways active: **Card**, **Apple Pay**, **Google Pay**, and **PayPal**.
 - Automated email confirmations for customers and sales alerts for administration upon order placement.
 
@@ -90,7 +90,7 @@ Per client instruction, the 4 single products are now structured into their dist
 - **TypeScript Verification:** Passed with **0 errors** (`npx tsc --noEmit`).
 - **Endpoint Health:** All core routes (`/`, `/shop`, `/story`, `/product/aurum-gold`, `/checkout/aurum-gold`, `/admin`) return HTTP status **200 OK**.
 - **Dev Server Status:** Actively running on [http://localhost:8080/](http://localhost:8080/).
-- **Git State:** Committed locally and prepared for one-click push via GitHub Desktop.
+- **Git State:** Committed locally and pushed to GitHub.
 
 ---
 

@@ -109,28 +109,28 @@ function Home() {
             image={solPrimary}
             name="Aurum Haus Auré"
             finish="Satin Gold"
-            price="£70"
+            price="£80"
           />
           <ProductCard
             slug="aurum"
             image={auraPrimary}
             name="Aurum Haus Écru"
             finish="Refined Ivory"
-            price="£70"
+            price="£80"
           />
           <ProductCard
             slug="aurum-noir"
             image={noirPrimary}
             name="Aurum Haus Rêve Noir"
             finish="Timeless Black"
-            price="£70"
+            price="£80"
           />
           <ProductCard
             slug="ivora"
             image={onyxPrimary}
             name="Aurum Haus Nuit Dorée"
             finish="Black & Gold"
-            price="£80"
+            price="£90"
           />
         </div>
       </section>

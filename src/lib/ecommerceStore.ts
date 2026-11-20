@@ -52,9 +52,9 @@ export type EmailLog = {
 
 // STORAGE KEYS
 const STORAGE_KEYS = {
-  PRODUCTS: "ah_ecommerce_products_v7",
-  INVENTORY: "ah_ecommerce_inventory_v5",
-  ORDERS: "ah_ecommerce_orders_v4",
+  PRODUCTS: "ah_ecommerce_products_v8",
+  INVENTORY: "ah_ecommerce_inventory_v6",
+  ORDERS: "ah_ecommerce_orders_v5",
   EMAILS: "ah_ecommerce_email_logs_v3",
   AUTH: "ah_ecommerce_admin_auth_v2",
 };
@@ -88,11 +88,11 @@ const INITIAL_ORDERS: Order[] = [
     finish: "Satin Gold · Gold rim · Satin-gold surface · White monogram",
     productImage: solPrimary,
     quantity: 1,
-    unitPrice: 70,
-    subtotal: 70,
-    tax: 7,
+    unitPrice: 80,
+    subtotal: 80,
+    tax: 8,
     shipping: 0,
-    total: 77,
+    total: 88,
     customerName: "Lady Victoria Sterling",
     customerEmail: "victoria.sterling@kensington.co.uk",
     shippingAddress: {
@@ -114,11 +114,11 @@ const INITIAL_ORDERS: Order[] = [
     finish: "Black & Gold · Gold rim · Black leather-look surface · Dotted-gold monogram",
     productImage: onyxPrimary,
     quantity: 1,
-    unitPrice: 80,
-    subtotal: 80,
-    tax: 8,
+    unitPrice: 90,
+    subtotal: 90,
+    tax: 9,
     shipping: 0,
-    total: 88,
+    total: 99,
     customerName: "Claire Delacroix",
     customerEmail: "claire.delacroix@avenue-montaigne.fr",
     shippingAddress: {
