@@ -23,7 +23,6 @@ export function SiteFooter() {
           <h4 className="eyebrow text-accent mb-3 sm:mb-4 text-xs">Haus</h4>
           <Link to="/story" className="block text-primary-foreground/80 hover:text-primary-foreground normal-case tracking-normal font-light text-sm">Our story</Link>
           <Link to="/shop" className="block text-primary-foreground/80 hover:text-primary-foreground normal-case tracking-normal font-light text-sm">Collection</Link>
-          <Link to="/craftsmanship" className="block text-primary-foreground/80 hover:text-primary-foreground normal-case tracking-normal font-light text-sm">Craftsmanship</Link>
         </div>
 
         <div className="space-y-2.5 sm:space-y-3 eyebrow">

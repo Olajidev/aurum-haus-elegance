@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CraftsmanshipRouteImport } from './routes/craftsmanship'
 import { Route as JournalRouteImport } from './routes/journal'
 import { Route as PreOrderRouteImport } from './routes/pre-order'
 import { Route as ShippingReturnsRouteImport } from './routes/shipping-returns'
@@ -37,11 +36,6 @@ const AdminRoute = AdminRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CraftsmanshipRoute = CraftsmanshipRouteImport.update({
-  id: '/craftsmanship',
-  path: '/craftsmanship',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JournalRoute = JournalRouteImport.update({
@@ -99,7 +93,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteWithChildren
   '/contact': typeof ContactRoute
-  '/craftsmanship': typeof CraftsmanshipRoute
   '/journal': typeof JournalRoute
   '/pre-order': typeof PreOrderRoute
   '/shipping-returns': typeof ShippingReturnsRoute
@@ -115,7 +108,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteWithChildren
   '/contact': typeof ContactRoute
-  '/craftsmanship': typeof CraftsmanshipRoute
   '/journal': typeof JournalRoute
   '/pre-order': typeof PreOrderRoute
   '/shipping-returns': typeof ShippingReturnsRoute
@@ -132,7 +124,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteWithChildren
   '/contact': typeof ContactRoute
-  '/craftsmanship': typeof CraftsmanshipRoute
   '/journal': typeof JournalRoute
   '/pre-order': typeof PreOrderRoute
   '/shipping-returns': typeof ShippingReturnsRoute
@@ -150,7 +141,6 @@ export interface FileRouteTypes {
     | '/'
     | '/admin'
     | '/contact'
-    | '/craftsmanship'
     | '/journal'
     | '/pre-order'
     | '/shipping-returns'
@@ -166,7 +156,6 @@ export interface FileRouteTypes {
     | '/'
     | '/admin'
     | '/contact'
-    | '/craftsmanship'
     | '/journal'
     | '/pre-order'
     | '/shipping-returns'
@@ -182,7 +171,6 @@ export interface FileRouteTypes {
     | '/'
     | '/admin'
     | '/contact'
-    | '/craftsmanship'
     | '/journal'
     | '/pre-order'
     | '/shipping-returns'
@@ -199,7 +187,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRouteWithChildren
   ContactRoute: typeof ContactRoute
-  CraftsmanshipRoute: typeof CraftsmanshipRoute
   JournalRoute: typeof JournalRoute
   PreOrderRoute: typeof PreOrderRoute
   ShippingReturnsRoute: typeof ShippingReturnsRoute
@@ -232,13 +219,6 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/craftsmanship': {
-      id: '/craftsmanship'
-      path: '/craftsmanship'
-      fullPath: '/craftsmanship'
-      preLoaderRoute: typeof CraftsmanshipRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/journal': {
@@ -328,7 +308,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRouteWithChildren,
   ContactRoute: ContactRoute,
-  CraftsmanshipRoute: CraftsmanshipRoute,
   JournalRoute: JournalRoute,
   PreOrderRoute: PreOrderRoute,
   ShippingReturnsRoute: ShippingReturnsRoute,

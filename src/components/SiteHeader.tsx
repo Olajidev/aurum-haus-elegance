@@ -164,13 +164,6 @@ export function SiteHeader() {
 
               <div className="pt-4 border-t border-border/30 space-y-3">
                 <Link
-                  to="/craftsmanship"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-sm font-light text-muted-foreground hover:text-foreground transition-colors py-1"
-                >
-                  Atelier Craftsmanship
-                </Link>
-                <Link
                   to="/shipping-returns"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block text-sm font-light text-muted-foreground hover:text-foreground transition-colors py-1"
