@@ -22,11 +22,11 @@ function useCountdown(target: Date) {
 
 function Unit({ value, label }: { value: number; label: string }) {
   return (
-    <div className="flex flex-col items-center min-w-[64px] md:min-w-[80px]">
-      <span className="font-display text-3xl md:text-5xl tabular-nums leading-none">
+    <div className="flex flex-col items-center min-w-[52px] sm:min-w-[64px] md:min-w-[80px]">
+      <span className="font-display text-2xl sm:text-3xl md:text-5xl tabular-nums leading-none">
         {value.toString().padStart(2, "0")}
       </span>
-      <span className="eyebrow text-[10px] md:text-xs mt-2 opacity-70">{label}</span>
+      <span className="eyebrow text-[9px] sm:text-[10px] md:text-xs mt-1.5 sm:mt-2 opacity-70">{label}</span>
     </div>
   );
 }
@@ -38,27 +38,27 @@ export function PreOrderSection() {
     <section className="bg-accent text-accent-foreground">
       <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
         {/* Left — pre-order details */}
-        <div className="order-last lg:order-first flex flex-col justify-center px-6 sm:px-10 lg:px-16 xl:px-24 py-16 lg:py-24">
-          <p className="eyebrow mb-6 opacity-70">Pre-Order · Before Launch</p>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] max-w-xl">
+        <div className="order-last lg:order-first flex flex-col justify-center px-5 sm:px-10 lg:px-16 xl:px-24 py-12 sm:py-16 lg:py-24">
+          <p className="eyebrow mb-4 sm:mb-6 opacity-70 text-xs">Pre-Order · Before Launch</p>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08] sm:leading-[1.05] max-w-xl">
             A quieter piece,
             <br />
             <em className="italic font-light">reserved for you.</em>
           </h2>
 
-          <p className="mt-8 max-w-md text-base md:text-lg leading-relaxed opacity-80">
+          <p className="mt-6 sm:mt-8 max-w-md text-sm sm:text-base md:text-lg leading-relaxed opacity-80">
             The same 113g of hand-finished brass, ready to ship the first week of
             December. Secure yours before the launch and skip the queue.
           </p>
 
-          <div className="mt-10 flex gap-3 md:gap-6" aria-live="polite">
+          <div className="mt-8 sm:mt-10 flex gap-2 sm:gap-4 md:gap-6" aria-live="polite">
             <Unit value={ready ? days : 0} label="Days" />
             <Unit value={ready ? hours : 0} label="Hours" />
             <Unit value={ready ? minutes : 0} label="Minutes" />
             <Unit value={ready ? seconds : 0} label="Seconds" />
           </div>
 
-          <div className="mt-12">
+          <div className="mt-10 sm:mt-12">
             <Link
               to="/pre-order"
               className="eyebrow inline-flex items-center gap-3 border-b border-current pb-2 hover:opacity-70 transition-opacity"

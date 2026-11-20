@@ -43,21 +43,21 @@ function Story() {
       <SiteHeader />
 
       {/* HERO SECTION */}
-      <section className="mx-auto max-w-4xl px-6 lg:px-12 pt-28 pb-20 lg:pt-36 lg:pb-24 text-center">
-        <p className="eyebrow text-accent mb-4 uppercase tracking-[0.3em] text-xs">
+      <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-12 pt-16 pb-12 sm:pt-28 sm:pb-20 lg:pt-36 lg:pb-24 text-center">
+        <p className="eyebrow text-accent mb-3 sm:mb-4 uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[11px] sm:text-xs">
           Aurum Haus · Est. MMXXVI
         </p>
-        <h1 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1.08] tracking-tight">
+        <h1 className="font-display text-3xl sm:text-5xl md:text-7xl leading-[1.08] tracking-tight">
           Elevated tools<br />
           <em className="italic font-light">for modern living.</em>
         </h1>
-        <p className="mt-8 text-base sm:text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-6 sm:mt-8 text-sm sm:text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
           Aurum Haus is more than a product line — it is a lifestyle rooted in quiet luxury, intentional design, and purposeful living. We design elevated tools that transform everyday rituals into refined experiences.
         </p>
       </section>
 
       {/* FULL WIDTH HERO EDITORIAL IMAGE */}
-      <section className="relative h-[65vh] min-h-[460px] w-full overflow-hidden border-y border-border/40">
+      <section className="relative h-[48vh] sm:h-[65vh] min-h-[300px] sm:min-h-[460px] w-full overflow-hidden border-y border-border/40">
         <img
           src={ah1Hero}
           alt="Aurum Haus lifestyle table setting with elevated handbag holder"
@@ -67,7 +67,7 @@ function Story() {
       </section>
 
       {/* NARRATIVE PILLARS: I. ORIGIN, II. CRAFT, III. PHILOSOPHY */}
-      <section className="mx-auto max-w-3xl px-6 lg:px-12 py-24 sm:py-32 space-y-20 font-light text-base sm:text-lg leading-relaxed">
+      <section className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-12 py-16 sm:py-24 sm:py-32 space-y-12 sm:space-y-20 font-light text-base sm:text-lg leading-relaxed">
         
         {/* I · ORIGIN */}
         <div className="space-y-4">
@@ -203,26 +203,26 @@ function Story() {
       </section>
 
       {/* STAY IN THE HAUS / NEWSLETTER SECTION */}
-      <section className="py-24 sm:py-32 px-6 lg:px-12 text-center max-w-2xl mx-auto">
-        <p className="eyebrow text-accent uppercase tracking-[0.25em] text-xs mb-3">
+      <section className="py-16 sm:py-28 px-4 sm:px-6 lg:px-12 text-center max-w-2xl mx-auto">
+        <p className="eyebrow text-accent uppercase tracking-[0.25em] text-[11px] sm:text-xs mb-2 sm:mb-3">
           The Community
         </p>
-        <h2 className="font-display text-3xl sm:text-4xl text-foreground font-normal mb-4">
+        <h2 className="font-display text-2xl sm:text-4xl text-foreground font-normal mb-3 sm:mb-4">
           Stay in the Haus.
         </h2>
-        <p className="text-sm text-muted-foreground font-light leading-relaxed max-w-md mx-auto mb-8">
+        <p className="text-xs sm:text-sm text-muted-foreground font-light leading-relaxed max-w-md mx-auto mb-6 sm:mb-8">
           A little luxury, delivered to your inbox. Be the first to know about new edits, private releases, and stories from the Maison.
         </p>
 
         {newsletterSubscribed ? (
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-secondary/80 border border-accent/40 text-sm text-foreground">
-            <Check className="h-4 w-4 text-accent" />
+          <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-3 bg-secondary/80 border border-accent/40 text-xs sm:text-sm text-foreground">
+            <Check className="h-4 w-4 text-accent shrink-0" />
             <span>Welcome to the Haus. We look forward to connecting with you.</span>
           </div>
         ) : (
           <form
             onSubmit={handleSubscribe}
-            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+            className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 max-w-md mx-auto"
           >
             <input
               type="email"
@@ -230,7 +230,7 @@ function Story() {
               value={newsletterEmail}
               onChange={(e) => setNewsletterEmail(e.target.value)}
               placeholder="Enter your email address"
-              className="flex-1 px-4 py-3 bg-secondary/30 border border-border focus:border-accent focus:outline-none text-sm placeholder:text-muted-foreground/60 transition-colors"
+              className="flex-1 px-4 py-3 bg-secondary/30 border border-border focus:border-accent focus:outline-none text-base sm:text-sm placeholder:text-muted-foreground/60 transition-colors"
             />
             <button
               type="submit"

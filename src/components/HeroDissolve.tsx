@@ -25,7 +25,7 @@ export function HeroDissolve({ slides, interval = 6500 }: HeroDissolveProps) {
   }, [active, slides.length, interval]);
 
   return (
-    <section className="relative h-[88vh] min-h-[640px] overflow-hidden">
+    <section className="relative h-[85vh] sm:h-[88vh] min-h-[520px] sm:min-h-[640px] overflow-hidden">
       {/* Image layers — dissolving cross-fade with slow Ken Burns drift */}
       {slides.map((s, i) => (
         <div
@@ -51,8 +51,8 @@ export function HeroDissolve({ slides, interval = 6500 }: HeroDissolveProps) {
       <div className="absolute inset-0 bg-gradient-to-r from-obsidian/60 via-obsidian/20 to-transparent pointer-events-none" />
 
       {/* Copy layers — cross-fade with slight lift */}
-      <div className="relative h-full mx-auto max-w-[1500px] px-6 lg:px-12 flex flex-col justify-end pb-16 sm:pb-20 text-alabaster z-10">
-        <div className="relative min-h-[320px] sm:min-h-[360px] md:min-h-[400px]">
+      <div className="relative h-full mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-12 flex flex-col justify-end pb-10 sm:pb-20 text-alabaster z-10">
+        <div className="relative min-h-[300px] sm:min-h-[360px] md:min-h-[400px]">
           {slides.map((s, i) => (
             <div
               key={i}
@@ -65,26 +65,26 @@ export function HeroDissolve({ slides, interval = 6500 }: HeroDissolveProps) {
               aria-hidden={i !== active}
             >
               {s.eyebrow && (
-                <p className="eyebrow text-accent/90 mb-3 tracking-[0.25em] text-xs font-medium uppercase drop-shadow-sm">
+                <p className="eyebrow text-accent/90 mb-2.5 sm:mb-3 tracking-[0.25em] text-[11px] sm:text-xs font-medium uppercase drop-shadow-sm">
                   {s.eyebrow}
                 </p>
               )}
               {s.title && (
-                <div className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.02] max-w-2xl font-normal drop-shadow-md">
+                <div className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] sm:leading-[1.02] max-w-2xl font-normal drop-shadow-md">
                   {s.title}
                 </div>
               )}
               {s.body && (
-                <p className="mt-4 sm:mt-5 max-w-md text-sm sm:text-base text-alabaster/90 font-light leading-relaxed drop-shadow-sm">
+                <p className="mt-3.5 sm:mt-5 max-w-md text-xs sm:text-base text-alabaster/90 font-light leading-relaxed drop-shadow-sm">
                   {s.body}
                 </p>
               )}
               {(s.primary || s.secondary) && (
-                <div className="mt-8 flex flex-wrap items-center gap-3.5 sm:gap-4">
+                <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4 max-w-sm sm:max-w-none">
                   {s.primary && (
                     <Link
                       to={s.primary.to}
-                      className="px-6 sm:px-8 py-3.5 sm:py-4 bg-[#F5F4F0] text-[#1A1A1A] hover:bg-accent hover:text-foreground text-[11px] sm:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 shadow-sm"
+                      className="px-6 sm:px-8 py-3.5 sm:py-4 bg-[#F5F4F0] text-[#1A1A1A] hover:bg-accent hover:text-foreground text-[11px] sm:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 shadow-sm text-center"
                     >
                       {s.primary.label}
                     </Link>
@@ -92,7 +92,7 @@ export function HeroDissolve({ slides, interval = 6500 }: HeroDissolveProps) {
                   {s.secondary && (
                     <Link
                       to={s.secondary.to}
-                      className="px-6 sm:px-8 py-3.5 sm:py-4 border border-alabaster/70 bg-black/25 text-alabaster hover:bg-alabaster/20 text-[11px] sm:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 backdrop-blur-sm"
+                      className="px-6 sm:px-8 py-3.5 sm:py-4 border border-alabaster/70 bg-black/25 text-alabaster hover:bg-alabaster/20 text-[11px] sm:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 backdrop-blur-sm text-center"
                     >
                       {s.secondary.label}
                     </Link>

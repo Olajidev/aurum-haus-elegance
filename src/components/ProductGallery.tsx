@@ -1,4 +1,4 @@
-import { useEffect, useState, type MouseEvent } from "react";
+import { useEffect, useState, useRef, type MouseEvent, type TouchEvent } from "react";
 
 export function ProductGallery({
   images,
@@ -13,6 +13,10 @@ export function ProductGallery({
   const [zoom, setZoom] = useState(false);
   const [origin, setOrigin] = useState("50% 50%");
   const [lightbox, setLightbox] = useState(false);
+  
+  // Touch swipe support for mobile
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
   // Reset to first image whenever product/images change
   useEffect(() => {
@@ -42,16 +46,42 @@ export function ProductGallery({
     );
   };
 
+  // Touch handlers for mobile swipe
+  const handleTouchStart = (e: TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const diff = touchStartX.current - touchEndX.current;
+    if (diff > 45) {
+      // Swiped left -> next image
+      go(1);
+    } else if (diff < -45) {
+      // Swiped right -> prev image
+      go(-1);
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   const multi = images.length > 1;
 
   return (
-    <div className="flex flex-col gap-4 w-full">
+    <div className="flex flex-col gap-3 sm:gap-4 w-full">
       {/* MAIN LARGE VIEWER */}
       <div
-        className="relative w-full aspect-[4/5] sm:aspect-[1/1] lg:aspect-[4/5] max-h-[750px] bg-[#161616] overflow-hidden cursor-zoom-in group border border-border/40"
+        className="relative w-full aspect-[4/5] sm:aspect-[1/1] lg:aspect-[4/5] max-h-[750px] bg-[#161616] overflow-hidden cursor-zoom-in group border border-border/40 touch-pan-y"
         onMouseEnter={() => setZoom(true)}
         onMouseLeave={() => setZoom(false)}
         onMouseMove={onMove}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
         onClick={() => setLightbox(true)}
       >
         {images.map((src, i) => (
@@ -60,20 +90,20 @@ export function ProductGallery({
             src={src}
             alt={`${name} — ${finish || "Finish"} view ${i + 1}`}
             style={{ transformOrigin: origin }}
-            className={`absolute inset-0 w-full h-full object-cover transition-[opacity,transform] duration-500 ease-out ${
+            className={`absolute inset-0 w-full h-full object-cover transition-[opacity,transform] duration-500 ease-out select-none ${
               i === active ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
             } ${i === active && zoom ? "scale-[1.8]" : "scale-100"}`}
           />
         ))}
 
         {/* Feature badge */}
-        <div className="absolute top-4 left-4 z-20 flex flex-col gap-2 pointer-events-none">
-          <span className="eyebrow bg-background/90 backdrop-blur-md text-foreground px-3 py-1.5 text-[10px] tracking-widest border border-border/50 uppercase">
+        <div className="absolute top-3 sm:top-4 left-3 sm:left-4 z-20 flex flex-col gap-2 pointer-events-none">
+          <span className="eyebrow bg-background/90 backdrop-blur-md text-foreground px-2.5 sm:px-3 py-1 sm:py-1.5 text-[9px] sm:text-[10px] tracking-widest border border-border/50 uppercase shadow-sm">
             Tested to 7.5kg / 16.5 lbs
           </span>
         </div>
 
-        {/* Navigation arrows */}
+        {/* Navigation arrows (Visible on mobile, hover-revealed on desktop) */}
         {multi && (
           <>
             <button
@@ -82,7 +112,7 @@ export function ProductGallery({
                 go(-1);
               }}
               aria-label="Previous image"
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 h-11 w-11 rounded-full bg-background/85 backdrop-blur-md text-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-background transition-all shadow-md"
+              className="absolute left-2.5 sm:left-4 top-1/2 -translate-y-1/2 z-20 h-9 w-9 sm:h-11 sm:w-11 rounded-full bg-background/90 backdrop-blur-md text-foreground flex items-center justify-center opacity-85 sm:opacity-0 sm:group-hover:opacity-100 hover:bg-background transition-all shadow-md active:scale-95 text-sm sm:text-base"
             >
               ←
             </button>
@@ -92,7 +122,7 @@ export function ProductGallery({
                 go(1);
               }}
               aria-label="Next image"
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 h-11 w-11 rounded-full bg-background/85 backdrop-blur-md text-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-background transition-all shadow-md"
+              className="absolute right-2.5 sm:right-4 top-1/2 -translate-y-1/2 z-20 h-9 w-9 sm:h-11 sm:w-11 rounded-full bg-background/90 backdrop-blur-md text-foreground flex items-center justify-center opacity-85 sm:opacity-0 sm:group-hover:opacity-100 hover:bg-background transition-all shadow-md active:scale-95 text-sm sm:text-base"
             >
               →
             </button>
@@ -100,22 +130,24 @@ export function ProductGallery({
         )}
 
         {/* Bottom indicator */}
-        <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2">
-          <span className="eyebrow bg-background/90 backdrop-blur-md text-foreground px-3 py-1.5 text-[10px] tracking-widest border border-border/50">
-            {multi ? `${active + 1} / ${images.length} · ` : ""}Hover to zoom
+        <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 z-20 flex items-center gap-2">
+          <span className="eyebrow bg-background/90 backdrop-blur-md text-foreground px-2.5 sm:px-3 py-1 sm:py-1.5 text-[9px] sm:text-[10px] tracking-widest border border-border/50 shadow-sm">
+            {multi ? `${active + 1} / ${images.length} · ` : ""}
+            <span className="hidden sm:inline">Hover to zoom</span>
+            <span className="sm:hidden">Tap to zoom</span>
           </span>
         </div>
       </div>
 
       {/* THUMBNAILS CAROUSEL / ROW */}
       {multi && (
-        <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-none pt-1">
+        <div className="flex gap-2.5 sm:gap-3 overflow-x-auto pb-2 scrollbar-none pt-1">
           {images.map((src, i) => (
             <button
               key={src + i}
               onClick={() => setActive(i)}
               aria-label={`View image ${i + 1}`}
-              className={`relative aspect-square w-20 sm:w-24 shrink-0 overflow-hidden bg-secondary border transition-all ${
+              className={`relative aspect-square w-16 sm:w-20 md:w-24 shrink-0 overflow-hidden bg-secondary border transition-all ${
                 i === active
                   ? "border-foreground ring-1 ring-foreground opacity-100 scale-[0.98]"
                   : "border-border/60 opacity-60 hover:opacity-100"
@@ -134,13 +166,13 @@ export function ProductGallery({
       {/* FULLSCREEN LIGHTBOX */}
       {lightbox && (
         <div
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-3 sm:p-8"
           onClick={() => setLightbox(false)}
         >
           <img
             src={images[active]}
             alt={name}
-            className="max-h-[90vh] max-w-[90vw] object-contain select-none"
+            className="max-h-[85vh] sm:max-h-[90vh] max-w-[92vw] sm:max-w-[90vw] object-contain select-none"
             onClick={(e) => e.stopPropagation()}
           />
           {multi && (
@@ -151,7 +183,7 @@ export function ProductGallery({
                   go(-1);
                 }}
                 aria-label="Previous"
-                className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 text-white bg-white/10 hover:bg-white/20 p-3 rounded-full text-2xl transition-colors"
+                className="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 text-white bg-white/10 hover:bg-white/20 p-2.5 sm:p-3 rounded-full text-xl sm:text-2xl transition-colors"
               >
                 ←
               </button>
@@ -161,7 +193,7 @@ export function ProductGallery({
                   go(1);
                 }}
                 aria-label="Next"
-                className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 text-white bg-white/10 hover:bg-white/20 p-3 rounded-full text-2xl transition-colors"
+                className="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 text-white bg-white/10 hover:bg-white/20 p-2.5 sm:p-3 rounded-full text-xl sm:text-2xl transition-colors"
               >
                 →
               </button>
@@ -170,7 +202,7 @@ export function ProductGallery({
           <button
             onClick={() => setLightbox(false)}
             aria-label="Close"
-            className="absolute top-6 right-6 text-white text-sm eyebrow bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full transition-colors"
+            className="absolute top-4 sm:top-6 right-4 sm:right-6 text-white text-xs sm:text-sm eyebrow bg-white/10 hover:bg-white/20 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full transition-colors"
           >
             Close ✕
           </button>

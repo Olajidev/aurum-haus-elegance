@@ -36,26 +36,26 @@ function Shop() {
       <SiteHeader />
 
       {/* HEADER */}
-      <section className="mx-auto max-w-[1500px] px-6 lg:px-12 pt-20 pb-12">
-        <p className="eyebrow text-accent mb-4">Maison Aurum</p>
-        <h1 className="font-display text-5xl md:text-7xl leading-[1] max-w-3xl">
+      <section className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-12 pt-14 sm:pt-20 pb-8 sm:pb-12">
+        <p className="eyebrow text-accent mb-3 sm:mb-4 text-xs">Maison Aurum</p>
+        <h1 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1] max-w-3xl">
           The Collection<em className="italic font-light text-accent">.</em>
         </h1>
-        <p className="mt-6 max-w-xl text-muted-foreground font-light">
+        <p className="mt-4 sm:mt-6 max-w-xl text-muted-foreground font-light text-sm sm:text-base leading-relaxed">
           A considered edit of four pieces and the collector's suite — each a study in proportion, weight and finish. Complimentary UK shipping on every order.
         </p>
       </section>
 
       {/* 5 PRODUCTS GRID: 3 UP, 2 DOWN */}
-      <section className="mx-auto max-w-[1500px] px-6 lg:px-12 pb-24">
-        <div className="flex items-center justify-between border-y border-border py-4 mb-12 eyebrow text-muted-foreground">
+      <section className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-12 pb-20 sm:pb-24">
+        <div className="flex items-center justify-between border-y border-border py-3.5 sm:py-4 mb-8 sm:mb-12 eyebrow text-muted-foreground text-xs">
           <span>5 pieces</span>
           <div className="flex gap-6">
             <span className="text-foreground">Maison Edit n°1</span>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 sm:gap-x-8 gap-y-10 sm:gap-y-14">
           {shopProducts.map((p) => (
             <ProductCard key={p.slug} {...p} />
           ))}
@@ -63,7 +63,7 @@ function Shop() {
       </section>
 
       {/* SECTION 1: PILLARS FIRST (I, II, III) */}
-      <section className="mx-auto max-w-[1500px] px-6 lg:px-12 py-20 lg:py-24 grid md:grid-cols-3 gap-12 text-center border-t border-border/40">
+      <section className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-12 py-16 sm:py-20 lg:py-24 grid md:grid-cols-3 gap-10 sm:gap-12 text-center border-t border-border/40">
         {[
           { k: "I", t: "Hand-finished", d: "Each piece polished and inspected individually before release." },
           { k: "II", t: "Solid weighted core", d: "Approximately 113g weighted core, engineered for balance and stability." },

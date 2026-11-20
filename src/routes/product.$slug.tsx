@@ -90,14 +90,14 @@ function ProductPage() {
             />
 
             {/* Atelier trust reassurance footer under gallery */}
-            <div className="hidden sm:grid grid-cols-3 gap-3 pt-3 text-center border-t border-border/50 text-[11px] text-muted-foreground tracking-wider uppercase">
-              <div className="py-2 px-3 bg-secondary/40 border border-border/40">
+            <div className="grid grid-cols-3 gap-1.5 sm:gap-3 pt-3 text-center border-t border-border/50 text-[9px] sm:text-[11px] text-muted-foreground tracking-wider uppercase">
+              <div className="py-2 px-1.5 sm:px-3 bg-secondary/40 border border-border/40">
                 Solid Weighted Core (113g)
               </div>
-              <div className="py-2 px-3 bg-secondary/40 border border-border/40">
+              <div className="py-2 px-1.5 sm:px-3 bg-secondary/40 border border-border/40">
                 7.5kg Load Tested
               </div>
-              <div className="py-2 px-3 bg-secondary/40 border border-border/40">
+              <div className="py-2 px-1.5 sm:px-3 bg-secondary/40 border border-border/40">
                 Surface-Safe Grip
               </div>
             </div>
@@ -183,22 +183,22 @@ function ProductPage() {
                 )}
               </div>
 
-              <div className="flex items-center gap-4">
-                <div className="flex items-center border border-border bg-secondary/40 h-12">
+              <div className="flex items-center gap-2.5 sm:gap-4">
+                <div className="flex items-center border border-border bg-secondary/40 h-12 shrink-0">
                   <button
                     onClick={() => setQuantity((q) => Math.max(1, q - 1))}
                     aria-label="Decrease quantity"
-                    className="px-4 text-foreground/70 hover:text-foreground text-lg transition-colors"
+                    className="px-3 sm:px-4 text-foreground/70 hover:text-foreground text-lg transition-colors"
                   >
                     −
                   </button>
-                  <span className="px-4 text-sm font-medium min-w-[2.5rem] text-center">
+                  <span className="px-2 sm:px-4 text-sm font-medium min-w-[2rem] sm:min-w-[2.5rem] text-center">
                     {quantity}
                   </span>
                   <button
                     onClick={() => setQuantity((q) => Math.min(Math.max(1, stock), q + 1))}
                     aria-label="Increase quantity"
-                    className="px-4 text-foreground/70 hover:text-foreground text-lg transition-colors"
+                    className="px-3 sm:px-4 text-foreground/70 hover:text-foreground text-lg transition-colors"
                   >
                     +
                   </button>
@@ -208,14 +208,14 @@ function ProductPage() {
                   <Link
                     to="/checkout/$slug"
                     params={{ slug: product.slug }}
-                    className="flex-1 block text-center py-3.5 px-8 bg-foreground text-background eyebrow text-xs tracking-widest hover:bg-accent hover:text-foreground transition-all duration-300 font-semibold shadow-sm"
+                    className="flex-1 block text-center py-3.5 px-3 sm:px-8 bg-foreground text-background eyebrow text-[11px] sm:text-xs tracking-widest hover:bg-accent hover:text-foreground transition-all duration-300 font-semibold shadow-sm truncate"
                   >
                     Proceed to Checkout · £{totalPrice}
                   </Link>
                 ) : (
                   <button
                     disabled
-                    className="flex-1 py-3.5 px-8 bg-muted text-muted-foreground eyebrow text-xs tracking-widest cursor-not-allowed opacity-60"
+                    className="flex-1 py-3.5 px-4 sm:px-8 bg-muted text-muted-foreground eyebrow text-xs tracking-widest cursor-not-allowed opacity-60"
                   >
                     Sold Out
                   </button>

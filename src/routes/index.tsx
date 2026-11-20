@@ -83,14 +83,14 @@ function Home() {
       />
 
       {/* 2. THE COLLECTION GRID — FOUR PIECES: 2 UP, 2 DOWN (NO STARS, NO REVIEWS, NO BADGES) */}
-      <section className="mx-auto max-w-[1500px] px-6 lg:px-12 py-20 lg:py-28">
-        <div className="flex items-end justify-between mb-12 gap-6 flex-wrap">
+      <section className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-12 py-14 sm:py-20 lg:py-28">
+        <div className="flex items-end justify-between mb-8 sm:mb-12 gap-6 flex-wrap">
           <div>
-            <p className="eyebrow text-accent mb-3">Maison Aurum · Edit n°1</p>
-            <h2 className="font-display text-4xl md:text-5xl max-w-xl leading-tight">
+            <p className="eyebrow text-accent mb-2 sm:mb-3 text-xs">Maison Aurum · Edit n°1</p>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl max-w-xl leading-tight">
               Four pieces. <em className="italic font-light">One quiet obsession.</em>
             </h2>
-            <p className="text-sm text-muted-foreground font-light mt-2 max-w-md">
+            <p className="text-xs sm:text-sm text-muted-foreground font-light mt-2 max-w-md">
               Tested to support 7.5kg (16.5 lbs) on marble, glass, and wood. Weighted solid brass with nano-grip protection.
             </p>
           </div>
@@ -103,7 +103,7 @@ function Home() {
         </div>
 
         {/* 4 BIG CARDS GRID: 2 UP, 2 DOWN */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-14 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 max-w-5xl mx-auto">
           <ProductCard
             slug="aurum-gold"
             image={solPrimary}
@@ -155,26 +155,26 @@ function Home() {
       {/* 5. THE UNBOXING (COMPACT LOVABLE VERSION ON GREEN BG-PRIMARY BACKGROUND) */}
       <section className="bg-primary text-primary-foreground">
         <div className="mx-auto max-w-[1500px] grid lg:grid-cols-2">
-          <div className="px-8 lg:px-20 py-20 lg:py-32 flex flex-col justify-center order-2 lg:order-1">
-            <p className="eyebrow text-accent mb-6">The unboxing</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-8">
+          <div className="px-5 sm:px-8 lg:px-20 py-14 sm:py-20 lg:py-32 flex flex-col justify-center order-2 lg:order-1">
+            <p className="eyebrow text-accent mb-4 sm:mb-6 text-xs">The unboxing</p>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08] sm:leading-[1.05] mb-6 sm:mb-8">
               Arrives as a gift<br />
               <em className="italic font-light">to yourself.</em>
             </h2>
-            <p className="text-primary-foreground/80 font-light leading-relaxed mb-4 max-w-lg">
+            <p className="text-primary-foreground/80 font-light leading-relaxed mb-3 sm:mb-4 max-w-lg text-sm sm:text-base">
               Every Aurum Haus piece is delivered in our signature presentation box, accompanied by a protective travel pouch and microfibre cleaning cloth.
             </p>
-            <p className="text-primary-foreground/80 font-light leading-relaxed max-w-lg">
+            <p className="text-primary-foreground/80 font-light leading-relaxed max-w-lg text-sm sm:text-base">
               The packaging is designed to be kept. A small luxury, from the moment it reaches your hands.
             </p>
             <Link
               to="/shop"
-              className="mt-10 eyebrow text-accent hover:text-alabaster border-b border-accent/40 pb-1 self-start"
+              className="mt-8 sm:mt-10 eyebrow text-accent hover:text-alabaster border-b border-accent/40 pb-1 self-start text-xs"
             >
               Explore the collection →
             </Link>
           </div>
-          <div className="relative aspect-[4/5] lg:aspect-auto lg:min-h-[700px] order-1 lg:order-2">
+          <div className="relative aspect-[4/3] sm:aspect-[4/5] lg:aspect-auto lg:min-h-[700px] order-1 lg:order-2">
             <img
               src={aurumCollectionMedallions}
               alt="Aurum Haus luxury collection of signature medallions"

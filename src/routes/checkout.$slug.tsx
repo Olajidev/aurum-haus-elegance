@@ -307,22 +307,22 @@ function CheckoutPage() {
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <SiteHeader />
 
-      <main className="mx-auto max-w-[1300px] w-full px-6 lg:px-12 py-12 lg:py-20 flex-1">
+      <main className="mx-auto max-w-[1300px] w-full px-4 sm:px-6 lg:px-12 py-8 sm:py-12 lg:py-20 flex-1">
         <button
           onClick={() => navigate({ to: "/product/$slug", params: { slug: product.slug } })}
-          className="eyebrow text-muted-foreground hover:text-foreground mb-8 text-xs flex items-center gap-2 transition-colors"
+          className="eyebrow text-muted-foreground hover:text-foreground mb-6 sm:mb-8 text-xs flex items-center gap-2 transition-colors"
         >
           ← Return to {product.name}
         </button>
 
-        <div className="grid lg:grid-cols-[1fr_440px] gap-12 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-[1fr_440px] gap-8 lg:gap-16 items-start">
           
           {/* LEFT: PAYMENT GATEWAYS */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             <div>
-              <p className="eyebrow text-accent mb-2">Secure Payment</p>
-              <h1 className="font-display text-4xl md:text-5xl">Select Payment Method</h1>
-              <p className="text-muted-foreground font-light text-sm mt-2">
+              <p className="eyebrow text-accent mb-2 text-xs">Secure Payment</p>
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl">Select Payment Method</h1>
+              <p className="text-muted-foreground font-light text-xs sm:text-sm mt-2">
                 All transactions are encrypted with 256-bit atelier security. Choose your preferred checkout method.
               </p>
             </div>
@@ -611,8 +611,8 @@ function CheckoutPage() {
             </div>
           </div>
 
-          {/* RIGHT: ORDER SUMMARY */}
-          <aside className="bg-secondary/40 border border-border/80 p-8 self-start space-y-6">
+          {/* RIGHT: ORDER SUMMARY (DISPLAYS FIRST ON MOBILE, RIGHT SIDE ON DESKTOP) */}
+          <aside className="bg-secondary/40 border border-border/80 p-5 sm:p-8 self-start space-y-5 sm:space-y-6 order-first lg:order-last w-full">
             <p className="eyebrow text-accent">Order Summary</p>
 
             <div className="flex gap-4 pb-6 border-b border-border/60">
