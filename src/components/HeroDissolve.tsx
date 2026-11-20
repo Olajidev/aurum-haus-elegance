@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 
 export type HeroSlide = {
   image: string;
+  mobileImage?: string;
   alt: string;
   eyebrow?: string;
   title?: React.ReactNode;
@@ -34,15 +35,30 @@ export function HeroDissolve({ slides, interval = 6500 }: HeroDissolveProps) {
           style={{ opacity: i === active ? 1 : 0 }}
           aria-hidden={i !== active}
         >
-          <img
-            src={s.image}
-            alt={s.alt}
-            className="w-full h-full object-cover"
-            style={{
-              transform: i === active ? "scale(1.06)" : "scale(1)",
-              transition: "transform 8000ms ease-out",
-            }}
-          />
+          {s.mobileImage ? (
+            <picture className="w-full h-full block">
+              <source media="(max-width: 767px)" srcSet={s.mobileImage} />
+              <img
+                src={s.image}
+                alt={s.alt}
+                className="w-full h-full object-cover"
+                style={{
+                  transform: i === active ? "scale(1.06)" : "scale(1)",
+                  transition: "transform 8000ms ease-out",
+                }}
+              />
+            </picture>
+          ) : (
+            <img
+              src={s.image}
+              alt={s.alt}
+              className="w-full h-full object-cover"
+              style={{
+                transform: i === active ? "scale(1.06)" : "scale(1)",
+                transition: "transform 8000ms ease-out",
+              }}
+            />
+          )}
         </div>
       ))}
 

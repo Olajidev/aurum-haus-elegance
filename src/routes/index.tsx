@@ -11,6 +11,7 @@ import { AurumJournalCarousel } from "@/components/AurumJournalCarousel";
 import { solPrimary, auraPrimary, noirPrimary, onyxPrimary } from "@/lib/products";
 
 import heroSunlitCafe from "@/assets/hero-sunlit-cafe.png";
+import heroSunlitCafeMobile from "@/assets/hero-sunlit-cafe-mobile.jpg";
 import aurumCollectionMedallions from "@/assets/aurum-collection-medallions.jpg";
 import slideBagRestaurant from "@/assets/slideshow-bag-restaurant.png.asset.json";
 import ah1Hero from "@/assets/AH1.jpeg";
@@ -51,6 +52,7 @@ function Home() {
         slides={[
           {
             image: heroSunlitCafe,
+            mobileImage: heroSunlitCafeMobile,
             alt: "Quiet luxury held effortlessly — Aurum Haus signature bag holder",
             eyebrow: "SIGNATURE COLLECTION",
             title: (
