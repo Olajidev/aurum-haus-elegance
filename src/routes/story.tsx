@@ -211,7 +211,7 @@ function Story() {
           Stay in the Haus.
         </h2>
         <p className="text-xs sm:text-sm text-muted-foreground font-light leading-relaxed max-w-md mx-auto mb-6 sm:mb-8">
-          A little luxury, delivered to your inbox. Be the first to know about new edits, private releases, and stories from the Maison.
+          A little luxury, delivered to your inbox. Be the first to know about new edits, private releases, and stories from the Haus.
         </p>
 
         {newsletterSubscribed ? (

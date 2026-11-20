@@ -37,7 +37,7 @@ function Shop() {
 
       {/* HEADER */}
       <section className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-12 pt-14 sm:pt-20 pb-8 sm:pb-12">
-        <p className="eyebrow text-accent mb-3 sm:mb-4 text-xs">Maison Aurum</p>
+        <p className="eyebrow text-accent mb-3 sm:mb-4 text-xs">Aurum Haus</p>
         <h1 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1] max-w-3xl">
           The Collection<em className="italic font-light text-accent">.</em>
         </h1>
@@ -51,7 +51,7 @@ function Shop() {
         <div className="flex items-center justify-between border-y border-border py-3.5 sm:py-4 mb-8 sm:mb-12 eyebrow text-muted-foreground text-xs">
           <span>5 pieces</span>
           <div className="flex gap-6">
-            <span className="text-foreground">Maison Edit n°1</span>
+            <span className="text-foreground">Haus Edit n°1</span>
           </div>
         </div>
 

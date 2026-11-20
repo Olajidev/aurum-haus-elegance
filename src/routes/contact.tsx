@@ -6,9 +6,9 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Aurum Haus" },
-      { name: "description", content: "Write to the Aurum Haus atelier in Lisbon. Client care, press, wholesale, and private commissions." },
+      { name: "description", content: "Write to the Aurum Haus atelier. Client care, support, and inquiries." },
       { property: "og:title", content: "Contact — Aurum Haus" },
-      { property: "og:description", content: "Write to the atelier in Lisbon." },
+      { property: "og:description", content: "Write to the Haus." },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
   }),
@@ -23,7 +23,7 @@ function Contact() {
       <section className="mx-auto max-w-4xl px-6 lg:px-12 py-28 lg:py-36 text-center">
         <p className="eyebrow text-accent mb-6">Contact</p>
         <h1 className="font-display text-5xl md:text-7xl leading-[1.02]">
-          Write to the maison.
+          Write to the Haus.
         </h1>
       </section>
 
@@ -35,16 +35,12 @@ function Contact() {
         </div>
         <div className="space-y-8">
           <div>
-            <p className="eyebrow text-accent mb-2">Client care</p>
-            <a href="mailto:care@aurumhaus.com" className="hover:text-accent">care@aurumhaus.com</a>
+            <p className="eyebrow text-accent mb-2">General inquiries</p>
+            <a href="mailto:contact@aurumhaus.com" className="hover:text-accent">contact@aurumhaus.com</a>
           </div>
           <div>
-            <p className="eyebrow text-accent mb-2">Press</p>
-            <a href="mailto:press@aurumhaus.com" className="hover:text-accent">press@aurumhaus.com</a>
-          </div>
-          <div>
-            <p className="eyebrow text-accent mb-2">Wholesale & commissions</p>
-            <a href="mailto:atelier@aurumhaus.com" className="hover:text-accent">atelier@aurumhaus.com</a>
+            <p className="eyebrow text-accent mb-2">Client care & support</p>
+            <a href="mailto:support@aurumhaus.com" className="hover:text-accent">support@aurumhaus.com</a>
           </div>
         </div>
       </section>

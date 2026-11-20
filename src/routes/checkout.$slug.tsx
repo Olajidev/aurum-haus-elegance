@@ -154,7 +154,7 @@ function CheckoutPage() {
             <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mb-2 ring-1 ring-emerald-500/20">
               <CheckCircle2 className="w-7 h-7" />
             </div>
-            <p className="eyebrow text-accent tracking-[0.25em]">Maison Order Confirmed</p>
+            <p className="eyebrow text-accent tracking-[0.25em]">Haus Order Confirmed</p>
             <h1 className="font-display text-4xl sm:text-5xl leading-tight">
               Thank you, {completedOrder.customerName}<em className="italic font-light">.</em>
             </h1>
@@ -237,17 +237,16 @@ function CheckoutPage() {
           {/* ACTION BUTTONS */}
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              to="/admin"
+              to="/shop"
               className="w-full sm:w-auto px-8 py-3.5 bg-foreground text-background hover:bg-accent hover:text-foreground text-xs uppercase tracking-widest font-medium transition-all text-center flex items-center justify-center gap-2"
             >
-              <PackageCheck className="w-4 h-4" />
-              View in Admin Dashboard
+              Continue Shopping
             </Link>
             <Link
-              to="/shop"
+              to="/"
               className="w-full sm:w-auto px-8 py-3.5 border border-border hover:bg-secondary text-xs uppercase tracking-widest font-medium transition-all text-center"
             >
-              Continue Shopping
+              Return to Home
             </Link>
           </div>
         </main>

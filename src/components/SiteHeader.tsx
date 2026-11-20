@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Search, User, ShoppingBag, Menu, X, ArrowRight } from "lucide-react";
 
 const links = [
-  { to: "/", label: "Maison" },
+  { to: "/", label: "Haus" },
   { to: "/shop", label: "Collection" },
   { to: "/pre-order", label: "Pre-Order" },
   { to: "/story", label: "Story" },
@@ -135,7 +135,7 @@ export function SiteHeader() {
             {/* Top Close Bar */}
             <div className="flex items-center justify-between pb-6 border-b border-border/40">
               <p className="eyebrow text-accent text-[11px] tracking-widest uppercase">
-                Maison Aurum · Edit n°1
+                Aurum Haus · Edit n°1
               </p>
               <button
                 type="button"
@@ -176,13 +176,6 @@ export function SiteHeader() {
                   className="block text-sm font-light text-muted-foreground hover:text-foreground transition-colors py-1"
                 >
                   Complimentary Shipping & Returns
-                </Link>
-                <Link
-                  to="/admin"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-sm font-light text-accent/80 hover:text-accent transition-colors py-1"
-                >
-                  Atelier Admin
                 </Link>
               </div>
             </nav>

@@ -467,7 +467,7 @@ function generateCustomerConfirmationEmail(order: Order): EmailLog {
     </div>
 
     <div class="footer">
-      <p>Aurum Haus Maison & Atelier · London & Paris</p>
+      <p>Aurum Haus Atelier · London & Paris</p>
       <p>Questions regarding your shipment? Contact our private concierge at <a href="mailto:concierge@aurumhaus.com" style="color:#C5A059; text-decoration: none;">concierge@aurumhaus.com</a></p>
       <p style="font-size: 11px; color: #AAA;">Each piece is protected by our 12-Month Atelier Craftsmanship Warranty.</p>
     </div>
@@ -522,7 +522,7 @@ function generateAdminSaleNotificationEmail(order: Order, remainingStock: number
 <body>
   <div class="container">
     <div class="header">
-      <p class="brand">AURUM HAUS · MAISON ADMIN</p>
+      <p class="brand">AURUM HAUS · ATELIER ADMIN</p>
       <div style="margin-top: 10px;">
         <span class="badge">NEW CONFIRMED SALE</span>
         <span style="font-size: 13px; color: #8E8E93; margin-left: 10px;">Gateway: ${methodLabel}</span>
@@ -580,7 +580,7 @@ function generateAdminSaleNotificationEmail(order: Order, remainingStock: number
   return {
     id: `EML-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
     type: "admin_sale_alert",
-    recipient: "admin@aurumhaus.com (Maison Admin)",
+    recipient: "admin@aurumhaus.com (Atelier Admin)",
     sender: "system@aurumhaus.com (eCommerce Engine)",
     subject: `[SALE ALERT] ${order.id}: ${order.productName} (£${order.total}) via ${methodLabel}`,
     orderId: order.id,

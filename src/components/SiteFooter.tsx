@@ -7,7 +7,7 @@ export function SiteFooter() {
         <div className="md:col-span-2">
           <h3 className="font-display text-2xl sm:text-3xl italic mb-3 sm:mb-4">Stay in the Haus.</h3>
           <p className="text-primary-foreground/70 max-w-md mb-6 font-light text-xs sm:text-sm leading-relaxed">
-            A little luxury, delivered to your inbox. Be the first to know about new edits, private releases, and stories from the Maison.
+            A little luxury, delivered to your inbox. Be the first to know about new edits, private releases, and stories from the Haus.
           </p>
           <form className="flex border-b border-primary-foreground/30 max-w-md">
             <input
@@ -20,7 +20,7 @@ export function SiteFooter() {
         </div>
 
         <div className="space-y-2.5 sm:space-y-3 eyebrow">
-          <h4 className="eyebrow text-accent mb-3 sm:mb-4 text-xs">Maison</h4>
+          <h4 className="eyebrow text-accent mb-3 sm:mb-4 text-xs">Haus</h4>
           <Link to="/story" className="block text-primary-foreground/80 hover:text-primary-foreground normal-case tracking-normal font-light text-sm">Our story</Link>
           <Link to="/shop" className="block text-primary-foreground/80 hover:text-primary-foreground normal-case tracking-normal font-light text-sm">Collection</Link>
           <Link to="/craftsmanship" className="block text-primary-foreground/80 hover:text-primary-foreground normal-case tracking-normal font-light text-sm">Craftsmanship</Link>
@@ -40,7 +40,6 @@ export function SiteFooter() {
             <a>Privacy</a>
             <a>Terms</a>
             <a>Cookies</a>
-            <Link to="/admin" className="text-accent/80 hover:text-accent font-medium">Atelier Admin</Link>
           </div>
         </div>
       </div>

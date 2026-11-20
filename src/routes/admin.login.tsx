@@ -49,7 +49,7 @@ function AdminLoginPage() {
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#242426] border border-[#333336] text-[#D4AF37] mb-2">
             <Lock className="w-5 h-5" />
           </div>
-          <p className="text-[11px] uppercase tracking-[0.3em] text-[#D4AF37] font-medium">Maison Aurum Haus</p>
+          <p className="text-[11px] uppercase tracking-[0.3em] text-[#D4AF37] font-medium">Aurum Haus</p>
           <h1 className="font-display text-3xl font-normal text-white">Atelier Admin Sign In</h1>
           <p className="text-xs text-[#8E8E93] font-light leading-relaxed">
             Restricted management console for product catalog, live inventory tracking, orders, and dispatched emails.

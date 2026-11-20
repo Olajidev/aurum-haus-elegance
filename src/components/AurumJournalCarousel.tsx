@@ -2,7 +2,6 @@ import { useState, useRef } from "react";
 import { ArrowLeft, ArrowRight, Maximize2 } from "lucide-react";
 
 import aurumBadgeMarble from "@/assets/aurum-badge-marble.png";
-import aurumProductHero from "@/assets/aurum-product-hero.jpg.asset.json";
 import himCafeNew from "@/assets/him-cafe-new.png.asset.json";
 import heirloomWarm from "@/assets/heirloom-warm.png.asset.json";
 import aurumCollectionMedallions from "@/assets/aurum-collection-medallions.jpg";
@@ -16,34 +15,28 @@ const slides = [
     num: "01",
   },
   {
-    image: aurumProductHero.url,
-    alt: "A close-up of the Aurum Haus signature bag holder",
-    title: "The finer details",
-    num: "02",
-  },
-  {
     image: himCafeNew.url,
     alt: "Aurum Haus bag holder accompanying a café visit",
     title: "An everyday ritual",
-    num: "03",
+    num: "02",
   },
   {
     image: heirloomWarm.url,
     alt: "Aurum Haus bag holder in warm golden-hour light",
     title: "A modern heirloom",
-    num: "04",
+    num: "03",
   },
   {
     image: aurumCollectionMedallions,
     alt: "Aurum Haus signature medallions suite",
     title: "Signature finishes",
-    num: "05",
+    num: "04",
   },
   {
     image: slideBagRestaurant.url,
     alt: "Aurum Haus bag holder suspending a bag at a restaurant table",
     title: "A seat at the table",
-    num: "06",
+    num: "05",
   },
 ];
 
@@ -78,8 +71,8 @@ export function AurumJournalCarousel() {
               Life, <em className="italic font-light">with Aurum.</em>
             </h2>
           </div>
-          <span aria-live="polite" aria-label={`Photograph ${active + 1} of 6`} className="text-xs tabular-nums text-muted-foreground font-mono">
-            0{active + 1} — 06
+          <span aria-live="polite" aria-label={`Photograph ${active + 1} of ${slides.length}`} className="text-xs tabular-nums text-muted-foreground font-mono">
+            0{active + 1} — 0{slides.length}
           </span>
         </div>
 

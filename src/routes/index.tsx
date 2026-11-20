@@ -88,7 +88,7 @@ function Home() {
       <section className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-12 py-14 sm:py-20 lg:py-28">
         <div className="flex items-end justify-between mb-8 sm:mb-12 gap-6 flex-wrap">
           <div>
-            <p className="eyebrow text-accent mb-2 sm:mb-3 text-xs">Maison Aurum · Edit n°1</p>
+            <p className="eyebrow text-accent mb-2 sm:mb-3 text-xs">Aurum Haus · Edit n°1</p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl max-w-xl leading-tight">
               Four pieces. <em className="italic font-light">One quiet obsession.</em>
             </h2>

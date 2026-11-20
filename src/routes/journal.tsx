@@ -17,7 +17,7 @@ export const Route = createFileRoute("/journal")({
 
 const entries = [
   { n: "01", date: "September 2026", title: "On the weight of small objects", excerpt: "Why 180 grams is the difference between a tool and an ornament." },
-  { n: "02", date: "August 2026", title: "A dinner in Lisbon", excerpt: "Inside the table that started the Maison — and the bag that would not behave." },
+  { n: "02", date: "August 2026", title: "A dinner in Lisbon", excerpt: "Inside the table that started the Haus — and the bag that would not behave." },
   { n: "03", date: "July 2026", title: "Quiet luxury, considered", excerpt: "On rejecting trend in favour of permanence." },
 ];
 
