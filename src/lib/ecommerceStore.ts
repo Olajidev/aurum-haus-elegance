@@ -468,7 +468,7 @@ function generateCustomerConfirmationEmail(order: Order): EmailLog {
 
     <div class="footer">
       <p>Aurum Haus Atelier · London & Paris</p>
-      <p>Questions regarding your shipment? Contact our private concierge at <a href="mailto:concierge@aurumhaus.com" style="color:#C5A059; text-decoration: none;">concierge@aurumhaus.com</a></p>
+      <p>Questions regarding your shipment? Contact our private concierge at <a href="mailto:concierge@theaurumhaus.com" style="color:#C5A059; text-decoration: none;">concierge@theaurumhaus.com</a></p>
       <p style="font-size: 11px; color: #AAA;">Each piece is protected by our 12-Month Atelier Craftsmanship Warranty.</p>
     </div>
   </div>
@@ -480,7 +480,7 @@ function generateCustomerConfirmationEmail(order: Order): EmailLog {
     id: `EML-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
     type: "customer_confirmation",
     recipient: order.customerEmail,
-    sender: "orders@aurumhaus.com (Aurum Haus Atelier)",
+    sender: "orders@theaurumhaus.com (Aurum Haus Atelier)",
     subject: `Order Confirmed: Your Aurum Haus piece (${order.id})`,
     orderId: order.id,
     htmlBody: html,
@@ -564,7 +564,7 @@ function generateAdminSaleNotificationEmail(order: Order, remainingStock: number
     </div>
 
     <div style="margin-top: 24px; text-align: center;">
-      <a href="http://localhost:8080/admin" style="display: inline-block; background: #D4AF37; color: #111; font-weight: 600; padding: 12px 24px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; text-decoration: none; border-radius: 2px;">
+      <a href="https://theaurumhaus.com/admin" style="display: inline-block; background: #D4AF37; color: #111; font-weight: 600; padding: 12px 24px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; text-decoration: none; border-radius: 2px;">
         Open Admin Dashboard
       </a>
     </div>
@@ -580,8 +580,8 @@ function generateAdminSaleNotificationEmail(order: Order, remainingStock: number
   return {
     id: `EML-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
     type: "admin_sale_alert",
-    recipient: "admin@aurumhaus.com (Atelier Admin)",
-    sender: "system@aurumhaus.com (eCommerce Engine)",
+    recipient: "admin@theaurumhaus.com, temi@theaurumhaus.com (Atelier Admins)",
+    sender: "system@theaurumhaus.com (eCommerce Engine)",
     subject: `[SALE ALERT] ${order.id}: ${order.productName} (£${order.total}) via ${methodLabel}`,
     orderId: order.id,
     htmlBody: html,
@@ -590,10 +590,81 @@ function generateAdminSaleNotificationEmail(order: Order, remainingStock: number
 }
 
 // -------------------------------------------------------------
-// ADMIN AUTHENTICATION
+// ADMIN ACCOUNTS & AUTHENTICATION
 // -------------------------------------------------------------
-const ADMIN_EMAIL = "admin@aurumhaus.com";
-const ADMIN_PASS = "aurum2026";
+export type AdminAccount = {
+  email: string;
+  name: string;
+  role: string;
+  defaultPassword: string;
+};
+
+export const DEFAULT_ADMIN_ACCOUNTS: AdminAccount[] = [
+  {
+    email: "admin@theaurumhaus.com",
+    name: "Atelier Administrator",
+    role: "Super Admin",
+    defaultPassword: "aurum2026",
+  },
+  {
+    email: "temi@theaurumhaus.com",
+    name: "Temi",
+    role: "Admin & Operations Director",
+    defaultPassword: "TemiAurum2026!",
+  },
+  // Backwards compatibility fallback if typed without 'the':
+  {
+    email: "admin@aurumhaus.com",
+    name: "Atelier Administrator",
+    role: "Super Admin",
+    defaultPassword: "aurum2026",
+  },
+];
+
+const PASSWORDS_STORAGE_KEY = "ah_ecommerce_admin_passwords_v2";
+const CURRENT_USER_STORAGE_KEY = "ah_ecommerce_admin_current_user_v2";
+
+export function getAdminPassword(email: string): string | null {
+  const normalized = email.trim().toLowerCase();
+  if (typeof window !== "undefined") {
+    try {
+      const overrides = JSON.parse(window.localStorage.getItem(PASSWORDS_STORAGE_KEY) || "{}");
+      if (overrides[normalized]) return overrides[normalized];
+    } catch {
+      // ignore
+    }
+  }
+  const account = DEFAULT_ADMIN_ACCOUNTS.find((a) => a.email.toLowerCase() === normalized);
+  return account ? account.defaultPassword : null;
+}
+
+export function resetAdminPassword(email: string, newPass: string): boolean {
+  const normalized = email.trim().toLowerCase();
+  const account = DEFAULT_ADMIN_ACCOUNTS.find((a) => a.email.toLowerCase() === normalized);
+  if (!account) return false;
+  if (typeof window !== "undefined") {
+    try {
+      const overrides = JSON.parse(window.localStorage.getItem(PASSWORDS_STORAGE_KEY) || "{}");
+      overrides[normalized] = newPass;
+      window.localStorage.setItem(PASSWORDS_STORAGE_KEY, JSON.stringify(overrides));
+      emitChange();
+      return true;
+    } catch {
+      return false;
+    }
+  }
+  return true;
+}
+
+export function getCurrentAdminUser(): { email: string; name: string; role: string } | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = window.localStorage.getItem(CURRENT_USER_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
 
 export function checkAdminAuth(): boolean {
   if (typeof window === "undefined") return false;
@@ -606,9 +677,22 @@ export function checkAdminAuth(): boolean {
 }
 
 export function loginAdmin(email: string, pass: string): boolean {
-  if (email.trim().toLowerCase() === ADMIN_EMAIL && pass.trim() === ADMIN_PASS) {
+  const normalized = email.trim().toLowerCase();
+  const account = DEFAULT_ADMIN_ACCOUNTS.find((a) => a.email.toLowerCase() === normalized);
+  if (!account) return false;
+
+  const validPassword = getAdminPassword(normalized);
+  if (validPassword && pass.trim() === validPassword) {
     if (typeof window !== "undefined") {
       window.localStorage.setItem(STORAGE_KEYS.AUTH, "authenticated_session_token_aurum");
+      window.localStorage.setItem(
+        CURRENT_USER_STORAGE_KEY,
+        JSON.stringify({
+          email: account.email,
+          name: account.name,
+          role: account.role,
+        })
+      );
       emitChange();
     }
     return true;
@@ -619,8 +703,14 @@ export function loginAdmin(email: string, pass: string): boolean {
 export function logoutAdmin(): void {
   if (typeof window !== "undefined") {
     window.localStorage.removeItem(STORAGE_KEYS.AUTH);
+    window.localStorage.removeItem(CURRENT_USER_STORAGE_KEY);
     emitChange();
   }
+}
+
+export function clearAllOrders(): void {
+  setLocalItem(STORAGE_KEYS.ORDERS, []);
+  setLocalItem(STORAGE_KEYS.EMAILS, []);
 }
 
 // -------------------------------------------------------------
@@ -645,6 +735,7 @@ export function useEcommerceStore() {
     inventory: getInventoryMap(),
     emailLogs: getEmailLogs(),
     isAdmin: checkAdminAuth(),
+    currentAdmin: getCurrentAdminUser(),
     tick,
   };
 }

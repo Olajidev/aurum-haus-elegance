@@ -1,7 +1,8 @@
 import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { checkAdminAuth, loginAdmin } from "@/lib/ecommerceStore";
-import { Lock } from "lucide-react";
+import { AdminForgotPasswordModal } from "@/components/AdminForgotPasswordModal";
+import { Lock, KeyRound } from "lucide-react";
 
 export const Route = createFileRoute("/admin/login")({
   head: () => ({
@@ -18,6 +19,7 @@ function AdminLoginPage() {
   const [emailInput, setEmailInput] = useState("");
   const [passInput, setPassInput] = useState("");
   const [authError, setAuthError] = useState<string | null>(null);
+  const [isForgotOpen, setIsForgotOpen] = useState(false);
 
   useEffect(() => {
     if (checkAdminAuth()) {
@@ -66,9 +68,18 @@ function AdminLoginPage() {
           </div>
 
           <div>
-            <label className="block text-[11px] uppercase tracking-wider text-[#AEAEB2] mb-2 font-medium">
-              Password
-            </label>
+            <div className="flex items-center justify-between mb-2">
+              <label className="block text-[11px] uppercase tracking-wider text-[#AEAEB2] font-medium">
+                Password
+              </label>
+              <button
+                type="button"
+                onClick={() => setIsForgotOpen(true)}
+                className="text-[11px] text-[#D4AF37] hover:underline"
+              >
+                Forgot password?
+              </button>
+            </div>
             <input
               type="password"
               required
@@ -99,6 +110,15 @@ function AdminLoginPage() {
           </div>
         </form>
       </div>
+
+      <AdminForgotPasswordModal
+        isOpen={isForgotOpen}
+        onClose={() => setIsForgotOpen(false)}
+        onSuccess={(recoveredEmail) => {
+          setEmailInput(recoveredEmail);
+          setAuthError(null);
+        }}
+      />
     </div>
   );
 }

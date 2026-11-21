@@ -136,4 +136,38 @@ Every vulnerability listed below has been identified, patched in code, verified 
 * **Vulnerability Analysis:**
   The footer displayed dead `<a>Privacy</a>` and `<a>Terms</a>` links without legal disclosures.
 * **Remediation Implemented:**
-  Created dedicated, brand-aligned `/privacy` and `/terms` routes with UK/EU GDPR compliance (Right of Access, Right to Erasure, Contact address `support@aurumhaus.com`), and connected them to footer navigation.
+  Created dedicated, brand-aligned `/privacy` and `/terms` routes with UK/EU GDPR compliance (Right of Access, Right to Erasure, Contact address `support@theaurumhaus.com`), and connected them to footer navigation.
+
+---
+
+### AH-LAUNCH-01: Multi-Administrator Identity & Password Recovery
+* **Affected Files:**
+  * `src/lib/ecommerceStore.ts`
+  * `src/routes/admin.tsx`
+  * `src/routes/admin.login.tsx`
+  * `src/components/AdminForgotPasswordModal.tsx`
+* **Enhancements Implemented:**
+  1. Configured dual administrative accounts:
+     * Primary Admin: `admin@theaurumhaus.com`
+     * Operations Director (Temi): `temi@theaurumhaus.com`
+  2. Built interactive luxury modal for admin password recovery with administrator verification and custom password reset.
+  3. Header dynamically displays the active authenticated admin's name and role (`Temi` / `Atelier Administrator`).
+  4. Added a one-click "Clear Orders" utility to purge mock test orders before customer launch.
+
+---
+
+### AH-LAUNCH-02: Domain & Brand Consistency Standardization
+* **Affected Files:**
+  * `src/routes/contact.tsx`
+  * `src/routes/privacy.tsx`
+  * `src/routes/terms.tsx`
+  * `src/routes/api/chat.ts`
+  * `src/routes/checkout.$slug.tsx`
+  * `src/lib/ecommerceStore.ts`
+  * `public/favicon.ico`, `public/favicon.png`, `public/apple-touch-icon.png`
+  * `src/routes/__root.tsx`
+* **Enhancements Implemented:**
+  1. Removed placeholder Lisbon atelier physical address from the contact page and centered the inquiries console.
+  2. Migrated all project communications and email destinations from `@aurumhaus.com` to `@theaurumhaus.com`.
+  3. Configured high-resolution interlocking "AH" monogram favicon in root metadata.
+  4. Accelerated mobile marquee text slider from 8s to 4.5s for snappy mobile responsiveness.

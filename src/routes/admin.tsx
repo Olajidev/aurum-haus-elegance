@@ -11,10 +11,12 @@ import {
   adjustProductStock,
   updateOrderStatus,
   deleteOrder,
+  clearAllOrders,
   Product,
   Order,
   EmailLog,
 } from "@/lib/ecommerceStore";
+import { AdminForgotPasswordModal } from "@/components/AdminForgotPasswordModal";
 import {
   solPrimary,
   auraPrimary,
@@ -65,12 +67,13 @@ type TabType = "overview" | "products" | "inventory" | "orders" | "emails";
 
 function AdminPage() {
   const navigate = useNavigate();
-  const { products, orders, inventory, emailLogs, isAdmin } = useEcommerceStore();
+  const { products, orders, inventory, emailLogs, isAdmin, currentAdmin } = useEcommerceStore();
 
   // Auth form state
   const [emailInput, setEmailInput] = useState("");
   const [passInput, setPassInput] = useState("");
   const [authError, setAuthError] = useState<string | null>(null);
+  const [isForgotOpen, setIsForgotOpen] = useState(false);
 
   // Active dashboard tab
   const [activeTab, setActiveTab] = useState<TabType>("overview");
@@ -130,9 +133,18 @@ function AdminPage() {
             </div>
 
             <div>
-              <label className="block text-[11px] uppercase tracking-wider text-[#AEAEB2] mb-2 font-medium">
-                Password
-              </label>
+              <div className="flex items-center justify-between mb-2">
+                <label className="block text-[11px] uppercase tracking-wider text-[#AEAEB2] font-medium">
+                  Password
+                </label>
+                <button
+                  type="button"
+                  onClick={() => setIsForgotOpen(true)}
+                  className="text-[11px] text-[#D4AF37] hover:underline"
+                >
+                  Forgot password?
+                </button>
+              </div>
               <input
                 type="password"
                 required
@@ -163,6 +175,15 @@ function AdminPage() {
             </div>
           </form>
         </div>
+
+        <AdminForgotPasswordModal
+          isOpen={isForgotOpen}
+          onClose={() => setIsForgotOpen(false)}
+          onSuccess={(recoveredEmail) => {
+            setEmailInput(recoveredEmail);
+            setAuthError(null);
+          }}
+        />
       </div>
     );
   }
@@ -239,7 +260,10 @@ function AdminPage() {
             </button>
 
             <div className="flex items-center gap-3 pl-4 border-l border-[#28282B]">
-              <span className="hidden md:inline text-xs text-[#8E8E93]">admin@aurumhaus.com</span>
+              <div className="hidden md:flex flex-col text-right">
+                <span className="text-xs font-medium text-white">{currentAdmin?.name || "Atelier Admin"}</span>
+                <span className="text-[11px] text-[#8E8E93]">{currentAdmin?.email || "admin@theaurumhaus.com"}</span>
+              </div>
               <button
                 onClick={() => logoutAdmin()}
                 className="flex items-center gap-1.5 px-3 py-1.5 bg-[#1F1F23] hover:bg-red-950/60 hover:text-red-300 border border-[#2E2E32] text-[#AEAEB2] transition-colors"
@@ -712,6 +736,21 @@ function AdminPage() {
                   <option value="confirmed">Confirmed</option>
                   <option value="shipped">Shipped</option>
                 </select>
+
+                {orders.length > 0 && (
+                  <button
+                    onClick={() => {
+                      if (confirm("Clear all test orders and email logs to prepare a clean slate for launch?")) {
+                        clearAllOrders();
+                      }
+                    }}
+                    className="px-3 py-1.5 border border-[#3A2222] bg-red-950/20 hover:bg-red-950/50 text-red-300 text-xs transition-colors flex items-center gap-1.5"
+                    title="Clear test orders before launch"
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                    <span>Clear Orders</span>
+                  </button>
+                )}
               </div>
             </div>
 

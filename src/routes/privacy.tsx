@@ -55,8 +55,8 @@ function PrivacyPage() {
             </ul>
             <p className="mt-2">
               To exercise any privacy rights, write to our data protection team directly at{" "}
-              <a href="mailto:support@aurumhaus.com" className="text-accent underline">
-                support@aurumhaus.com
+              <a href="mailto:support@theaurumhaus.com" className="text-accent underline">
+                support@theaurumhaus.com
               </a>.
             </p>
           </section>

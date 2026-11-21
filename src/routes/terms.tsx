@@ -50,8 +50,8 @@ function TermsPage() {
             <h2 className="font-display text-xl text-foreground">4. Inquiries & Dispute Resolution</h2>
             <p>
               For legal, dispatch, or order inquiries, please contact our team at{" "}
-              <a href="mailto:contact@aurumhaus.com" className="text-accent underline">
-                contact@aurumhaus.com
+              <a href="mailto:contact@theaurumhaus.com" className="text-accent underline">
+                contact@theaurumhaus.com
               </a>.
             </p>
           </section>

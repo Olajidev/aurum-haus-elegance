@@ -20,7 +20,7 @@ Aurum Haus makes a single object exceptionally well: a hand-finished bag holder 
 
 Shipping is complimentary express worldwide (2–4 business days), duties prepaid. Returns accepted within 30 days.
 
-Tone: understated, gracious, never salesy. Short paragraphs. Never use emojis. If asked something outside the brand's scope, gently redirect. If a question needs a human, invite them to write to the atelier via support@aurumhaus.com or the Contact page.`;
+Tone: understated, gracious, never salesy. Short paragraphs. Never use emojis. If asked something outside the brand's scope, gently redirect. If a question needs a human, invite them to write to the atelier via support@theaurumhaus.com or the Contact page.`;
 
 // In-memory sliding-window IP rate limiter
 const ipRateMap = new Map<string, { count: number; resetAt: number }>();
@@ -55,7 +55,7 @@ export const Route = createFileRoute("/api/chat")({
 
         const key = process.env.LOVABLE_API_KEY;
         if (!key) {
-          return new Response("The concierge is temporarily resting. Please write to support@aurumhaus.com.", {
+          return new Response("The concierge is temporarily resting. Please write to support@theaurumhaus.com.", {
             status: 503,
           });
         }
@@ -97,7 +97,7 @@ export const Route = createFileRoute("/api/chat")({
           clearTimeout(timeoutId);
 
           if (!upstream.ok || !upstream.body) {
-            return new Response("Our concierge is temporarily unavailable. Please reach out to support@aurumhaus.com.", {
+            return new Response("Our concierge is temporarily unavailable. Please reach out to support@theaurumhaus.com.", {
               status: upstream.status || 502,
             });
           }

@@ -114,7 +114,7 @@ function CheckoutPage() {
         const result = createOrder({
           productSlug: product.slug,
           customerName: nameToUse || "Aurum Haus Collector",
-          customerEmail: emailToUse || "collector@aurumhaus.com",
+          customerEmail: emailToUse || "collector@theaurumhaus.com",
           quantity: 1,
           shippingAddress: {
             street: street.trim() || "10 Berkeley Square",
@@ -194,7 +194,7 @@ function CheckoutPage() {
                 Automated Confirmation Emails Dispatched
               </div>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                As configured, the system has automatically dispatched both the customer confirmation receipt to <strong>{completedOrder.customerEmail}</strong> and the internal sale notification to <strong>admin@aurumhaus.com</strong>.
+                As configured, the system has automatically dispatched both the customer confirmation receipt to <strong>{completedOrder.customerEmail}</strong> and the internal sale notification to <strong>admin@theaurumhaus.com</strong>.
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
                 <button
