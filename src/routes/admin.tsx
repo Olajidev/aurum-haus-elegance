@@ -68,8 +68,8 @@ function AdminPage() {
   const { products, orders, inventory, emailLogs, isAdmin } = useEcommerceStore();
 
   // Auth form state
-  const [emailInput, setEmailInput] = useState("admin@aurumhaus.com");
-  const [passInput, setPassInput] = useState("aurum2026");
+  const [emailInput, setEmailInput] = useState("");
+  const [passInput, setPassInput] = useState("");
   const [authError, setAuthError] = useState<string | null>(null);
 
   // Active dashboard tab
@@ -98,12 +98,6 @@ function AdminPage() {
       if (!ok) {
         setAuthError("Invalid credentials. Please verify your email and password.");
       }
-    };
-
-    const handleFillDemo = () => {
-      setEmailInput("admin@aurumhaus.com");
-      setPassInput("aurum2026");
-      setAuthError(null);
     };
 
     return (
@@ -162,23 +156,12 @@ function AdminPage() {
               Sign In to Atelier Dashboard
             </button>
 
-            <div className="pt-2 flex items-center justify-between text-xs text-[#8E8E93]">
-              <button
-                type="button"
-                onClick={handleFillDemo}
-                className="text-[#D4AF37] hover:underline"
-              >
-                Auto-fill credentials
-              </button>
+            <div className="pt-2 flex items-center justify-center text-xs text-[#8E8E93]">
               <Link to="/" className="hover:text-white transition-colors">
                 ← Return to storefront
               </Link>
             </div>
           </form>
-
-          <div className="mt-8 pt-6 border-t border-[#262628] text-center text-[11px] text-[#636366]">
-            Credentials: <span className="text-[#AEAEB2]">admin@aurumhaus.com</span> / <span className="text-[#AEAEB2]">aurum2026</span>
-          </div>
         </div>
       </div>
     );

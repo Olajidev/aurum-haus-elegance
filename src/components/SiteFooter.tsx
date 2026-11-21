@@ -36,9 +36,9 @@ export function SiteFooter() {
         <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-12 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/60 text-center md:text-left">
           <span>© 2026 Aurum Haus®. Elevated tools for modern living.</span>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 eyebrow">
-            <a>Privacy</a>
-            <a>Terms</a>
-            <a>Cookies</a>
+            <Link to="/privacy" className="hover:text-primary-foreground transition-colors">Privacy</Link>
+            <Link to="/terms" className="hover:text-primary-foreground transition-colors">Terms</Link>
+            <Link to="/privacy" className="hover:text-primary-foreground transition-colors">Cookies</Link>
           </div>
         </div>
       </div>

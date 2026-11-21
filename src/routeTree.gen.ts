@@ -14,10 +14,12 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as JournalRouteImport } from './routes/journal'
 import { Route as PreOrderRouteImport } from './routes/pre-order'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ShippingReturnsRouteImport } from './routes/shipping-returns'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as StoryRouteImport } from './routes/story'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as CheckoutSlugRouteImport } from './routes/checkout.$slug'
@@ -48,6 +50,11 @@ const PreOrderRoute = PreOrderRouteImport.update({
   path: '/pre-order',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ShippingReturnsRoute = ShippingReturnsRouteImport.update({
   id: '/shipping-returns',
   path: '/shipping-returns',
@@ -66,6 +73,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const StoryRoute = StoryRouteImport.update({
   id: '/story',
   path: '/story',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
@@ -95,10 +107,12 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/journal': typeof JournalRoute
   '/pre-order': typeof PreOrderRoute
+  '/privacy': typeof PrivacyRoute
   '/shipping-returns': typeof ShippingReturnsRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/story': typeof StoryRoute
+  '/terms': typeof TermsRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
   '/checkout/$slug': typeof CheckoutSlugRoute
@@ -110,10 +124,12 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/journal': typeof JournalRoute
   '/pre-order': typeof PreOrderRoute
+  '/privacy': typeof PrivacyRoute
   '/shipping-returns': typeof ShippingReturnsRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/story': typeof StoryRoute
+  '/terms': typeof TermsRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
   '/checkout/$slug': typeof CheckoutSlugRoute
@@ -126,10 +142,12 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/journal': typeof JournalRoute
   '/pre-order': typeof PreOrderRoute
+  '/privacy': typeof PrivacyRoute
   '/shipping-returns': typeof ShippingReturnsRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/story': typeof StoryRoute
+  '/terms': typeof TermsRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
   '/checkout/$slug': typeof CheckoutSlugRoute
@@ -143,10 +161,12 @@ export interface FileRouteTypes {
     | '/contact'
     | '/journal'
     | '/pre-order'
+    | '/privacy'
     | '/shipping-returns'
     | '/shop'
     | '/sitemap.xml'
     | '/story'
+    | '/terms'
     | '/admin/login'
     | '/api/chat'
     | '/checkout/$slug'
@@ -158,10 +178,12 @@ export interface FileRouteTypes {
     | '/contact'
     | '/journal'
     | '/pre-order'
+    | '/privacy'
     | '/shipping-returns'
     | '/shop'
     | '/sitemap.xml'
     | '/story'
+    | '/terms'
     | '/admin/login'
     | '/api/chat'
     | '/checkout/$slug'
@@ -173,10 +195,12 @@ export interface FileRouteTypes {
     | '/contact'
     | '/journal'
     | '/pre-order'
+    | '/privacy'
     | '/shipping-returns'
     | '/shop'
     | '/sitemap.xml'
     | '/story'
+    | '/terms'
     | '/admin/login'
     | '/api/chat'
     | '/checkout/$slug'
@@ -189,10 +213,12 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   JournalRoute: typeof JournalRoute
   PreOrderRoute: typeof PreOrderRoute
+  PrivacyRoute: typeof PrivacyRoute
   ShippingReturnsRoute: typeof ShippingReturnsRoute
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StoryRoute: typeof StoryRoute
+  TermsRoute: typeof TermsRoute
   ApiChatRoute: typeof ApiChatRoute
   CheckoutSlugRoute: typeof CheckoutSlugRoute
   ProductSlugRoute: typeof ProductSlugRoute
@@ -235,6 +261,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PreOrderRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/shipping-returns': {
       id: '/shipping-returns'
       path: '/shipping-returns'
@@ -261,6 +294,13 @@ declare module '@tanstack/react-router' {
       path: '/story'
       fullPath: '/story'
       preLoaderRoute: typeof StoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/login': {
@@ -310,10 +350,12 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   JournalRoute: JournalRoute,
   PreOrderRoute: PreOrderRoute,
+  PrivacyRoute: PrivacyRoute,
   ShippingReturnsRoute: ShippingReturnsRoute,
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   StoryRoute: StoryRoute,
+  TermsRoute: TermsRoute,
   ApiChatRoute: ApiChatRoute,
   CheckoutSlugRoute: CheckoutSlugRoute,
   ProductSlugRoute: ProductSlugRoute,
