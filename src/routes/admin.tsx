@@ -124,7 +124,7 @@ function AdminPage() {
                 required
                 value={emailInput}
                 onChange={(e) => setEmailInput(e.target.value)}
-                placeholder="admin@aurumhaus.com"
+                placeholder="name@domain.com"
                 className="w-full bg-[#121214] border border-[#2C2C2E] px-4 py-3 text-sm text-white focus:outline-none focus:border-[#D4AF37] transition-colors"
               />
             </div>
